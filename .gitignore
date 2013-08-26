@@ -1,6 +1,7 @@
 
 .DS_Store
 
+
 CMakeCache.txt
 
 src/CMakeFiles/*
@@ -10,6 +11,9 @@ CPackConfig.cmake
 
 CPackSourceConfig.cmake
 
+*.o
+*.dia
+*.swp
 *.dylib
 
 utils/CMakeFiles/*
@@ -45,3 +49,32 @@ utils/aruco_test_board
 utils/aruco_test_board_gl
 
 utils/aruco_test_gl
+
+testsdata/markers/*
+
+trunk/CMakeFiles/*
+
+trunk/CMakeScripts/*
+
+trunk/aruco.build/*
+
+trunk/aruco.xcodeproj/*
+
+trunk/src/CMakeFiles/*
+trunk/src/CMakeScripts/*
+
+trunk/src/aruco.build/*
+
+
+
+trunk/utils/CMakeFiles/*
+
+trunk/utils/CMakeScripts/*
+
+trunk/utils/aruco.build/*
+
+
+
+trunk/utils/Debug/*
+trunk/utils/Release/*
+
