@@ -52,10 +52,12 @@ class ARUCO_EXPORTS  MarkerDetector
       contour=M.contour;
       idx=M.idx;
     }
+    
     MarkerCandidate & operator=(const  MarkerCandidate &M){
       (*(Marker*)this)=(*(Marker*)&M);
       contour=M.contour;
       idx=M.idx;
+      return *this;
     }
     
     vector<cv::Point> contour;//all the points of its contour
