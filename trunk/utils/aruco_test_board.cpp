@@ -29,29 +29,30 @@ or implied, of Rafael Muñoz Salinas.
 #include <fstream>
 #include <sstream>
 #include <opencv2/opencv.hpp>
+#include <stdlib.h>
 #include "aruco.h"
 using namespace cv;
 using namespace aruco;
 
 string TheInputVideo;
 string TheIntrinsicFile;
-string TheBoardConfigFile;
+string boardConfigFile;
 bool The3DInfoAvailable=false;
 float TheMarkerSize=-1;
-VideoCapture TheVideoCapturer;
-Mat TheInputImage,TheInputImageCopy;
-CameraParameters TheCameraParameters;
+VideoCapture videoCap;
+Mat inputImg,inputImgCopy;
+CameraParameters camParams;
 BoardConfiguration TheBoardConfig;
-BoardDetector TheBoardDetector;
+BoardDetector boardDetect;
 
 string TheOutVideoFilePath;
-cv::VideoWriter VWriter;
+cv::VideoWriter vidWriter;
 
 void cvTackBarEvents(int pos,void*);
-pair<double,double> AvrgTime(0,0) ;//determines the average time required for detection
+pair<double,double> avgTime(0,0) ;//determines the average time required for detection
 double ThresParam1,ThresParam2;
 int iThresParam1,iThresParam2;
-int waitTime=0;
+int waitTime= 1;
 
 
 
@@ -63,6 +64,21 @@ int waitTime=0;
  *
  ************************************/
 
+static void getAbsoluteFilePath(const char* input, std::string& output)
+{
+    char fullPath [PATH_MAX+1];
+    
+    //getcwd(fullPath,sizeof(fullPath));
+    //cout << "getcwd: " << fullPath << endl;
+    
+    realpath(input, fullPath);
+    output = fullPath;
+    
+    
+    cout << "getAbsoluteFilePath: " << input << " : " << output << endl;
+
+}
+
 bool readArguments ( int argc,char **argv )
 {
 
@@ -71,14 +87,16 @@ bool readArguments ( int argc,char **argv )
         cerr<<"Usage: (in.avi|live) boardConfig.yml [intrinsics.yml] [size] [out]"<<endl;
         return false;
     }
-    TheInputVideo=argv[1];
-    TheBoardConfigFile=argv[2];
+
+    getAbsoluteFilePath(argv[1],TheInputVideo);
+    getAbsoluteFilePath(argv[2],boardConfigFile);
+
     if (argc>=4)
-        TheIntrinsicFile=argv[3];
+        getAbsoluteFilePath(argv[3],TheIntrinsicFile);
     if (argc>=5)
         TheMarkerSize=atof(argv[4]);
     if (argc>=6)
-        TheOutVideoFilePath=argv[5];
+        getAbsoluteFilePath(argv[5],TheOutVideoFilePath);
 
 
     if (argc==4)
@@ -115,95 +133,114 @@ int main(int argc,char **argv)
     {
         if (  readArguments (argc,argv)==false) return 0;
 //parse arguments
-        TheBoardConfig.readFromFile(TheBoardConfigFile);
+        TheBoardConfig.readFromFile(boardConfigFile);
         //read from camera or from  file
         if (TheInputVideo=="live") {
-            TheVideoCapturer.open(0);
+            videoCap.open(0);
             waitTime=10;
         }
-        else TheVideoCapturer.open(TheInputVideo);
+        else videoCap.open(TheInputVideo);
         //check video is open
-        if (!TheVideoCapturer.isOpened()) {
+        if (!videoCap.isOpened()) {
             cerr<<"Could not open video"<<endl;
             return -1;
 
         }
 
         //read first image to get the dimensions
-        TheVideoCapturer>>TheInputImage;
+        videoCap>>inputImg;
 
         //Open outputvideo
-        if ( TheOutVideoFilePath!="")
-            VWriter.open(TheOutVideoFilePath,CV_FOURCC('M','J','P','G'),15,TheInputImage.size());
+        if (!TheOutVideoFilePath.empty()) {
+            std::cout << "Opening video output: " << TheOutVideoFilePath << endl;
+            vidWriter.open(TheOutVideoFilePath,
+                       videoCap.get(CV_CAP_PROP_FOURCC),
+                       videoCap.get(CV_CAP_PROP_FPS),
+                           cv::Size(videoCap.get(CV_CAP_PROP_FRAME_WIDTH), videoCap.get(CV_CAP_PROP_FRAME_HEIGHT)));
+            
+            //vidWriter.open(TheOutVideoFilePath,CV_FOURCC('M','J','P','G'),15,inputImg.size());
+            if (!vidWriter.isOpened())  {
+                std::cout << "!!! Output video could not be opened" << std::endl;
+                return -1;
+            }
+        }
 
         //read camera parameters if passed
         if (TheIntrinsicFile!="") {
-            TheCameraParameters.readFromXMLFile(TheIntrinsicFile);
-            TheCameraParameters.resize(TheInputImage.size());
+            camParams.readFromXMLFile(TheIntrinsicFile);
+            camParams.resize(inputImg.size());
         }
 
         //Create gui
 
         cv::namedWindow("thres",1);
         cv::namedWindow("in",1);
-	TheBoardDetector.setParams(TheBoardConfig,TheCameraParameters,TheMarkerSize);
-	TheBoardDetector.getMarkerDetector().getThresholdParams( ThresParam1,ThresParam2);
-// 	TheBoardDetector.getMarkerDetector().enableErosion(true);//for chessboards
+        boardDetect.setParams(TheBoardConfig,camParams,TheMarkerSize);
+        boardDetect.getMarkerDetector().getThresholdParams( ThresParam1,ThresParam2);
+    // 	boardDetect.getMarkerDetector().enableErosion(true);//for chessboards
         iThresParam1=ThresParam1;
         iThresParam2=ThresParam2;
         cv::createTrackbar("ThresParam1", "in",&iThresParam1, 13, cvTackBarEvents);
         cv::createTrackbar("ThresParam2", "in",&iThresParam2, 13, cvTackBarEvents);
         char key=0;
         int index=0;
+                
         //capture until press ESC or until the end of the video
         do
         {
-            TheVideoCapturer.retrieve( TheInputImage);
-            TheInputImage.copyTo(TheInputImageCopy);
+            videoCap.retrieve(inputImg);
+            inputImg.copyTo(inputImgCopy);
             index++; //number of images captured
             double tick = (double)getTickCount();//for checking the speed
             //Detection of the board
-            float probDetect=TheBoardDetector.detect(TheInputImage);
+            float probDetect=boardDetect.detect(inputImg);
             //chekc the speed by calculating the mean speed of all iterations
-            AvrgTime.first+=((double)getTickCount()-tick)/getTickFrequency();
-            AvrgTime.second++;
-            cout<<"Time detection="<<1000*AvrgTime.first/AvrgTime.second<<" milliseconds"<<endl;
+            avgTime.first+=((double)getTickCount()-tick)/getTickFrequency();
+            avgTime.second++;
+
+            cout << ".";
+            
             //print marker borders
-            for (unsigned int i=0;i<TheBoardDetector.getDetectedMarkers().size();i++)
-                TheBoardDetector.getDetectedMarkers()[i].draw(TheInputImageCopy,Scalar(0,0,255),1);
+            for (unsigned int i=0;i<boardDetect.getDetectedMarkers().size();i++) {
+                boardDetect.getDetectedMarkers()[i].draw(inputImgCopy,Scalar(0,0,255),1);
+            }
 
             //print board
-             if (TheCameraParameters.isValid()) {
+             if (camParams.isValid()) {
                 if ( probDetect>0.2)   {
-                    CvDrawingUtils::draw3dAxis( TheInputImageCopy,TheBoardDetector.getDetectedBoard(),TheCameraParameters);
-                    //draw3dBoardCube( TheInputImageCopy,TheBoardDetected,TheIntriscCameraMatrix,TheDistorsionCameraParams);
+                    CvDrawingUtils::draw3dAxis( inputImgCopy,boardDetect.getDetectedBoard(),camParams);
+                    //draw3dBoardCube( inputImgCopy,TheBoardDetected,TheIntriscCameraMatrix,TheDistorsionCameraParams);
                 }
             }
             //DONE! Easy, right?
 
             //show input with augmented information and  the thresholded image
-            cv::imshow("in",TheInputImageCopy);
-            cv::imshow("thres",TheBoardDetector.getMarkerDetector().getThresholdedImage());
+            cv::imshow("in",inputImgCopy);
+            cv::imshow("thres",boardDetect.getMarkerDetector().getThresholdedImage());
             //write to video if required
-            if (  TheOutVideoFilePath!="") {
+            if (  !TheOutVideoFilePath.empty()) {
                 //create a beautiful compiosed image showing the thresholded
                 //first create a small version of the thresholded image
                 cv::Mat smallThres;
-                cv::resize( TheBoardDetector.getMarkerDetector().getThresholdedImage(),smallThres,cvSize(TheInputImageCopy.cols/3,TheInputImageCopy.rows/3));
+                cv::resize( boardDetect.getMarkerDetector().getThresholdedImage(),smallThres,cvSize(inputImgCopy.cols/3,inputImgCopy.rows/3));
                 cv::Mat small3C;
                 cv::cvtColor(smallThres,small3C,CV_GRAY2BGR);
-                cv::Mat roi=TheInputImageCopy(cv::Rect(0,0,TheInputImageCopy.cols/3,TheInputImageCopy.rows/3));
+                cv::Mat roi=inputImgCopy(cv::Rect(0,0,inputImgCopy.cols/3,inputImgCopy.rows/3));
                 small3C.copyTo(roi);
-                VWriter<<TheInputImageCopy;
-// 			 cv::imshow("TheInputImageCopy",TheInputImageCopy);
+                vidWriter << inputImgCopy;
+// 			 cv::imshow("inputImgCopy",inputImgCopy);
 
             }
 
             key=cv::waitKey(waitTime);//wait for key to be pressed
             processKey(key);
-        }while ( key!=27 && TheVideoCapturer.grab());
+        }
+        while ( key!=27 && videoCap.grab());
+        cout<< endl << "Average detect time: ="<<1000*avgTime.first/avgTime.second<<"ms"<<endl;
 
 
+        vidWriter.release();
+        
     } catch (std::exception &ex)
 
     {
@@ -225,17 +262,17 @@ void cvTackBarEvents(int pos,void*)
     if (ThresParam2<1) ThresParam2=1;
     ThresParam1=iThresParam1;
     ThresParam2=iThresParam2;
-     TheBoardDetector.getMarkerDetector().setThresholdParams(ThresParam1,ThresParam2);
+     boardDetect.getMarkerDetector().setThresholdParams(ThresParam1,ThresParam2);
 //recompute
 //Detection of the board
-    float probDetect=TheBoardDetector.detect( TheInputImage);
-    TheInputImage.copyTo(TheInputImageCopy);
-    if (TheCameraParameters.isValid() && probDetect>0.2)
-        aruco::CvDrawingUtils::draw3dAxis(TheInputImageCopy,TheBoardDetector.getDetectedBoard(),TheCameraParameters);
+    float probDetect=boardDetect.detect( inputImg);
+    inputImg.copyTo(inputImgCopy);
+    if (camParams.isValid() && probDetect>0.2)
+        aruco::CvDrawingUtils::draw3dAxis(inputImgCopy,boardDetect.getDetectedBoard(),camParams);
 
     
-    cv::imshow("in",TheInputImageCopy);
-    cv::imshow("thres",TheBoardDetector.getMarkerDetector().getThresholdedImage());
+    cv::imshow("in",inputImgCopy);
+    cv::imshow("thres",boardDetect.getMarkerDetector().getThresholdedImage());
 }
 
 
