@@ -29,6 +29,9 @@ or implied, of Rafael Muñoz Salinas.
 #include <fstream>
 #include <sstream>
 #include <opencv2/opencv.hpp>
+#include <opencv2/highgui/highgui.hpp>
+//#include<highgui.h>
+
 #include <stdlib.h>
 #include "aruco.h"
 using namespace cv;
@@ -42,10 +45,10 @@ float TheMarkerSize=-1;
 VideoCapture videoCap;
 Mat inputImg,inputImgCopy;
 CameraParameters camParams;
-BoardConfiguration TheBoardConfig;
+BoardConfiguration boardCfg;
 BoardDetector boardDetect;
 
-string TheOutVideoFilePath;
+string vidOutPath;
 cv::VideoWriter vidWriter;
 
 void cvTackBarEvents(int pos,void*);
@@ -96,7 +99,7 @@ bool readArguments ( int argc,char **argv )
     if (argc>=5)
         TheMarkerSize=atof(argv[4]);
     if (argc>=6)
-        getAbsoluteFilePath(argv[5],TheOutVideoFilePath);
+        getAbsoluteFilePath(argv[5],vidOutPath);
 
 
     if (argc==4)
@@ -133,7 +136,7 @@ int main(int argc,char **argv)
     {
         if (  readArguments (argc,argv)==false) return 0;
 //parse arguments
-        TheBoardConfig.readFromFile(boardConfigFile);
+        boardCfg.readFromFile(boardConfigFile);
         //read from camera or from  file
         if (TheInputVideo=="live") {
             videoCap.open(0);
@@ -151,14 +154,25 @@ int main(int argc,char **argv)
         videoCap>>inputImg;
 
         //Open outputvideo
-        if (!TheOutVideoFilePath.empty()) {
-            std::cout << "Opening video output: " << TheOutVideoFilePath << endl;
-            vidWriter.open(TheOutVideoFilePath,
-                       videoCap.get(CV_CAP_PROP_FOURCC),
+        if (!vidOutPath.empty()) {
+            std::cout << "Opening video output: " << vidOutPath << endl;
+            //VideoWriter w = cv.CreateVideoWriter('test.avi',cv.CV_FOURCC('X','V','I','D'),25,(640,480));
+            //w = cv.CreateVideoWriter('test.avi',cv.CV_FOURCC('X','V','I','D'),25,(640,480))
+
+            vidWriter.open(vidOutPath,
+                           CV_FOURCC('D', 'I', 'B', ' '), // RGB(A)
+                           //CV_FOURCC('I', 'Y', 'U', 'V'), // to encode using yuv420p into an uncompressed AVI
+                           //CV_FOURCC('D','I','V','X'), // = MPEG-4 codec
+                           //CV_FOURCC('M','J','P','G'), // = motion-jpeg codec (does not work well)
+                       //videoCap.get(CV_CAP_PROP_FOURCC), same as input, not always possible
                        videoCap.get(CV_CAP_PROP_FPS),
-                           cv::Size(videoCap.get(CV_CAP_PROP_FRAME_WIDTH), videoCap.get(CV_CAP_PROP_FRAME_HEIGHT)));
+                           cv::Size(videoCap.get(CV_CAP_PROP_FRAME_WIDTH), videoCap.get(CV_CAP_PROP_FRAME_HEIGHT)),
+                                            true
+                    
+            );
             
-            //vidWriter.open(TheOutVideoFilePath,CV_FOURCC('M','J','P','G'),15,inputImg.size());
+            
+            //vidWriter.open(vidOutPath,CV_FOURCC('M','J','P','G'),15,inputImg.size());
             if (!vidWriter.isOpened())  {
                 std::cout << "!!! Output video could not be opened" << std::endl;
                 return -1;
@@ -175,7 +189,7 @@ int main(int argc,char **argv)
 
         cv::namedWindow("thres",1);
         cv::namedWindow("in",1);
-        boardDetect.setParams(TheBoardConfig,camParams,TheMarkerSize);
+        boardDetect.setParams(boardCfg,camParams,TheMarkerSize);
         boardDetect.getMarkerDetector().getThresholdParams( ThresParam1,ThresParam2);
     // 	boardDetect.getMarkerDetector().enableErosion(true);//for chessboards
         iThresParam1=ThresParam1;
@@ -193,16 +207,17 @@ int main(int argc,char **argv)
             index++; //number of images captured
             double tick = (double)getTickCount();//for checking the speed
             //Detection of the board
-            float probDetect=boardDetect.detect(inputImg);
-            //chekc the speed by calculating the mean speed of all iterations
+            float probDetect = boardDetect.detect(inputImg);
+            //calc mean speed of all iterations
             avgTime.first+=((double)getTickCount()-tick)/getTickFrequency();
             avgTime.second++;
 
             cout << ".";
             
+            vector<Marker>& detectedMarkers = boardDetect.getDetectedMarkers();
             //print marker borders
-            for (unsigned int i=0;i<boardDetect.getDetectedMarkers().size();i++) {
-                boardDetect.getDetectedMarkers()[i].draw(inputImgCopy,Scalar(0,0,255),1);
+            for (unsigned int i=0;i < detectedMarkers.size();i++) {
+                detectedMarkers[i].draw(inputImgCopy,Scalar(0,0,255),1);
             }
 
             //print board
@@ -212,23 +227,25 @@ int main(int argc,char **argv)
                     //draw3dBoardCube( inputImgCopy,TheBoardDetected,TheIntriscCameraMatrix,TheDistorsionCameraParams);
                 }
             }
-            //DONE! Easy, right?
 
             //show input with augmented information and  the thresholded image
             cv::imshow("in",inputImgCopy);
             cv::imshow("thres",boardDetect.getMarkerDetector().getThresholdedImage());
             //write to video if required
-            if (  !TheOutVideoFilePath.empty()) {
-                //create a beautiful compiosed image showing the thresholded
-                //first create a small version of the thresholded image
-                cv::Mat smallThres;
-                cv::resize( boardDetect.getMarkerDetector().getThresholdedImage(),smallThres,cvSize(inputImgCopy.cols/3,inputImgCopy.rows/3));
-                cv::Mat small3C;
-                cv::cvtColor(smallThres,small3C,CV_GRAY2BGR);
-                cv::Mat roi=inputImgCopy(cv::Rect(0,0,inputImgCopy.cols/3,inputImgCopy.rows/3));
-                small3C.copyTo(roi);
-                vidWriter << inputImgCopy;
-// 			 cv::imshow("inputImgCopy",inputImgCopy);
+            if (!vidOutPath.empty()) {
+                
+                vidWriter.write(inputImgCopy);
+                //vidWriter << inputImgCopy; //simply copy window output
+                
+                ////create a beautiful compiosed image showing the thresholded
+                ////first create a small version of the thresholded image
+                //cv::Mat smallThres;
+                //cv::resize( boardDetect.getMarkerDetector().getThresholdedImage(),smallThres,cvSize(inputImgCopy.cols/3,inputImgCopy.rows/3));
+                //cv::Mat small3C;
+                //cv::cvtColor(smallThres,small3C,CV_GRAY2BGR);
+                //cv::Mat roi = inputImgCopy(cv::Rect(0,0,inputImgCopy.cols/3,inputImgCopy.rows/3));
+                //small3C.copyTo(roi);
+                //vidWriter << inputImgCopy;
 
             }
 
@@ -236,7 +253,7 @@ int main(int argc,char **argv)
             processKey(key);
         }
         while ( key!=27 && videoCap.grab());
-        cout<< endl << "Average detect time: ="<<1000*avgTime.first/avgTime.second<<"ms"<<endl;
+        cout<< endl << "Average detect time: "<<1000*avgTime.first/avgTime.second<<"ms"<<endl;
 
 
         vidWriter.release();
