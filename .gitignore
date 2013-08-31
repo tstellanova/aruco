@@ -58,7 +58,6 @@ trunk/CMakeScripts/*
 
 trunk/aruco.build/*
 
-trunk/aruco.xcodeproj/*
 
 trunk/src/CMakeFiles/*
 trunk/src/CMakeScripts/*
@@ -77,4 +76,12 @@ trunk/utils/aruco.build/*
 
 trunk/utils/Debug/*
 trunk/utils/Release/*
+
+
+trunk/build/*
+
+
+trunk/aruco.xcodeproj/project.xcworkspace/xcuserdata/*
+
+trunk/aruco.xcodeproj/xcuserdata/*
 

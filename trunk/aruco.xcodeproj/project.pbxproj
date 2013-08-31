@@ -1,0 +1,5278 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		0CCC0FF479FB4BC6B2BAEE60 /* package */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 8851A319926A4E12A28BF09F /* Build configuration list for PBXAggregateTarget "package" */;
+			buildPhases = (
+				0ED76B5CF12B4E9595FB9651 /* CMake PostBuild Rules */,
+			);
+			dependencies = (
+				9F8BD4EE85CB49AB94F90397 /* PBXTargetDependency */,
+			);
+			name = package;
+			productName = package;
+		};
+		2CA8819D6CE8410BA3817DC5 /* ZERO_CHECK */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = FB5C9887C80E4571AB544CFE /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
+			buildPhases = (
+				4FA2488C40E64E98B017561D /* CMake Rules */,
+			);
+			dependencies = (
+			);
+			name = ZERO_CHECK;
+			productName = ZERO_CHECK;
+		};
+		D711B6776923430BBC46CBE2 /* uninstall */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = EEC3466D1B9D40ABB862F9BC /* Build configuration list for PBXAggregateTarget "uninstall" */;
+			buildPhases = (
+				A18623F64F3B460AA33B167D /* CMake Rules */,
+			);
+			dependencies = (
+				5BADB168F27844819A9BF97B /* PBXTargetDependency */,
+			);
+			name = uninstall;
+			productName = uninstall;
+		};
+		E6800165FA9B4D9C9CCF4EFB /* ALL_BUILD */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = A51C673D840C4FB39B80EAAC /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+			buildPhases = (
+				26408ECB915D4FE9A3DC4B23 /* CMake Rules */,
+			);
+			dependencies = (
+				77D4B85C5C92433E839A0AA4 /* PBXTargetDependency */,
+				D520EC4EC8A74E76AFC2BB7A /* PBXTargetDependency */,
+				ACFB3250D6254615BE19CF1D /* PBXTargetDependency */,
+				F66D902F8F784012A717797F /* PBXTargetDependency */,
+				1DA1CAC6D4544EE7A2B063B4 /* PBXTargetDependency */,
+				94FB8FF9637541CAA0B810C5 /* PBXTargetDependency */,
+				111E3D2EF2EB42D791B54A69 /* PBXTargetDependency */,
+				58989A73599B4AAC9DC75AEF /* PBXTargetDependency */,
+				84D3C267AE814D42ABEEE9EC /* PBXTargetDependency */,
+				B290E96191D34B3AA84D4A33 /* PBXTargetDependency */,
+				B92F5BF0743F4F9697E0C444 /* PBXTargetDependency */,
+				586F071713EE40D18A5AAD3B /* PBXTargetDependency */,
+			);
+			name = ALL_BUILD;
+			productName = ALL_BUILD;
+		};
+		F27ABE0A06364E8792465B41 /* install */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 3E8C76C2179349A6BD4BFA11 /* Build configuration list for PBXAggregateTarget "install" */;
+			buildPhases = (
+				0655A660AE924A5E92EDDA22 /* CMake PostBuild Rules */,
+			);
+			dependencies = (
+				92BB6340D1BA4CF7825CC378 /* PBXTargetDependency */,
+			);
+			name = install;
+			productName = install;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		04EE91BBFFF54A8C92C76F85 /* aruco_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC6D77FB2C904594A1C924E5 /* aruco_test.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		0A32D94EEACB4831ACBC7332 /* cameraparameters.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 299A37C907CC4C2881D88183 /* cameraparameters.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		1E523DAFCA40469881A3C0D0 /* aruco_test_board.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F34C363DFAA046F7AA8CF74E /* aruco_test_board.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		5F96CA9717D17DE30040A52F /* calibrate_cam.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5F96CA9617D17DE30040A52F /* calibrate_cam.cpp */; };
+		6026131DCC64426DB3E12A91 /* aruco_board_pix2meters.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF0E3A8CA43C4B62ABA41079 /* aruco_board_pix2meters.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		61B4340BAA554FCF9775CF74 /* aruco_simple_board.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1F6CCE7A0A84F6FAA204B0C /* aruco_simple_board.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		66FE6364EC36438C8755438B /* boarddetector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5AC3F17E4324F6789271956 /* boarddetector.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		6E67A3BCF4904C8A8E5D3E31 /* aruco_simple.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 52866253494D442D90CED172 /* aruco_simple.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		72CEC72DCBB640F29525A7EA /* cvdrawingutils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E9EF8BC1E9F34F8DAED28832 /* cvdrawingutils.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		7466044105F14D9E9184E754 /* aruco_selectoptimalmarkers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 393B9353FFF24527B36BF85B /* aruco_selectoptimalmarkers.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		85A0D8F2D12E411BBA96DC34 /* aruco_test_gl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8DD7E7CB1BA240CB9DD0AC2B /* aruco_test_gl.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		BA054B5C2449405A87280CE3 /* board.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35BEA32B4BCC4DC38A81C4FC /* board.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		C4BF174FD1394E66908EE7C5 /* marker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A10B21BA0E794C58AECBAED8 /* marker.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		C607A077AC6947999DC4F2C9 /* aruco_create_board.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46282D1F88134B79ABD3FFD6 /* aruco_create_board.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		C98BB2C0B22F4EC58BAAE83C /* markerdetector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C101CF3E287444879A621E53 /* markerdetector.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		C99813AE9C6D457BB97B0A86 /* arucofidmarkers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8B7CABD0A0F44D4E8E5396C2 /* arucofidmarkers.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		CC8D197D37474E969B7F68AD /* aruco_create_marker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CED1D94CBCEA4BB191C48938 /* aruco_create_marker.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		D5440C48F1244900BADDE488 /* aruco_test_board_gl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B151111D93D847F4BD128E2E /* aruco_test_board_gl.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		01E6450E0E9F4F1DA90182B1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C953B1ECA7DE4E1DB82E539B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3543C5061A2D443493A9FCF7;
+			remoteInfo = aruco_test_board_gl;
+		};
+		091F78A9A36F471AAECD0F8A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C953B1ECA7DE4E1DB82E539B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2CA8819D6CE8410BA3817DC5;
+			remoteInfo = ZERO_CHECK;
+		};
+		1037A6F3C36F492B85752F05 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C953B1ECA7DE4E1DB82E539B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2CA8819D6CE8410BA3817DC5;
+			remoteInfo = ZERO_CHECK;
+		};
+		165F56C1399D4079AFC1B45B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C953B1ECA7DE4E1DB82E539B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2CA8819D6CE8410BA3817DC5;
+			remoteInfo = ZERO_CHECK;
+		};
+		2C4E335929954D848C1163BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C953B1ECA7DE4E1DB82E539B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2CA8819D6CE8410BA3817DC5;
+			remoteInfo = ZERO_CHECK;
+		};
+		36023F3C29D34D4D9D5AB0F6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C953B1ECA7DE4E1DB82E539B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B30EF6635600477F9480DD22;
+			remoteInfo = aruco;
+		};
+		46E7C52A6650405180667EE6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C953B1ECA7DE4E1DB82E539B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 721329348AC9449DA03F72D7;
+			remoteInfo = aruco_test_board;
+		};
+		4908EBE7E1B847A48B4EE9D8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C953B1ECA7DE4E1DB82E539B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B30EF6635600477F9480DD22;
+			remoteInfo = aruco;
+		};
+		4EBF350B0AA345BB93D9751B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C953B1ECA7DE4E1DB82E539B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DE87C1B6F2F34CD4847920A2;
+			remoteInfo = aruco_simple;
+		};
+		4F323DBAC1E2462A95D6B7DA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C953B1ECA7DE4E1DB82E539B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B30EF6635600477F9480DD22;
+			remoteInfo = aruco;
+		};
+		553B971A15CE49FB9D466D3F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C953B1ECA7DE4E1DB82E539B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2CA8819D6CE8410BA3817DC5;
+			remoteInfo = ZERO_CHECK;
+		};
+		58F359DF5ECF4EA9834EB048 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C953B1ECA7DE4E1DB82E539B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B30EF6635600477F9480DD22;
+			remoteInfo = aruco;
+		};
+		5C58BB2940464F6A9E01B455 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C953B1ECA7DE4E1DB82E539B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B30EF6635600477F9480DD22;
+			remoteInfo = aruco;
+		};
+		7A988C77DB294437AB598732 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C953B1ECA7DE4E1DB82E539B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B30EF6635600477F9480DD22;
+			remoteInfo = aruco;
+		};
+		93EAF8AEFAF243F0A1E80722 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C953B1ECA7DE4E1DB82E539B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8539383D827A4355987C92CE;
+			remoteInfo = aruco_selectoptimalmarkers;
+		};
+		95F952B80E3A4D91B0217C26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C953B1ECA7DE4E1DB82E539B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2CA8819D6CE8410BA3817DC5;
+			remoteInfo = ZERO_CHECK;
+		};
+		971C23718D014EB6B6D297E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C953B1ECA7DE4E1DB82E539B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B30EF6635600477F9480DD22;
+			remoteInfo = aruco;
+		};
+		9ABF3D92399144DFB6EDEF1F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C953B1ECA7DE4E1DB82E539B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2CA8819D6CE8410BA3817DC5;
+			remoteInfo = ZERO_CHECK;
+		};
+		A03E110B5AA247DD98F8F48B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C953B1ECA7DE4E1DB82E539B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B0B66E87ECC5455DB55982FE;
+			remoteInfo = aruco_board_pix2meters;
+		};
+		A94838F9FFD84A76B5FA922E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C953B1ECA7DE4E1DB82E539B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 299104F54D1E48AA98A39FCE;
+			remoteInfo = aruco_test;
+		};
+		AD322C01E2F84A8F81F0D605 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C953B1ECA7DE4E1DB82E539B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E6800165FA9B4D9C9CCF4EFB;
+			remoteInfo = ALL_BUILD;
+		};
+		B5E188E70776430B82C77B22 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C953B1ECA7DE4E1DB82E539B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2CA8819D6CE8410BA3817DC5;
+			remoteInfo = ZERO_CHECK;
+		};
+		BC704E93F916428BBE003925 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C953B1ECA7DE4E1DB82E539B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B30EF6635600477F9480DD22;
+			remoteInfo = aruco;
+		};
+		BDAF1855DE6A4BDDBB114DB4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C953B1ECA7DE4E1DB82E539B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CD24063E05A24E35870E0E47;
+			remoteInfo = aruco_create_marker;
+		};
+		BEA71A5A9E024E218C341BC2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C953B1ECA7DE4E1DB82E539B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2CA8819D6CE8410BA3817DC5;
+			remoteInfo = ZERO_CHECK;
+		};
+		BFF494818EF440ADA5E5369B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C953B1ECA7DE4E1DB82E539B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2CA8819D6CE8410BA3817DC5;
+			remoteInfo = ZERO_CHECK;
+		};
+		C1916318A492475387E2F7A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C953B1ECA7DE4E1DB82E539B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2CA8819D6CE8410BA3817DC5;
+			remoteInfo = ZERO_CHECK;
+		};
+		D14E132DC4FA438FAF76629C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C953B1ECA7DE4E1DB82E539B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2CA8819D6CE8410BA3817DC5;
+			remoteInfo = ZERO_CHECK;
+		};
+		D339F3414E8E4A9EBF849906 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C953B1ECA7DE4E1DB82E539B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B30EF6635600477F9480DD22;
+			remoteInfo = aruco;
+		};
+		D5BD64AE9056404298740493 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C953B1ECA7DE4E1DB82E539B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2CA8819D6CE8410BA3817DC5;
+			remoteInfo = ZERO_CHECK;
+		};
+		E16E8BCBE7D04083B99CDDE9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C953B1ECA7DE4E1DB82E539B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B30EF6635600477F9480DD22;
+			remoteInfo = aruco;
+		};
+		EBDA19CCFB0D44CE90485D6A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C953B1ECA7DE4E1DB82E539B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B30EF6635600477F9480DD22;
+			remoteInfo = aruco;
+		};
+		F32D1763B13C4B4BAD293C0D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C953B1ECA7DE4E1DB82E539B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3E16E350587B48C3860F7477;
+			remoteInfo = aruco_test_gl;
+		};
+		F5820D6C7E0F476AA4F7B6E2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C953B1ECA7DE4E1DB82E539B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E6800165FA9B4D9C9CCF4EFB;
+			remoteInfo = ALL_BUILD;
+		};
+		F7BE5FB7EA7A475EB9F4BF4D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C953B1ECA7DE4E1DB82E539B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5C8B36AB7C9C4783A45E68FD;
+			remoteInfo = aruco_simple_board;
+		};
+		FB856F807173493E9B4BF60F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C953B1ECA7DE4E1DB82E539B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A95396F4793E45F0A16430C5;
+			remoteInfo = aruco_create_board;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		10CAF3049FB349F8A73F3147 /* libaruco.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libaruco.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A6EF93EE6CF48BDAEAC80FA /* aruco_test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = aruco_test; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DDE921EBEF94DA19A9D37CE /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.text; name = CMakeLists.txt; path = src/CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		299A37C907CC4C2881D88183 /* cameraparameters.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = cameraparameters.cpp; path = src/cameraparameters.cpp; sourceTree = SOURCE_ROOT; };
+		2A1FF825A4BA42F5B898704C /* cameraparameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cameraparameters.h; path = src/cameraparameters.h; sourceTree = SOURCE_ROOT; };
+		2CED87EC819543C6A755F5F3 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.text; name = CMakeLists.txt; path = utils/CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		35BEA32B4BCC4DC38A81C4FC /* board.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = board.cpp; path = src/board.cpp; sourceTree = SOURCE_ROOT; };
+		3705126CDAC340389F4E7EE4 /* board.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = board.h; path = src/board.h; sourceTree = SOURCE_ROOT; };
+		393B9353FFF24527B36BF85B /* aruco_selectoptimalmarkers.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = aruco_selectoptimalmarkers.cpp; path = utils/aruco_selectoptimalmarkers.cpp; sourceTree = SOURCE_ROOT; };
+		39CADC6574CA4E2BA455DF3F /* markerdetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = markerdetector.h; path = src/markerdetector.h; sourceTree = SOURCE_ROOT; };
+		3E3AAF65DB5D4B95BE6FF479 /* boarddetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = boarddetector.h; path = src/boarddetector.h; sourceTree = SOURCE_ROOT; };
+		420048E3E63D49D6A8C69115 /* aruco_test_gl */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = aruco_test_gl; sourceTree = BUILT_PRODUCTS_DIR; };
+		46282D1F88134B79ABD3FFD6 /* aruco_create_board.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = aruco_create_board.cpp; path = utils/aruco_create_board.cpp; sourceTree = SOURCE_ROOT; };
+		52866253494D442D90CED172 /* aruco_simple.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = aruco_simple.cpp; path = utils/aruco_simple.cpp; sourceTree = SOURCE_ROOT; };
+		5E16FB67BFCD4E6BB9802066 /* cvdrawingutils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cvdrawingutils.h; path = src/cvdrawingutils.h; sourceTree = SOURCE_ROOT; };
+		5F96CA9417D17D820040A52F /* calibration_test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = calibration_test; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F96CA9617D17DE30040A52F /* calibrate_cam.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = calibrate_cam.cpp; path = utils/calibrate_cam.cpp; sourceTree = "<group>"; };
+		616594F8A3244735AD8F146B /* aruco_test_board */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = aruco_test_board; sourceTree = BUILT_PRODUCTS_DIR; };
+		73BEDCE95A1D4FB4A8814D9F /* aruco_test_board_gl */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = aruco_test_board_gl; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E68D01A642348278671AE36 /* exports.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = exports.h; path = src/exports.h; sourceTree = SOURCE_ROOT; };
+		84B977556B6F40538CED753F /* aruco_simple_board */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = aruco_simple_board; sourceTree = BUILT_PRODUCTS_DIR; };
+		89B89F41B4E044A0919171DA /* aruco_create_board */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = aruco_create_board; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B7CABD0A0F44D4E8E5396C2 /* arucofidmarkers.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = arucofidmarkers.cpp; path = src/arucofidmarkers.cpp; sourceTree = SOURCE_ROOT; };
+		8DD7E7CB1BA240CB9DD0AC2B /* aruco_test_gl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = aruco_test_gl.cpp; path = utils/aruco_test_gl.cpp; sourceTree = SOURCE_ROOT; };
+		8E3C3D02DCCE43289A773453 /* aruco_simple */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = aruco_simple; sourceTree = BUILT_PRODUCTS_DIR; };
+		9769A8CD1B5C4478B44ACD1E /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		A10B21BA0E794C58AECBAED8 /* marker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = marker.cpp; path = src/marker.cpp; sourceTree = SOURCE_ROOT; };
+		A1D4C34A87AC4FE69D302D5A /* arucofidmarkers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = arucofidmarkers.h; path = src/arucofidmarkers.h; sourceTree = SOURCE_ROOT; };
+		A87E1492F35B461494EB9B83 /* aruco.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = aruco.h; path = src/aruco.h; sourceTree = SOURCE_ROOT; };
+		B151111D93D847F4BD128E2E /* aruco_test_board_gl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = aruco_test_board_gl.cpp; path = utils/aruco_test_board_gl.cpp; sourceTree = SOURCE_ROOT; };
+		B5D472E7C8034639995520A8 /* cmake_install.cmake */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode; name = cmake_install.cmake; path = src/cmake_install.cmake; sourceTree = SOURCE_ROOT; };
+		BC6D77FB2C904594A1C924E5 /* aruco_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = aruco_test.cpp; path = utils/aruco_test.cpp; sourceTree = SOURCE_ROOT; };
+		C101CF3E287444879A621E53 /* markerdetector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = markerdetector.cpp; path = src/markerdetector.cpp; sourceTree = SOURCE_ROOT; };
+		C1F6CCE7A0A84F6FAA204B0C /* aruco_simple_board.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = aruco_simple_board.cpp; path = utils/aruco_simple_board.cpp; sourceTree = SOURCE_ROOT; };
+		C5AC3F17E4324F6789271956 /* boarddetector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = boarddetector.cpp; path = src/boarddetector.cpp; sourceTree = SOURCE_ROOT; };
+		CC819119B491492D9B3B437C /* marker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = marker.h; path = src/marker.h; sourceTree = SOURCE_ROOT; };
+		CED1D94CBCEA4BB191C48938 /* aruco_create_marker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = aruco_create_marker.cpp; path = utils/aruco_create_marker.cpp; sourceTree = SOURCE_ROOT; };
+		CF0E3A8CA43C4B62ABA41079 /* aruco_board_pix2meters.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = aruco_board_pix2meters.cpp; path = utils/aruco_board_pix2meters.cpp; sourceTree = SOURCE_ROOT; };
+		D41236D8F1B94C8E9A642F1F /* aruco_create_marker */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = aruco_create_marker; sourceTree = BUILT_PRODUCTS_DIR; };
+		E58E3228344D444BB6FF2DB7 /* aruco_board_pix2meters */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = aruco_board_pix2meters; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9EF8BC1E9F34F8DAED28832 /* cvdrawingutils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = cvdrawingutils.cpp; path = src/cvdrawingutils.cpp; sourceTree = SOURCE_ROOT; };
+		F34C363DFAA046F7AA8CF74E /* aruco_test_board.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = aruco_test_board.cpp; path = utils/aruco_test_board.cpp; sourceTree = SOURCE_ROOT; };
+		FCBFC2A13E494804940129E1 /* aruco_selectoptimalmarkers */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = aruco_selectoptimalmarkers; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		189EE5DF4B514F0DBA86F0B6 /* aruco */ = {
+			isa = PBXGroup;
+			children = (
+				65D3B4553C914297B8D5A4A7 /* Source Files */,
+				9A5152A23FCE416283F0655A /* Header Files */,
+				1DDE921EBEF94DA19A9D37CE /* CMakeLists.txt */,
+				B5D472E7C8034639995520A8 /* cmake_install.cmake */,
+			);
+			name = aruco;
+			sourceTree = "<group>";
+		};
+		28C234F77FCB448F98B5E967 /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				B151111D93D847F4BD128E2E /* aruco_test_board_gl.cpp */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		2D0DF163DD504EC2A2AD1105 /* aruco_board_pix2meters */ = {
+			isa = PBXGroup;
+			children = (
+				3E7BED447D1C4FFC814CD3BA /* Source Files */,
+				2CED87EC819543C6A755F5F3 /* CMakeLists.txt */,
+			);
+			name = aruco_board_pix2meters;
+			sourceTree = "<group>";
+		};
+		313762056F8D4C41AB22E598 /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				C1F6CCE7A0A84F6FAA204B0C /* aruco_simple_board.cpp */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		340C76DBBB1C402EBB333D1C /* aruco_selectoptimalmarkers */ = {
+			isa = PBXGroup;
+			children = (
+				8704A4F9FFA24F808A085DDB /* Source Files */,
+				2CED87EC819543C6A755F5F3 /* CMakeLists.txt */,
+			);
+			name = aruco_selectoptimalmarkers;
+			sourceTree = "<group>";
+		};
+		35588571AE0546C1988C519C /* aruco_test_board */ = {
+			isa = PBXGroup;
+			children = (
+				C97E97DED4E544D4AE1B9A1C /* Source Files */,
+				2CED87EC819543C6A755F5F3 /* CMakeLists.txt */,
+			);
+			name = aruco_test_board;
+			sourceTree = "<group>";
+		};
+		37A797F3C78D4DE9B23EA27A /* uninstall */ = {
+			isa = PBXGroup;
+			children = (
+				8946779A51414F09B7AA0CFD /* CMake Rules */,
+				9769A8CD1B5C4478B44ACD1E /* CMakeLists.txt */,
+			);
+			name = uninstall;
+			sourceTree = "<group>";
+		};
+		38E02E0EFF6148B9B7D1A469 /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				46282D1F88134B79ABD3FFD6 /* aruco_create_board.cpp */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		3E7BED447D1C4FFC814CD3BA /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				CF0E3A8CA43C4B62ABA41079 /* aruco_board_pix2meters.cpp */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		47B17074370949A6B88ADE77 /* aruco_test_gl */ = {
+			isa = PBXGroup;
+			children = (
+				A8E429C87BBA4F72A303A268 /* Source Files */,
+				2CED87EC819543C6A755F5F3 /* CMakeLists.txt */,
+			);
+			name = aruco_test_gl;
+			sourceTree = "<group>";
+		};
+		4F98DA018C6D436C84FAB6E4 /* aruco_test */ = {
+			isa = PBXGroup;
+			children = (
+				F3E4CD2BBB9E4C55B115BD1A /* Source Files */,
+				2CED87EC819543C6A755F5F3 /* CMakeLists.txt */,
+			);
+			name = aruco_test;
+			sourceTree = "<group>";
+		};
+		5DEED152F3F7460AB414A792 /* ZERO_CHECK */ = {
+			isa = PBXGroup;
+			children = (
+				664658AAF43F485AAEB2AC0E /* CMake Rules */,
+				9769A8CD1B5C4478B44ACD1E /* CMakeLists.txt */,
+			);
+			name = ZERO_CHECK;
+			sourceTree = "<group>";
+		};
+		5F96CA9517D17DCB0040A52F /* calibration */ = {
+			isa = PBXGroup;
+			children = (
+				5F96CA9617D17DE30040A52F /* calibrate_cam.cpp */,
+			);
+			name = calibration;
+			sourceTree = "<group>";
+		};
+		609A911E29FF4AA9AE9403A2 /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				CED1D94CBCEA4BB191C48938 /* aruco_create_marker.cpp */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		65D3B4553C914297B8D5A4A7 /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				8B7CABD0A0F44D4E8E5396C2 /* arucofidmarkers.cpp */,
+				35BEA32B4BCC4DC38A81C4FC /* board.cpp */,
+				C5AC3F17E4324F6789271956 /* boarddetector.cpp */,
+				299A37C907CC4C2881D88183 /* cameraparameters.cpp */,
+				E9EF8BC1E9F34F8DAED28832 /* cvdrawingutils.cpp */,
+				A10B21BA0E794C58AECBAED8 /* marker.cpp */,
+				C101CF3E287444879A621E53 /* markerdetector.cpp */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		664658AAF43F485AAEB2AC0E /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		6F0F0EECFD864171A76DB35F /* aruco_simple_board */ = {
+			isa = PBXGroup;
+			children = (
+				313762056F8D4C41AB22E598 /* Source Files */,
+				2CED87EC819543C6A755F5F3 /* CMakeLists.txt */,
+			);
+			name = aruco_simple_board;
+			sourceTree = "<group>";
+		};
+		7BCD0C748E7443BBB47A5372 /* aruco_test_board_gl */ = {
+			isa = PBXGroup;
+			children = (
+				28C234F77FCB448F98B5E967 /* Source Files */,
+				2CED87EC819543C6A755F5F3 /* CMakeLists.txt */,
+			);
+			name = aruco_test_board_gl;
+			sourceTree = "<group>";
+		};
+		81C7BC1179CD440FB46FCF63 /* aruco_create_board */ = {
+			isa = PBXGroup;
+			children = (
+				38E02E0EFF6148B9B7D1A469 /* Source Files */,
+				2CED87EC819543C6A755F5F3 /* CMakeLists.txt */,
+			);
+			name = aruco_create_board;
+			sourceTree = "<group>";
+		};
+		8704A4F9FFA24F808A085DDB /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				393B9353FFF24527B36BF85B /* aruco_selectoptimalmarkers.cpp */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		8946779A51414F09B7AA0CFD /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		8D98DE41B98F4282B31E18A7 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				5F96CA9517D17DCB0040A52F /* calibration */,
+				9EC47B5F9B1D44B48F23E241 /* ALL_BUILD */,
+				5DEED152F3F7460AB414A792 /* ZERO_CHECK */,
+				37A797F3C78D4DE9B23EA27A /* uninstall */,
+				189EE5DF4B514F0DBA86F0B6 /* aruco */,
+				2D0DF163DD504EC2A2AD1105 /* aruco_board_pix2meters */,
+				81C7BC1179CD440FB46FCF63 /* aruco_create_board */,
+				B34274E040934F69AE0F385E /* aruco_create_marker */,
+				340C76DBBB1C402EBB333D1C /* aruco_selectoptimalmarkers */,
+				C36F75F9272A4BDF8130DCB3 /* aruco_simple */,
+				6F0F0EECFD864171A76DB35F /* aruco_simple_board */,
+				4F98DA018C6D436C84FAB6E4 /* aruco_test */,
+				35588571AE0546C1988C519C /* aruco_test_board */,
+				7BCD0C748E7443BBB47A5372 /* aruco_test_board_gl */,
+				47B17074370949A6B88ADE77 /* aruco_test_gl */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		9A5152A23FCE416283F0655A /* Header Files */ = {
+			isa = PBXGroup;
+			children = (
+				A87E1492F35B461494EB9B83 /* aruco.h */,
+				A1D4C34A87AC4FE69D302D5A /* arucofidmarkers.h */,
+				3705126CDAC340389F4E7EE4 /* board.h */,
+				3E3AAF65DB5D4B95BE6FF479 /* boarddetector.h */,
+				2A1FF825A4BA42F5B898704C /* cameraparameters.h */,
+				5E16FB67BFCD4E6BB9802066 /* cvdrawingutils.h */,
+				7E68D01A642348278671AE36 /* exports.h */,
+				CC819119B491492D9B3B437C /* marker.h */,
+				39CADC6574CA4E2BA455DF3F /* markerdetector.h */,
+			);
+			name = "Header Files";
+			sourceTree = "<group>";
+		};
+		9EC47B5F9B1D44B48F23E241 /* ALL_BUILD */ = {
+			isa = PBXGroup;
+			children = (
+				DCE2E721398942ADA1697E9F /* CMake Rules */,
+				9769A8CD1B5C4478B44ACD1E /* CMakeLists.txt */,
+			);
+			name = ALL_BUILD;
+			sourceTree = "<group>";
+		};
+		9F695DC7CA9242F4883E70F8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		A8E429C87BBA4F72A303A268 /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				8DD7E7CB1BA240CB9DD0AC2B /* aruco_test_gl.cpp */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		B34274E040934F69AE0F385E /* aruco_create_marker */ = {
+			isa = PBXGroup;
+			children = (
+				609A911E29FF4AA9AE9403A2 /* Source Files */,
+				2CED87EC819543C6A755F5F3 /* CMakeLists.txt */,
+			);
+			name = aruco_create_marker;
+			sourceTree = "<group>";
+		};
+		C36F75F9272A4BDF8130DCB3 /* aruco_simple */ = {
+			isa = PBXGroup;
+			children = (
+				CD42348AB8D9449D9ABFB315 /* Source Files */,
+				2CED87EC819543C6A755F5F3 /* CMakeLists.txt */,
+			);
+			name = aruco_simple;
+			sourceTree = "<group>";
+		};
+		C97E97DED4E544D4AE1B9A1C /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				F34C363DFAA046F7AA8CF74E /* aruco_test_board.cpp */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		CD42348AB8D9449D9ABFB315 /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				52866253494D442D90CED172 /* aruco_simple.cpp */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		D4A19C69AD0A4213B8D20EAD = {
+			isa = PBXGroup;
+			children = (
+				8D98DE41B98F4282B31E18A7 /* Sources */,
+				9F695DC7CA9242F4883E70F8 /* Resources */,
+				DFAA73C989BD4118B6AEF593 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DCE2E721398942ADA1697E9F /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		DFAA73C989BD4118B6AEF593 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				10CAF3049FB349F8A73F3147 /* libaruco.dylib */,
+				E58E3228344D444BB6FF2DB7 /* aruco_board_pix2meters */,
+				89B89F41B4E044A0919171DA /* aruco_create_board */,
+				D41236D8F1B94C8E9A642F1F /* aruco_create_marker */,
+				FCBFC2A13E494804940129E1 /* aruco_selectoptimalmarkers */,
+				8E3C3D02DCCE43289A773453 /* aruco_simple */,
+				84B977556B6F40538CED753F /* aruco_simple_board */,
+				1A6EF93EE6CF48BDAEAC80FA /* aruco_test */,
+				616594F8A3244735AD8F146B /* aruco_test_board */,
+				73BEDCE95A1D4FB4A8814D9F /* aruco_test_board_gl */,
+				420048E3E63D49D6A8C69115 /* aruco_test_gl */,
+				5F96CA9417D17D820040A52F /* calibration_test */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F3E4CD2BBB9E4C55B115BD1A /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				BC6D77FB2C904594A1C924E5 /* aruco_test.cpp */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		299104F54D1E48AA98A39FCE /* aruco_test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 85F6960017BB4F188775105F /* Build configuration list for PBXNativeTarget "aruco_test" */;
+			buildPhases = (
+				9DDADE7E36574AA4A1F9E890 /* Sources */,
+				E1D9978347D54610ACE1BE91 /* CMake PostBuild Rules */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				32233297359E4AEBB557CF5A /* PBXTargetDependency */,
+				3BA15F3C23574747BA93EFB0 /* PBXTargetDependency */,
+			);
+			name = aruco_test;
+			productName = aruco_test;
+			productReference = 1A6EF93EE6CF48BDAEAC80FA /* aruco_test */;
+			productType = "com.apple.product-type.tool";
+		};
+		3543C5061A2D443493A9FCF7 /* aruco_test_board_gl */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D939F9FD759E45899BA0F97B /* Build configuration list for PBXNativeTarget "aruco_test_board_gl" */;
+			buildPhases = (
+				669F3D1CF57346ED91F211D2 /* Sources */,
+				F43009B7D01B4E48887B311B /* CMake PostBuild Rules */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D3475C1B77FC40B68F6ABB32 /* PBXTargetDependency */,
+				CD7708D1635649ACA8E209AD /* PBXTargetDependency */,
+			);
+			name = aruco_test_board_gl;
+			productName = aruco_test_board_gl;
+			productReference = 73BEDCE95A1D4FB4A8814D9F /* aruco_test_board_gl */;
+			productType = "com.apple.product-type.tool";
+		};
+		3E16E350587B48C3860F7477 /* aruco_test_gl */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3ACD4D631A6E48F9A3608F4D /* Build configuration list for PBXNativeTarget "aruco_test_gl" */;
+			buildPhases = (
+				5BD34F60432347F3811063CC /* Sources */,
+				179174BE1C614C778CE9ACDE /* CMake PostBuild Rules */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F725254A48B8458DAEB7D95D /* PBXTargetDependency */,
+				CAB3EE48EC3442FFA0CEC44C /* PBXTargetDependency */,
+			);
+			name = aruco_test_gl;
+			productName = aruco_test_gl;
+			productReference = 420048E3E63D49D6A8C69115 /* aruco_test_gl */;
+			productType = "com.apple.product-type.tool";
+		};
+		5C8B36AB7C9C4783A45E68FD /* aruco_simple_board */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 29AEC11D866247DBB0C37FF1 /* Build configuration list for PBXNativeTarget "aruco_simple_board" */;
+			buildPhases = (
+				CDEE1EB7A2684F3BA96A5D51 /* Sources */,
+				9F0BC333F6FB4DAC90C1407B /* CMake PostBuild Rules */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				301939DF1A6548B68DB031C3 /* PBXTargetDependency */,
+				C511CECC7DD6417090E6D792 /* PBXTargetDependency */,
+			);
+			name = aruco_simple_board;
+			productName = aruco_simple_board;
+			productReference = 84B977556B6F40538CED753F /* aruco_simple_board */;
+			productType = "com.apple.product-type.tool";
+		};
+		5F96CA8717D17D820040A52F /* calibration_test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5F96CA8F17D17D820040A52F /* Build configuration list for PBXNativeTarget "calibration_test" */;
+			buildPhases = (
+				5F96CA8C17D17D820040A52F /* Sources */,
+				5F96CA8E17D17D820040A52F /* CMake PostBuild Rules */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = calibration_test;
+			productName = aruco_test_board;
+			productReference = 5F96CA9417D17D820040A52F /* calibration_test */;
+			productType = "com.apple.product-type.tool";
+		};
+		721329348AC9449DA03F72D7 /* aruco_test_board */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8DDCCA3D122F49BA8434D8C9 /* Build configuration list for PBXNativeTarget "aruco_test_board" */;
+			buildPhases = (
+				96046D9AF9C5436BAE07D2B1 /* Sources */,
+				D71D6A2E2D9A42A397CBB790 /* CMake PostBuild Rules */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D058E4052C25456B993D9E4E /* PBXTargetDependency */,
+				682BC10DE4444D58B10116E2 /* PBXTargetDependency */,
+			);
+			name = aruco_test_board;
+			productName = aruco_test_board;
+			productReference = 616594F8A3244735AD8F146B /* aruco_test_board */;
+			productType = "com.apple.product-type.tool";
+		};
+		8539383D827A4355987C92CE /* aruco_selectoptimalmarkers */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2B541745AEC74D4F9F9A4028 /* Build configuration list for PBXNativeTarget "aruco_selectoptimalmarkers" */;
+			buildPhases = (
+				E473530FA51D4C49A9C3E296 /* Sources */,
+				9E11CBE4605E498886554021 /* CMake PostBuild Rules */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E183557DF42A40F785339F16 /* PBXTargetDependency */,
+				0B2834B49D744E8EA413ADF5 /* PBXTargetDependency */,
+			);
+			name = aruco_selectoptimalmarkers;
+			productName = aruco_selectoptimalmarkers;
+			productReference = FCBFC2A13E494804940129E1 /* aruco_selectoptimalmarkers */;
+			productType = "com.apple.product-type.tool";
+		};
+		A95396F4793E45F0A16430C5 /* aruco_create_board */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C24A7A99E7BA4D25B9C5E2F2 /* Build configuration list for PBXNativeTarget "aruco_create_board" */;
+			buildPhases = (
+				266E01B67B6249E39B3BA4E9 /* Sources */,
+				69DDD98AAF4740658615492C /* CMake PostBuild Rules */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A27121D2278A43A38D9CC556 /* PBXTargetDependency */,
+				826E1B9891AA42B2864BA95A /* PBXTargetDependency */,
+			);
+			name = aruco_create_board;
+			productName = aruco_create_board;
+			productReference = 89B89F41B4E044A0919171DA /* aruco_create_board */;
+			productType = "com.apple.product-type.tool";
+		};
+		B0B66E87ECC5455DB55982FE /* aruco_board_pix2meters */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9773288674B84CAEBBA77877 /* Build configuration list for PBXNativeTarget "aruco_board_pix2meters" */;
+			buildPhases = (
+				9683C6F42DE94D49A92E7CA2 /* Sources */,
+				E83C82D5E4CA4D6F9F5EB11F /* CMake PostBuild Rules */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5CFB716393334D6980937C26 /* PBXTargetDependency */,
+				BE4256D9464748159AA62332 /* PBXTargetDependency */,
+			);
+			name = aruco_board_pix2meters;
+			productName = aruco_board_pix2meters;
+			productReference = E58E3228344D444BB6FF2DB7 /* aruco_board_pix2meters */;
+			productType = "com.apple.product-type.tool";
+		};
+		B30EF6635600477F9480DD22 /* aruco */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F16B8FD53F3C4D43AA9B7A37 /* Build configuration list for PBXNativeTarget "aruco" */;
+			buildPhases = (
+				3E02C3C514884571934AE7BB /* Sources */,
+				3E7AF8686B41486C8DE997F9 /* CMake PostBuild Rules */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E64C77D74B8E4A75B51D7826 /* PBXTargetDependency */,
+			);
+			name = aruco;
+			productName = aruco;
+			productReference = 10CAF3049FB349F8A73F3147 /* libaruco.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+		CD24063E05A24E35870E0E47 /* aruco_create_marker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 91817E7849A7413387B9B97D /* Build configuration list for PBXNativeTarget "aruco_create_marker" */;
+			buildPhases = (
+				94C7D9BFB37648BC866E0B8E /* Sources */,
+				6C61AF1C6EB547AEB9F66204 /* CMake PostBuild Rules */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2A2B42A01746453A9455FDEF /* PBXTargetDependency */,
+				B0D3500DE63E491CAD8F6A18 /* PBXTargetDependency */,
+			);
+			name = aruco_create_marker;
+			productName = aruco_create_marker;
+			productReference = D41236D8F1B94C8E9A642F1F /* aruco_create_marker */;
+			productType = "com.apple.product-type.tool";
+		};
+		DE87C1B6F2F34CD4847920A2 /* aruco_simple */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 814BC9A36E8B4C3F9C66E4B1 /* Build configuration list for PBXNativeTarget "aruco_simple" */;
+			buildPhases = (
+				F78B551774904525AD88B90E /* Sources */,
+				F9D050B8C0D143D284CBAC8C /* CMake PostBuild Rules */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B35667BAE3CB46F9ABBFF4BC /* PBXTargetDependency */,
+				A5AAD3ABC68F40DCAAF3AA40 /* PBXTargetDependency */,
+			);
+			name = aruco_simple;
+			productName = aruco_simple;
+			productReference = 8E3C3D02DCCE43289A773453 /* aruco_simple */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C953B1ECA7DE4E1DB82E539B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+			};
+			buildConfigurationList = E5A7DD08339B428E84006C6A /* Build configuration list for PBXProject "aruco" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D4A19C69AD0A4213B8D20EAD;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E6800165FA9B4D9C9CCF4EFB /* ALL_BUILD */,
+				2CA8819D6CE8410BA3817DC5 /* ZERO_CHECK */,
+				F27ABE0A06364E8792465B41 /* install */,
+				0CCC0FF479FB4BC6B2BAEE60 /* package */,
+				D711B6776923430BBC46CBE2 /* uninstall */,
+				B30EF6635600477F9480DD22 /* aruco */,
+				B0B66E87ECC5455DB55982FE /* aruco_board_pix2meters */,
+				A95396F4793E45F0A16430C5 /* aruco_create_board */,
+				CD24063E05A24E35870E0E47 /* aruco_create_marker */,
+				8539383D827A4355987C92CE /* aruco_selectoptimalmarkers */,
+				DE87C1B6F2F34CD4847920A2 /* aruco_simple */,
+				5C8B36AB7C9C4783A45E68FD /* aruco_simple_board */,
+				299104F54D1E48AA98A39FCE /* aruco_test */,
+				721329348AC9449DA03F72D7 /* aruco_test_board */,
+				3543C5061A2D443493A9FCF7 /* aruco_test_board_gl */,
+				3E16E350587B48C3860F7477 /* aruco_test_gl */,
+				5F96CA8717D17D820040A52F /* calibration_test */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0655A660AE924A5E92EDDA22 /* CMake PostBuild Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake PostBuild Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/todd/Documents/proj/aruco/trunk -f /Users/todd/Documents/proj/aruco/trunk/CMakeScripts/install_postBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		0ED76B5CF12B4E9595FB9651 /* CMake PostBuild Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake PostBuild Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/todd/Documents/proj/aruco/trunk -f /Users/todd/Documents/proj/aruco/trunk/CMakeScripts/package_postBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		179174BE1C614C778CE9ACDE /* CMake PostBuild Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake PostBuild Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/todd/Documents/proj/aruco/trunk/utils -f /Users/todd/Documents/proj/aruco/trunk/utils/CMakeScripts/aruco_test_gl_postBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		26408ECB915D4FE9A3DC4B23 /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/todd/Documents/proj/aruco/trunk -f /Users/todd/Documents/proj/aruco/trunk/CMakeScripts/ALL_BUILD_cmakeRulesBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		3E7AF8686B41486C8DE997F9 /* CMake PostBuild Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake PostBuild Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/todd/Documents/proj/aruco/trunk/src -f /Users/todd/Documents/proj/aruco/trunk/src/CMakeScripts/aruco_postBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		4FA2488C40E64E98B017561D /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/todd/Documents/proj/aruco/trunk -f /Users/todd/Documents/proj/aruco/trunk/CMakeScripts/ZERO_CHECK_cmakeRulesBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		5F96CA8E17D17D820040A52F /* CMake PostBuild Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake PostBuild Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/todd/Documents/proj/aruco/trunk/utils -f /Users/todd/Documents/proj/aruco/trunk/utils/CMakeScripts/aruco_test_board_postBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		69DDD98AAF4740658615492C /* CMake PostBuild Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake PostBuild Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/todd/Documents/proj/aruco/trunk/utils -f /Users/todd/Documents/proj/aruco/trunk/utils/CMakeScripts/aruco_create_board_postBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		6C61AF1C6EB547AEB9F66204 /* CMake PostBuild Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake PostBuild Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/todd/Documents/proj/aruco/trunk/utils -f /Users/todd/Documents/proj/aruco/trunk/utils/CMakeScripts/aruco_create_marker_postBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		9E11CBE4605E498886554021 /* CMake PostBuild Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake PostBuild Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/todd/Documents/proj/aruco/trunk/utils -f /Users/todd/Documents/proj/aruco/trunk/utils/CMakeScripts/aruco_selectoptimalmarkers_postBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		9F0BC333F6FB4DAC90C1407B /* CMake PostBuild Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake PostBuild Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/todd/Documents/proj/aruco/trunk/utils -f /Users/todd/Documents/proj/aruco/trunk/utils/CMakeScripts/aruco_simple_board_postBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		A18623F64F3B460AA33B167D /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/todd/Documents/proj/aruco/trunk -f /Users/todd/Documents/proj/aruco/trunk/CMakeScripts/uninstall_cmakeRulesBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		D71D6A2E2D9A42A397CBB790 /* CMake PostBuild Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake PostBuild Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/todd/Documents/proj/aruco/trunk/utils -f /Users/todd/Documents/proj/aruco/trunk/utils/CMakeScripts/aruco_test_board_postBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		E1D9978347D54610ACE1BE91 /* CMake PostBuild Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake PostBuild Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/todd/Documents/proj/aruco/trunk/utils -f /Users/todd/Documents/proj/aruco/trunk/utils/CMakeScripts/aruco_test_postBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		E83C82D5E4CA4D6F9F5EB11F /* CMake PostBuild Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake PostBuild Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/todd/Documents/proj/aruco/trunk/utils -f /Users/todd/Documents/proj/aruco/trunk/utils/CMakeScripts/aruco_board_pix2meters_postBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		F43009B7D01B4E48887B311B /* CMake PostBuild Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake PostBuild Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/todd/Documents/proj/aruco/trunk/utils -f /Users/todd/Documents/proj/aruco/trunk/utils/CMakeScripts/aruco_test_board_gl_postBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		F9D050B8C0D143D284CBAC8C /* CMake PostBuild Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake PostBuild Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/todd/Documents/proj/aruco/trunk/utils -f /Users/todd/Documents/proj/aruco/trunk/utils/CMakeScripts/aruco_simple_postBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		266E01B67B6249E39B3BA4E9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C607A077AC6947999DC4F2C9 /* aruco_create_board.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E02C3C514884571934AE7BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C99813AE9C6D457BB97B0A86 /* arucofidmarkers.cpp in Sources */,
+				BA054B5C2449405A87280CE3 /* board.cpp in Sources */,
+				66FE6364EC36438C8755438B /* boarddetector.cpp in Sources */,
+				0A32D94EEACB4831ACBC7332 /* cameraparameters.cpp in Sources */,
+				72CEC72DCBB640F29525A7EA /* cvdrawingutils.cpp in Sources */,
+				C4BF174FD1394E66908EE7C5 /* marker.cpp in Sources */,
+				C98BB2C0B22F4EC58BAAE83C /* markerdetector.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BD34F60432347F3811063CC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85A0D8F2D12E411BBA96DC34 /* aruco_test_gl.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5F96CA8C17D17D820040A52F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F96CA9717D17DE30040A52F /* calibrate_cam.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		669F3D1CF57346ED91F211D2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5440C48F1244900BADDE488 /* aruco_test_board_gl.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94C7D9BFB37648BC866E0B8E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC8D197D37474E969B7F68AD /* aruco_create_marker.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96046D9AF9C5436BAE07D2B1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E523DAFCA40469881A3C0D0 /* aruco_test_board.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9683C6F42DE94D49A92E7CA2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6026131DCC64426DB3E12A91 /* aruco_board_pix2meters.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9DDADE7E36574AA4A1F9E890 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04EE91BBFFF54A8C92C76F85 /* aruco_test.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CDEE1EB7A2684F3BA96A5D51 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61B4340BAA554FCF9775CF74 /* aruco_simple_board.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E473530FA51D4C49A9C3E296 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7466044105F14D9E9184E754 /* aruco_selectoptimalmarkers.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F78B551774904525AD88B90E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E67A3BCF4904C8A8E5D3E31 /* aruco_simple.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0B2834B49D744E8EA413ADF5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B30EF6635600477F9480DD22 /* aruco */;
+			targetProxy = 36023F3C29D34D4D9D5AB0F6 /* PBXContainerItemProxy */;
+		};
+		111E3D2EF2EB42D791B54A69 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8539383D827A4355987C92CE /* aruco_selectoptimalmarkers */;
+			targetProxy = 93EAF8AEFAF243F0A1E80722 /* PBXContainerItemProxy */;
+		};
+		1DA1CAC6D4544EE7A2B063B4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CD24063E05A24E35870E0E47 /* aruco_create_marker */;
+			targetProxy = BDAF1855DE6A4BDDBB114DB4 /* PBXContainerItemProxy */;
+		};
+		2A2B42A01746453A9455FDEF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2CA8819D6CE8410BA3817DC5 /* ZERO_CHECK */;
+			targetProxy = C1916318A492475387E2F7A7 /* PBXContainerItemProxy */;
+		};
+		301939DF1A6548B68DB031C3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2CA8819D6CE8410BA3817DC5 /* ZERO_CHECK */;
+			targetProxy = 9ABF3D92399144DFB6EDEF1F /* PBXContainerItemProxy */;
+		};
+		32233297359E4AEBB557CF5A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2CA8819D6CE8410BA3817DC5 /* ZERO_CHECK */;
+			targetProxy = 553B971A15CE49FB9D466D3F /* PBXContainerItemProxy */;
+		};
+		3BA15F3C23574747BA93EFB0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B30EF6635600477F9480DD22 /* aruco */;
+			targetProxy = 4F323DBAC1E2462A95D6B7DA /* PBXContainerItemProxy */;
+		};
+		586F071713EE40D18A5AAD3B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3543C5061A2D443493A9FCF7 /* aruco_test_board_gl */;
+			targetProxy = 01E6450E0E9F4F1DA90182B1 /* PBXContainerItemProxy */;
+		};
+		58989A73599B4AAC9DC75AEF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5C8B36AB7C9C4783A45E68FD /* aruco_simple_board */;
+			targetProxy = F7BE5FB7EA7A475EB9F4BF4D /* PBXContainerItemProxy */;
+		};
+		5BADB168F27844819A9BF97B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2CA8819D6CE8410BA3817DC5 /* ZERO_CHECK */;
+			targetProxy = BFF494818EF440ADA5E5369B /* PBXContainerItemProxy */;
+		};
+		5CFB716393334D6980937C26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2CA8819D6CE8410BA3817DC5 /* ZERO_CHECK */;
+			targetProxy = B5E188E70776430B82C77B22 /* PBXContainerItemProxy */;
+		};
+		682BC10DE4444D58B10116E2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B30EF6635600477F9480DD22 /* aruco */;
+			targetProxy = 7A988C77DB294437AB598732 /* PBXContainerItemProxy */;
+		};
+		77D4B85C5C92433E839A0AA4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2CA8819D6CE8410BA3817DC5 /* ZERO_CHECK */;
+			targetProxy = 165F56C1399D4079AFC1B45B /* PBXContainerItemProxy */;
+		};
+		826E1B9891AA42B2864BA95A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B30EF6635600477F9480DD22 /* aruco */;
+			targetProxy = 4908EBE7E1B847A48B4EE9D8 /* PBXContainerItemProxy */;
+		};
+		84D3C267AE814D42ABEEE9EC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 721329348AC9449DA03F72D7 /* aruco_test_board */;
+			targetProxy = 46E7C52A6650405180667EE6 /* PBXContainerItemProxy */;
+		};
+		92BB6340D1BA4CF7825CC378 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E6800165FA9B4D9C9CCF4EFB /* ALL_BUILD */;
+			targetProxy = F5820D6C7E0F476AA4F7B6E2 /* PBXContainerItemProxy */;
+		};
+		94FB8FF9637541CAA0B810C5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A95396F4793E45F0A16430C5 /* aruco_create_board */;
+			targetProxy = FB856F807173493E9B4BF60F /* PBXContainerItemProxy */;
+		};
+		9F8BD4EE85CB49AB94F90397 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E6800165FA9B4D9C9CCF4EFB /* ALL_BUILD */;
+			targetProxy = AD322C01E2F84A8F81F0D605 /* PBXContainerItemProxy */;
+		};
+		A27121D2278A43A38D9CC556 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2CA8819D6CE8410BA3817DC5 /* ZERO_CHECK */;
+			targetProxy = 2C4E335929954D848C1163BF /* PBXContainerItemProxy */;
+		};
+		A5AAD3ABC68F40DCAAF3AA40 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B30EF6635600477F9480DD22 /* aruco */;
+			targetProxy = EBDA19CCFB0D44CE90485D6A /* PBXContainerItemProxy */;
+		};
+		ACFB3250D6254615BE19CF1D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 299104F54D1E48AA98A39FCE /* aruco_test */;
+			targetProxy = A94838F9FFD84A76B5FA922E /* PBXContainerItemProxy */;
+		};
+		B0D3500DE63E491CAD8F6A18 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B30EF6635600477F9480DD22 /* aruco */;
+			targetProxy = E16E8BCBE7D04083B99CDDE9 /* PBXContainerItemProxy */;
+		};
+		B290E96191D34B3AA84D4A33 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B0B66E87ECC5455DB55982FE /* aruco_board_pix2meters */;
+			targetProxy = A03E110B5AA247DD98F8F48B /* PBXContainerItemProxy */;
+		};
+		B35667BAE3CB46F9ABBFF4BC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2CA8819D6CE8410BA3817DC5 /* ZERO_CHECK */;
+			targetProxy = BEA71A5A9E024E218C341BC2 /* PBXContainerItemProxy */;
+		};
+		B92F5BF0743F4F9697E0C444 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3E16E350587B48C3860F7477 /* aruco_test_gl */;
+			targetProxy = F32D1763B13C4B4BAD293C0D /* PBXContainerItemProxy */;
+		};
+		BE4256D9464748159AA62332 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B30EF6635600477F9480DD22 /* aruco */;
+			targetProxy = D339F3414E8E4A9EBF849906 /* PBXContainerItemProxy */;
+		};
+		C511CECC7DD6417090E6D792 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B30EF6635600477F9480DD22 /* aruco */;
+			targetProxy = 58F359DF5ECF4EA9834EB048 /* PBXContainerItemProxy */;
+		};
+		CAB3EE48EC3442FFA0CEC44C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B30EF6635600477F9480DD22 /* aruco */;
+			targetProxy = 5C58BB2940464F6A9E01B455 /* PBXContainerItemProxy */;
+		};
+		CD7708D1635649ACA8E209AD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B30EF6635600477F9480DD22 /* aruco */;
+			targetProxy = BC704E93F916428BBE003925 /* PBXContainerItemProxy */;
+		};
+		D058E4052C25456B993D9E4E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2CA8819D6CE8410BA3817DC5 /* ZERO_CHECK */;
+			targetProxy = D14E132DC4FA438FAF76629C /* PBXContainerItemProxy */;
+		};
+		D3475C1B77FC40B68F6ABB32 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2CA8819D6CE8410BA3817DC5 /* ZERO_CHECK */;
+			targetProxy = 1037A6F3C36F492B85752F05 /* PBXContainerItemProxy */;
+		};
+		D520EC4EC8A74E76AFC2BB7A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B30EF6635600477F9480DD22 /* aruco */;
+			targetProxy = 971C23718D014EB6B6D297E5 /* PBXContainerItemProxy */;
+		};
+		E183557DF42A40F785339F16 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2CA8819D6CE8410BA3817DC5 /* ZERO_CHECK */;
+			targetProxy = 091F78A9A36F471AAECD0F8A /* PBXContainerItemProxy */;
+		};
+		E64C77D74B8E4A75B51D7826 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2CA8819D6CE8410BA3817DC5 /* ZERO_CHECK */;
+			targetProxy = D5BD64AE9056404298740493 /* PBXContainerItemProxy */;
+		};
+		F66D902F8F784012A717797F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DE87C1B6F2F34CD4847920A2 /* aruco_simple */;
+			targetProxy = 4EBF350B0AA345BB93D9751B /* PBXContainerItemProxy */;
+		};
+		F725254A48B8458DAEB7D95D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2CA8819D6CE8410BA3817DC5 /* ZERO_CHECK */;
+			targetProxy = 95F952B80E3A4D91B0217C26 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		045BF57764C04D0C83E20F43 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+				);
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = (
+				);
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Release;
+		};
+		0477C587AEBA4BDCBD149F95 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+				);
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = (
+				);
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = package;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = MinSizeRel;
+		};
+		0A1880BEAB0B42D38B1B6094 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+					/Users/todd/Documents/proj/aruco/trunk/src,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/todd/Documents/proj/aruco/trunk/src/MinSizeRel/libaruco.dylib,
+					/usr/local/lib/libopencv_calib3d.dylib,
+					/usr/local/lib/libopencv_contrib.dylib,
+					/usr/local/lib/libopencv_core.dylib,
+					/usr/local/lib/libopencv_features2d.dylib,
+					/usr/local/lib/libopencv_flann.dylib,
+					/usr/local/lib/libopencv_gpu.dylib,
+					/usr/local/lib/libopencv_highgui.dylib,
+					/usr/local/lib/libopencv_imgproc.dylib,
+					/usr/local/lib/libopencv_legacy.dylib,
+					/usr/local/lib/libopencv_ml.dylib,
+					/usr/local/lib/libopencv_nonfree.dylib,
+					/usr/local/lib/libopencv_objdetect.dylib,
+					/usr/local/lib/libopencv_ocl.dylib,
+					/usr/local/lib/libopencv_photo.dylib,
+					/usr/local/lib/libopencv_stitching.dylib,
+					/usr/local/lib/libopencv_superres.dylib,
+					/usr/local/lib/libopencv_ts.dylib,
+					/usr/local/lib/libopencv_video.dylib,
+					/usr/local/lib/libopencv_videostab.dylib,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = aruco_simple_board;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/utils;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = MinSizeRel;
+		};
+		14E6E029885F47928083B026 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+					/Users/todd/Documents/proj/aruco/trunk/src,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/todd/Documents/proj/aruco/trunk/src/MinSizeRel/libaruco.dylib,
+					/usr/local/lib/libopencv_calib3d.dylib,
+					/usr/local/lib/libopencv_contrib.dylib,
+					/usr/local/lib/libopencv_core.dylib,
+					/usr/local/lib/libopencv_features2d.dylib,
+					/usr/local/lib/libopencv_flann.dylib,
+					/usr/local/lib/libopencv_gpu.dylib,
+					/usr/local/lib/libopencv_highgui.dylib,
+					/usr/local/lib/libopencv_imgproc.dylib,
+					/usr/local/lib/libopencv_legacy.dylib,
+					/usr/local/lib/libopencv_ml.dylib,
+					/usr/local/lib/libopencv_nonfree.dylib,
+					/usr/local/lib/libopencv_objdetect.dylib,
+					/usr/local/lib/libopencv_ocl.dylib,
+					/usr/local/lib/libopencv_photo.dylib,
+					/usr/local/lib/libopencv_stitching.dylib,
+					/usr/local/lib/libopencv_superres.dylib,
+					/usr/local/lib/libopencv_ts.dylib,
+					/usr/local/lib/libopencv_video.dylib,
+					/usr/local/lib/libopencv_videostab.dylib,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = aruco_selectoptimalmarkers;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/utils;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = MinSizeRel;
+		};
+		156426CB84A946CF8414ABB6 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+					/Users/todd/Documents/proj/aruco/trunk/src,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/todd/Documents/proj/aruco/trunk/src/RelWithDebInfo/libaruco.dylib,
+					/usr/local/lib/libopencv_calib3d.dylib,
+					/usr/local/lib/libopencv_contrib.dylib,
+					/usr/local/lib/libopencv_core.dylib,
+					/usr/local/lib/libopencv_features2d.dylib,
+					/usr/local/lib/libopencv_flann.dylib,
+					/usr/local/lib/libopencv_gpu.dylib,
+					/usr/local/lib/libopencv_highgui.dylib,
+					/usr/local/lib/libopencv_imgproc.dylib,
+					/usr/local/lib/libopencv_legacy.dylib,
+					/usr/local/lib/libopencv_ml.dylib,
+					/usr/local/lib/libopencv_nonfree.dylib,
+					/usr/local/lib/libopencv_objdetect.dylib,
+					/usr/local/lib/libopencv_ocl.dylib,
+					/usr/local/lib/libopencv_photo.dylib,
+					/usr/local/lib/libopencv_stitching.dylib,
+					/usr/local/lib/libopencv_superres.dylib,
+					/usr/local/lib/libopencv_ts.dylib,
+					/usr/local/lib/libopencv_video.dylib,
+					/usr/local/lib/libopencv_videostab.dylib,
+					"-framework",
+					OpenGL,
+					"-framework",
+					AGL,
+					"-framework",
+					GLUT,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = aruco_test_gl;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/utils;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+		176FB29B71AA4D9AB8823AC1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+					/Users/todd/Documents/proj/aruco/trunk/src,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = (
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/todd/Documents/proj/aruco/trunk/src/Debug/libaruco.dylib,
+					/usr/local/lib/libopencv_calib3d.dylib,
+					/usr/local/lib/libopencv_contrib.dylib,
+					/usr/local/lib/libopencv_core.dylib,
+					/usr/local/lib/libopencv_features2d.dylib,
+					/usr/local/lib/libopencv_flann.dylib,
+					/usr/local/lib/libopencv_gpu.dylib,
+					/usr/local/lib/libopencv_highgui.dylib,
+					/usr/local/lib/libopencv_imgproc.dylib,
+					/usr/local/lib/libopencv_legacy.dylib,
+					/usr/local/lib/libopencv_ml.dylib,
+					/usr/local/lib/libopencv_nonfree.dylib,
+					/usr/local/lib/libopencv_objdetect.dylib,
+					/usr/local/lib/libopencv_ocl.dylib,
+					/usr/local/lib/libopencv_photo.dylib,
+					/usr/local/lib/libopencv_stitching.dylib,
+					/usr/local/lib/libopencv_superres.dylib,
+					/usr/local/lib/libopencv_ts.dylib,
+					/usr/local/lib/libopencv_video.dylib,
+					/usr/local/lib/libopencv_videostab.dylib,
+					"-framework",
+					OpenGL,
+					"-framework",
+					AGL,
+					"-framework",
+					GLUT,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = aruco_test_board_gl;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/utils;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Debug;
+		};
+		18EF872A0627459F8B092BE3 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+					/Users/todd/Documents/proj/aruco/trunk/src,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/todd/Documents/proj/aruco/trunk/src/RelWithDebInfo/libaruco.dylib,
+					/usr/local/lib/libopencv_calib3d.dylib,
+					/usr/local/lib/libopencv_contrib.dylib,
+					/usr/local/lib/libopencv_core.dylib,
+					/usr/local/lib/libopencv_features2d.dylib,
+					/usr/local/lib/libopencv_flann.dylib,
+					/usr/local/lib/libopencv_gpu.dylib,
+					/usr/local/lib/libopencv_highgui.dylib,
+					/usr/local/lib/libopencv_imgproc.dylib,
+					/usr/local/lib/libopencv_legacy.dylib,
+					/usr/local/lib/libopencv_ml.dylib,
+					/usr/local/lib/libopencv_nonfree.dylib,
+					/usr/local/lib/libopencv_objdetect.dylib,
+					/usr/local/lib/libopencv_ocl.dylib,
+					/usr/local/lib/libopencv_photo.dylib,
+					/usr/local/lib/libopencv_stitching.dylib,
+					/usr/local/lib/libopencv_superres.dylib,
+					/usr/local/lib/libopencv_ts.dylib,
+					/usr/local/lib/libopencv_video.dylib,
+					/usr/local/lib/libopencv_videostab.dylib,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = aruco_simple;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/utils;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+		190D3625F9B64BE99D279D98 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+					/Users/todd/Documents/proj/aruco/trunk/src,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = (
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/todd/Documents/proj/aruco/trunk/src/Debug/libaruco.dylib,
+					/usr/local/lib/libopencv_calib3d.dylib,
+					/usr/local/lib/libopencv_contrib.dylib,
+					/usr/local/lib/libopencv_core.dylib,
+					/usr/local/lib/libopencv_features2d.dylib,
+					/usr/local/lib/libopencv_flann.dylib,
+					/usr/local/lib/libopencv_gpu.dylib,
+					/usr/local/lib/libopencv_highgui.dylib,
+					/usr/local/lib/libopencv_imgproc.dylib,
+					/usr/local/lib/libopencv_legacy.dylib,
+					/usr/local/lib/libopencv_ml.dylib,
+					/usr/local/lib/libopencv_nonfree.dylib,
+					/usr/local/lib/libopencv_objdetect.dylib,
+					/usr/local/lib/libopencv_ocl.dylib,
+					/usr/local/lib/libopencv_photo.dylib,
+					/usr/local/lib/libopencv_stitching.dylib,
+					/usr/local/lib/libopencv_superres.dylib,
+					/usr/local/lib/libopencv_ts.dylib,
+					/usr/local/lib/libopencv_video.dylib,
+					/usr/local/lib/libopencv_videostab.dylib,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = aruco_create_board;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/utils;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Debug;
+		};
+		1D8396DB38C04F67BEEB17A3 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+					/Users/todd/Documents/proj/aruco/trunk/src,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/todd/Documents/proj/aruco/trunk/src/MinSizeRel/libaruco.dylib,
+					/usr/local/lib/libopencv_calib3d.dylib,
+					/usr/local/lib/libopencv_contrib.dylib,
+					/usr/local/lib/libopencv_core.dylib,
+					/usr/local/lib/libopencv_features2d.dylib,
+					/usr/local/lib/libopencv_flann.dylib,
+					/usr/local/lib/libopencv_gpu.dylib,
+					/usr/local/lib/libopencv_highgui.dylib,
+					/usr/local/lib/libopencv_imgproc.dylib,
+					/usr/local/lib/libopencv_legacy.dylib,
+					/usr/local/lib/libopencv_ml.dylib,
+					/usr/local/lib/libopencv_nonfree.dylib,
+					/usr/local/lib/libopencv_objdetect.dylib,
+					/usr/local/lib/libopencv_ocl.dylib,
+					/usr/local/lib/libopencv_photo.dylib,
+					/usr/local/lib/libopencv_stitching.dylib,
+					/usr/local/lib/libopencv_superres.dylib,
+					/usr/local/lib/libopencv_ts.dylib,
+					/usr/local/lib/libopencv_video.dylib,
+					/usr/local/lib/libopencv_videostab.dylib,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = aruco_create_board;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/utils;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = MinSizeRel;
+		};
+		206830C132AC410B98DCCA5F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+				);
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = (
+				);
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Debug;
+		};
+		21196E381CEE4E3DB07DCD20 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+				);
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = (
+				);
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = MinSizeRel;
+		};
+		29BC7EE1FDF24DA5BCC2BE62 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+					/Users/todd/Documents/proj/aruco/trunk/src,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/todd/Documents/proj/aruco/trunk/src/Release/libaruco.dylib,
+					/usr/local/lib/libopencv_calib3d.dylib,
+					/usr/local/lib/libopencv_contrib.dylib,
+					/usr/local/lib/libopencv_core.dylib,
+					/usr/local/lib/libopencv_features2d.dylib,
+					/usr/local/lib/libopencv_flann.dylib,
+					/usr/local/lib/libopencv_gpu.dylib,
+					/usr/local/lib/libopencv_highgui.dylib,
+					/usr/local/lib/libopencv_imgproc.dylib,
+					/usr/local/lib/libopencv_legacy.dylib,
+					/usr/local/lib/libopencv_ml.dylib,
+					/usr/local/lib/libopencv_nonfree.dylib,
+					/usr/local/lib/libopencv_objdetect.dylib,
+					/usr/local/lib/libopencv_ocl.dylib,
+					/usr/local/lib/libopencv_photo.dylib,
+					/usr/local/lib/libopencv_stitching.dylib,
+					/usr/local/lib/libopencv_superres.dylib,
+					/usr/local/lib/libopencv_ts.dylib,
+					/usr/local/lib/libopencv_video.dylib,
+					/usr/local/lib/libopencv_videostab.dylib,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = aruco_test;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/utils;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Release;
+		};
+		2AF603B44C4B40AFA340CB23 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+				);
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = (
+				);
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+		2B4CF2CFAFB04FA98D7EDB46 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+				);
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = (
+				);
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Release;
+		};
+		31647C290AB44A78A25DB8FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+				);
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = (
+				);
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Debug;
+		};
+		332E36BB1E6843829FA34C85 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+					/Users/todd/Documents/proj/aruco/trunk/src,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/todd/Documents/proj/aruco/trunk/src/MinSizeRel/libaruco.dylib,
+					/usr/local/lib/libopencv_calib3d.dylib,
+					/usr/local/lib/libopencv_contrib.dylib,
+					/usr/local/lib/libopencv_core.dylib,
+					/usr/local/lib/libopencv_features2d.dylib,
+					/usr/local/lib/libopencv_flann.dylib,
+					/usr/local/lib/libopencv_gpu.dylib,
+					/usr/local/lib/libopencv_highgui.dylib,
+					/usr/local/lib/libopencv_imgproc.dylib,
+					/usr/local/lib/libopencv_legacy.dylib,
+					/usr/local/lib/libopencv_ml.dylib,
+					/usr/local/lib/libopencv_nonfree.dylib,
+					/usr/local/lib/libopencv_objdetect.dylib,
+					/usr/local/lib/libopencv_ocl.dylib,
+					/usr/local/lib/libopencv_photo.dylib,
+					/usr/local/lib/libopencv_stitching.dylib,
+					/usr/local/lib/libopencv_superres.dylib,
+					/usr/local/lib/libopencv_ts.dylib,
+					/usr/local/lib/libopencv_video.dylib,
+					/usr/local/lib/libopencv_videostab.dylib,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = aruco_create_marker;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/utils;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = MinSizeRel;
+		};
+		34C5B31C299B4E0289BB6059 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+					/Users/todd/Documents/proj/aruco/trunk/src,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = (
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/todd/Documents/proj/aruco/trunk/src/Debug/libaruco.dylib,
+					/usr/local/lib/libopencv_calib3d.dylib,
+					/usr/local/lib/libopencv_contrib.dylib,
+					/usr/local/lib/libopencv_core.dylib,
+					/usr/local/lib/libopencv_features2d.dylib,
+					/usr/local/lib/libopencv_flann.dylib,
+					/usr/local/lib/libopencv_gpu.dylib,
+					/usr/local/lib/libopencv_highgui.dylib,
+					/usr/local/lib/libopencv_imgproc.dylib,
+					/usr/local/lib/libopencv_legacy.dylib,
+					/usr/local/lib/libopencv_ml.dylib,
+					/usr/local/lib/libopencv_nonfree.dylib,
+					/usr/local/lib/libopencv_objdetect.dylib,
+					/usr/local/lib/libopencv_ocl.dylib,
+					/usr/local/lib/libopencv_photo.dylib,
+					/usr/local/lib/libopencv_stitching.dylib,
+					/usr/local/lib/libopencv_superres.dylib,
+					/usr/local/lib/libopencv_ts.dylib,
+					/usr/local/lib/libopencv_video.dylib,
+					/usr/local/lib/libopencv_videostab.dylib,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = aruco_simple_board;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/utils;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Debug;
+		};
+		353BB394854C4A6A98BF4785 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk;
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/build;
+			};
+			name = MinSizeRel;
+		};
+		354A427B4583400989CA378C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+					/Users/todd/Documents/proj/aruco/trunk/src,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/todd/Documents/proj/aruco/trunk/src/Release/libaruco.dylib,
+					/usr/local/lib/libopencv_calib3d.dylib,
+					/usr/local/lib/libopencv_contrib.dylib,
+					/usr/local/lib/libopencv_core.dylib,
+					/usr/local/lib/libopencv_features2d.dylib,
+					/usr/local/lib/libopencv_flann.dylib,
+					/usr/local/lib/libopencv_gpu.dylib,
+					/usr/local/lib/libopencv_highgui.dylib,
+					/usr/local/lib/libopencv_imgproc.dylib,
+					/usr/local/lib/libopencv_legacy.dylib,
+					/usr/local/lib/libopencv_ml.dylib,
+					/usr/local/lib/libopencv_nonfree.dylib,
+					/usr/local/lib/libopencv_objdetect.dylib,
+					/usr/local/lib/libopencv_ocl.dylib,
+					/usr/local/lib/libopencv_photo.dylib,
+					/usr/local/lib/libopencv_stitching.dylib,
+					/usr/local/lib/libopencv_superres.dylib,
+					/usr/local/lib/libopencv_ts.dylib,
+					/usr/local/lib/libopencv_video.dylib,
+					/usr/local/lib/libopencv_videostab.dylib,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = aruco_create_marker;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/utils;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Release;
+		};
+		3647D71439AE48558531F28A /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+					/Users/todd/Documents/proj/aruco/trunk/src,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/todd/Documents/proj/aruco/trunk/src/MinSizeRel/libaruco.dylib,
+					/usr/local/lib/libopencv_calib3d.dylib,
+					/usr/local/lib/libopencv_contrib.dylib,
+					/usr/local/lib/libopencv_core.dylib,
+					/usr/local/lib/libopencv_features2d.dylib,
+					/usr/local/lib/libopencv_flann.dylib,
+					/usr/local/lib/libopencv_gpu.dylib,
+					/usr/local/lib/libopencv_highgui.dylib,
+					/usr/local/lib/libopencv_imgproc.dylib,
+					/usr/local/lib/libopencv_legacy.dylib,
+					/usr/local/lib/libopencv_ml.dylib,
+					/usr/local/lib/libopencv_nonfree.dylib,
+					/usr/local/lib/libopencv_objdetect.dylib,
+					/usr/local/lib/libopencv_ocl.dylib,
+					/usr/local/lib/libopencv_photo.dylib,
+					/usr/local/lib/libopencv_stitching.dylib,
+					/usr/local/lib/libopencv_superres.dylib,
+					/usr/local/lib/libopencv_ts.dylib,
+					/usr/local/lib/libopencv_video.dylib,
+					/usr/local/lib/libopencv_videostab.dylib,
+					"-framework",
+					OpenGL,
+					"-framework",
+					AGL,
+					"-framework",
+					GLUT,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = aruco_test_board_gl;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/utils;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = MinSizeRel;
+		};
+		39A7D10CD21E4323B215DB7F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+					/Users/todd/Documents/proj/aruco/trunk/src,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/todd/Documents/proj/aruco/trunk/src/Release/libaruco.dylib,
+					/usr/local/lib/libopencv_calib3d.dylib,
+					/usr/local/lib/libopencv_contrib.dylib,
+					/usr/local/lib/libopencv_core.dylib,
+					/usr/local/lib/libopencv_features2d.dylib,
+					/usr/local/lib/libopencv_flann.dylib,
+					/usr/local/lib/libopencv_gpu.dylib,
+					/usr/local/lib/libopencv_highgui.dylib,
+					/usr/local/lib/libopencv_imgproc.dylib,
+					/usr/local/lib/libopencv_legacy.dylib,
+					/usr/local/lib/libopencv_ml.dylib,
+					/usr/local/lib/libopencv_nonfree.dylib,
+					/usr/local/lib/libopencv_objdetect.dylib,
+					/usr/local/lib/libopencv_ocl.dylib,
+					/usr/local/lib/libopencv_photo.dylib,
+					/usr/local/lib/libopencv_stitching.dylib,
+					/usr/local/lib/libopencv_superres.dylib,
+					/usr/local/lib/libopencv_ts.dylib,
+					/usr/local/lib/libopencv_video.dylib,
+					/usr/local/lib/libopencv_videostab.dylib,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = aruco_simple;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/utils;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Release;
+		};
+		44EBD57181A0466FB882D520 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+					/Users/todd/Documents/proj/aruco/trunk/src,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/todd/Documents/proj/aruco/trunk/src/Release/libaruco.dylib,
+					/usr/local/lib/libopencv_calib3d.dylib,
+					/usr/local/lib/libopencv_contrib.dylib,
+					/usr/local/lib/libopencv_core.dylib,
+					/usr/local/lib/libopencv_features2d.dylib,
+					/usr/local/lib/libopencv_flann.dylib,
+					/usr/local/lib/libopencv_gpu.dylib,
+					/usr/local/lib/libopencv_highgui.dylib,
+					/usr/local/lib/libopencv_imgproc.dylib,
+					/usr/local/lib/libopencv_legacy.dylib,
+					/usr/local/lib/libopencv_ml.dylib,
+					/usr/local/lib/libopencv_nonfree.dylib,
+					/usr/local/lib/libopencv_objdetect.dylib,
+					/usr/local/lib/libopencv_ocl.dylib,
+					/usr/local/lib/libopencv_photo.dylib,
+					/usr/local/lib/libopencv_stitching.dylib,
+					/usr/local/lib/libopencv_superres.dylib,
+					/usr/local/lib/libopencv_ts.dylib,
+					/usr/local/lib/libopencv_video.dylib,
+					/usr/local/lib/libopencv_videostab.dylib,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = aruco_test_board;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/utils;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Release;
+		};
+		46446BF3BE564EACA7FD8C91 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+					/Users/todd/Documents/proj/aruco/trunk/src,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/todd/Documents/proj/aruco/trunk/src/MinSizeRel/libaruco.dylib,
+					/usr/local/lib/libopencv_calib3d.dylib,
+					/usr/local/lib/libopencv_contrib.dylib,
+					/usr/local/lib/libopencv_core.dylib,
+					/usr/local/lib/libopencv_features2d.dylib,
+					/usr/local/lib/libopencv_flann.dylib,
+					/usr/local/lib/libopencv_gpu.dylib,
+					/usr/local/lib/libopencv_highgui.dylib,
+					/usr/local/lib/libopencv_imgproc.dylib,
+					/usr/local/lib/libopencv_legacy.dylib,
+					/usr/local/lib/libopencv_ml.dylib,
+					/usr/local/lib/libopencv_nonfree.dylib,
+					/usr/local/lib/libopencv_objdetect.dylib,
+					/usr/local/lib/libopencv_ocl.dylib,
+					/usr/local/lib/libopencv_photo.dylib,
+					/usr/local/lib/libopencv_stitching.dylib,
+					/usr/local/lib/libopencv_superres.dylib,
+					/usr/local/lib/libopencv_ts.dylib,
+					/usr/local/lib/libopencv_video.dylib,
+					/usr/local/lib/libopencv_videostab.dylib,
+					"-framework",
+					OpenGL,
+					"-framework",
+					AGL,
+					"-framework",
+					GLUT,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = aruco_test_gl;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/utils;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = MinSizeRel;
+		};
+		493921823E26460CB0E6AAF0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+				);
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = (
+				);
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = install;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Release;
+		};
+		59C77133A59F4D1191E7F844 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1.2.0;
+				DYLIB_CURRENT_VERSION = 1.2.4;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .dylib;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
+					DSO_EXPORTS,
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+					/Users/todd/Documents/proj/aruco/trunk/src/.,
+					/Users/todd/Documents/proj/aruco/trunk/src,
+				);
+				INSTALL_PATH = /Users/todd/Documents/proj/aruco/trunk/src/Release;
+				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_STYLE = DYNAMIC;
+				OTHER_CFLAGS = (
+					"-DNDEBUG",
+					"-fPIC",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+					"-fPIC",
+				);
+				OTHER_LDFLAGS = (
+					"-dynamiclib",
+					"-Wl,-headerpad_max_install_names",
+					/usr/local/lib/libopencv_calib3d.dylib,
+					/usr/local/lib/libopencv_contrib.dylib,
+					/usr/local/lib/libopencv_core.dylib,
+					/usr/local/lib/libopencv_features2d.dylib,
+					/usr/local/lib/libopencv_flann.dylib,
+					/usr/local/lib/libopencv_gpu.dylib,
+					/usr/local/lib/libopencv_highgui.dylib,
+					/usr/local/lib/libopencv_imgproc.dylib,
+					/usr/local/lib/libopencv_legacy.dylib,
+					/usr/local/lib/libopencv_ml.dylib,
+					/usr/local/lib/libopencv_nonfree.dylib,
+					/usr/local/lib/libopencv_objdetect.dylib,
+					/usr/local/lib/libopencv_ocl.dylib,
+					/usr/local/lib/libopencv_photo.dylib,
+					/usr/local/lib/libopencv_stitching.dylib,
+					/usr/local/lib/libopencv_superres.dylib,
+					/usr/local/lib/libopencv_ts.dylib,
+					/usr/local/lib/libopencv_video.dylib,
+					/usr/local/lib/libopencv_videostab.dylib,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = aruco;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/src;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Release;
+		};
+		5E4438D645A24965A80FB8FD /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+				);
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = (
+				);
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = uninstall;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = MinSizeRel;
+		};
+		5F96CA9017D17D820040A52F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+					/Users/todd/Documents/proj/aruco/trunk/src,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "";
+				OTHER_CPLUSPLUSFLAGS = "";
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/todd/Documents/proj/aruco/trunk/src/Debug/libaruco.dylib,
+					/usr/local/lib/libopencv_calib3d.dylib,
+					/usr/local/lib/libopencv_contrib.dylib,
+					/usr/local/lib/libopencv_core.dylib,
+					/usr/local/lib/libopencv_features2d.dylib,
+					/usr/local/lib/libopencv_flann.dylib,
+					/usr/local/lib/libopencv_gpu.dylib,
+					/usr/local/lib/libopencv_highgui.dylib,
+					/usr/local/lib/libopencv_imgproc.dylib,
+					/usr/local/lib/libopencv_legacy.dylib,
+					/usr/local/lib/libopencv_ml.dylib,
+					/usr/local/lib/libopencv_nonfree.dylib,
+					/usr/local/lib/libopencv_objdetect.dylib,
+					/usr/local/lib/libopencv_ocl.dylib,
+					/usr/local/lib/libopencv_photo.dylib,
+					/usr/local/lib/libopencv_stitching.dylib,
+					/usr/local/lib/libopencv_superres.dylib,
+					/usr/local/lib/libopencv_ts.dylib,
+					/usr/local/lib/libopencv_video.dylib,
+					/usr/local/lib/libopencv_videostab.dylib,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = calibration_test;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/utils;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Debug;
+		};
+		5F96CA9117D17D820040A52F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+					/Users/todd/Documents/proj/aruco/trunk/src,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "-DNDEBUG";
+				OTHER_CPLUSPLUSFLAGS = "-DNDEBUG";
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/todd/Documents/proj/aruco/trunk/src/Release/libaruco.dylib,
+					/usr/local/lib/libopencv_calib3d.dylib,
+					/usr/local/lib/libopencv_contrib.dylib,
+					/usr/local/lib/libopencv_core.dylib,
+					/usr/local/lib/libopencv_features2d.dylib,
+					/usr/local/lib/libopencv_flann.dylib,
+					/usr/local/lib/libopencv_gpu.dylib,
+					/usr/local/lib/libopencv_highgui.dylib,
+					/usr/local/lib/libopencv_imgproc.dylib,
+					/usr/local/lib/libopencv_legacy.dylib,
+					/usr/local/lib/libopencv_ml.dylib,
+					/usr/local/lib/libopencv_nonfree.dylib,
+					/usr/local/lib/libopencv_objdetect.dylib,
+					/usr/local/lib/libopencv_ocl.dylib,
+					/usr/local/lib/libopencv_photo.dylib,
+					/usr/local/lib/libopencv_stitching.dylib,
+					/usr/local/lib/libopencv_superres.dylib,
+					/usr/local/lib/libopencv_ts.dylib,
+					/usr/local/lib/libopencv_video.dylib,
+					/usr/local/lib/libopencv_videostab.dylib,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = calibration_test;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/utils;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Release;
+		};
+		5F96CA9217D17D820040A52F /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+					/Users/todd/Documents/proj/aruco/trunk/src,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "-DNDEBUG";
+				OTHER_CPLUSPLUSFLAGS = "-DNDEBUG";
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/todd/Documents/proj/aruco/trunk/src/MinSizeRel/libaruco.dylib,
+					/usr/local/lib/libopencv_calib3d.dylib,
+					/usr/local/lib/libopencv_contrib.dylib,
+					/usr/local/lib/libopencv_core.dylib,
+					/usr/local/lib/libopencv_features2d.dylib,
+					/usr/local/lib/libopencv_flann.dylib,
+					/usr/local/lib/libopencv_gpu.dylib,
+					/usr/local/lib/libopencv_highgui.dylib,
+					/usr/local/lib/libopencv_imgproc.dylib,
+					/usr/local/lib/libopencv_legacy.dylib,
+					/usr/local/lib/libopencv_ml.dylib,
+					/usr/local/lib/libopencv_nonfree.dylib,
+					/usr/local/lib/libopencv_objdetect.dylib,
+					/usr/local/lib/libopencv_ocl.dylib,
+					/usr/local/lib/libopencv_photo.dylib,
+					/usr/local/lib/libopencv_stitching.dylib,
+					/usr/local/lib/libopencv_superres.dylib,
+					/usr/local/lib/libopencv_ts.dylib,
+					/usr/local/lib/libopencv_video.dylib,
+					/usr/local/lib/libopencv_videostab.dylib,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = calibration_test;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/utils;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = MinSizeRel;
+		};
+		5F96CA9317D17D820040A52F /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+					/Users/todd/Documents/proj/aruco/trunk/src,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "-DNDEBUG";
+				OTHER_CPLUSPLUSFLAGS = "-DNDEBUG";
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/todd/Documents/proj/aruco/trunk/src/RelWithDebInfo/libaruco.dylib,
+					/usr/local/lib/libopencv_calib3d.dylib,
+					/usr/local/lib/libopencv_contrib.dylib,
+					/usr/local/lib/libopencv_core.dylib,
+					/usr/local/lib/libopencv_features2d.dylib,
+					/usr/local/lib/libopencv_flann.dylib,
+					/usr/local/lib/libopencv_gpu.dylib,
+					/usr/local/lib/libopencv_highgui.dylib,
+					/usr/local/lib/libopencv_imgproc.dylib,
+					/usr/local/lib/libopencv_legacy.dylib,
+					/usr/local/lib/libopencv_ml.dylib,
+					/usr/local/lib/libopencv_nonfree.dylib,
+					/usr/local/lib/libopencv_objdetect.dylib,
+					/usr/local/lib/libopencv_ocl.dylib,
+					/usr/local/lib/libopencv_photo.dylib,
+					/usr/local/lib/libopencv_stitching.dylib,
+					/usr/local/lib/libopencv_superres.dylib,
+					/usr/local/lib/libopencv_ts.dylib,
+					/usr/local/lib/libopencv_video.dylib,
+					/usr/local/lib/libopencv_videostab.dylib,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = calibration_test;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/utils;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+		5FF62E3A510D417DB780A2DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+					/Users/todd/Documents/proj/aruco/trunk/src,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = (
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/todd/Documents/proj/aruco/trunk/src/Debug/libaruco.dylib,
+					/usr/local/lib/libopencv_calib3d.dylib,
+					/usr/local/lib/libopencv_contrib.dylib,
+					/usr/local/lib/libopencv_core.dylib,
+					/usr/local/lib/libopencv_features2d.dylib,
+					/usr/local/lib/libopencv_flann.dylib,
+					/usr/local/lib/libopencv_gpu.dylib,
+					/usr/local/lib/libopencv_highgui.dylib,
+					/usr/local/lib/libopencv_imgproc.dylib,
+					/usr/local/lib/libopencv_legacy.dylib,
+					/usr/local/lib/libopencv_ml.dylib,
+					/usr/local/lib/libopencv_nonfree.dylib,
+					/usr/local/lib/libopencv_objdetect.dylib,
+					/usr/local/lib/libopencv_ocl.dylib,
+					/usr/local/lib/libopencv_photo.dylib,
+					/usr/local/lib/libopencv_stitching.dylib,
+					/usr/local/lib/libopencv_superres.dylib,
+					/usr/local/lib/libopencv_ts.dylib,
+					/usr/local/lib/libopencv_video.dylib,
+					/usr/local/lib/libopencv_videostab.dylib,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = aruco_selectoptimalmarkers;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/utils;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Debug;
+		};
+		6511876A6D8649388C9F3DC1 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk;
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/build;
+			};
+			name = RelWithDebInfo;
+		};
+		6EA627E3B03441D48492B11A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+					/Users/todd/Documents/proj/aruco/trunk/src,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = (
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/todd/Documents/proj/aruco/trunk/src/Debug/libaruco.dylib,
+					/usr/local/lib/libopencv_calib3d.dylib,
+					/usr/local/lib/libopencv_contrib.dylib,
+					/usr/local/lib/libopencv_core.dylib,
+					/usr/local/lib/libopencv_features2d.dylib,
+					/usr/local/lib/libopencv_flann.dylib,
+					/usr/local/lib/libopencv_gpu.dylib,
+					/usr/local/lib/libopencv_highgui.dylib,
+					/usr/local/lib/libopencv_imgproc.dylib,
+					/usr/local/lib/libopencv_legacy.dylib,
+					/usr/local/lib/libopencv_ml.dylib,
+					/usr/local/lib/libopencv_nonfree.dylib,
+					/usr/local/lib/libopencv_objdetect.dylib,
+					/usr/local/lib/libopencv_ocl.dylib,
+					/usr/local/lib/libopencv_photo.dylib,
+					/usr/local/lib/libopencv_stitching.dylib,
+					/usr/local/lib/libopencv_superres.dylib,
+					/usr/local/lib/libopencv_ts.dylib,
+					/usr/local/lib/libopencv_video.dylib,
+					/usr/local/lib/libopencv_videostab.dylib,
+					"-framework",
+					OpenGL,
+					"-framework",
+					AGL,
+					"-framework",
+					GLUT,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = aruco_test_gl;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/utils;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Debug;
+		};
+		6EAC1CC5F13C48B280DAADE7 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+				);
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = (
+				);
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = MinSizeRel;
+		};
+		6FFD2EFEF138436FB801165C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+					/Users/todd/Documents/proj/aruco/trunk/src,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/todd/Documents/proj/aruco/trunk/src/Release/libaruco.dylib,
+					/usr/local/lib/libopencv_calib3d.dylib,
+					/usr/local/lib/libopencv_contrib.dylib,
+					/usr/local/lib/libopencv_core.dylib,
+					/usr/local/lib/libopencv_features2d.dylib,
+					/usr/local/lib/libopencv_flann.dylib,
+					/usr/local/lib/libopencv_gpu.dylib,
+					/usr/local/lib/libopencv_highgui.dylib,
+					/usr/local/lib/libopencv_imgproc.dylib,
+					/usr/local/lib/libopencv_legacy.dylib,
+					/usr/local/lib/libopencv_ml.dylib,
+					/usr/local/lib/libopencv_nonfree.dylib,
+					/usr/local/lib/libopencv_objdetect.dylib,
+					/usr/local/lib/libopencv_ocl.dylib,
+					/usr/local/lib/libopencv_photo.dylib,
+					/usr/local/lib/libopencv_stitching.dylib,
+					/usr/local/lib/libopencv_superres.dylib,
+					/usr/local/lib/libopencv_ts.dylib,
+					/usr/local/lib/libopencv_video.dylib,
+					/usr/local/lib/libopencv_videostab.dylib,
+					"-framework",
+					OpenGL,
+					"-framework",
+					AGL,
+					"-framework",
+					GLUT,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = aruco_test_board_gl;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/utils;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Release;
+		};
+		74C2270D035B4772846E9F7E /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1.2.0;
+				DYLIB_CURRENT_VERSION = 1.2.4;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .dylib;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
+					DSO_EXPORTS,
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+					/Users/todd/Documents/proj/aruco/trunk/src/.,
+					/Users/todd/Documents/proj/aruco/trunk/src,
+				);
+				INSTALL_PATH = /Users/todd/Documents/proj/aruco/trunk/src/MinSizeRel;
+				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_STYLE = DYNAMIC;
+				OTHER_CFLAGS = (
+					"-DNDEBUG",
+					"-fPIC",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+					"-fPIC",
+				);
+				OTHER_LDFLAGS = (
+					"-dynamiclib",
+					"-Wl,-headerpad_max_install_names",
+					/usr/local/lib/libopencv_calib3d.dylib,
+					/usr/local/lib/libopencv_contrib.dylib,
+					/usr/local/lib/libopencv_core.dylib,
+					/usr/local/lib/libopencv_features2d.dylib,
+					/usr/local/lib/libopencv_flann.dylib,
+					/usr/local/lib/libopencv_gpu.dylib,
+					/usr/local/lib/libopencv_highgui.dylib,
+					/usr/local/lib/libopencv_imgproc.dylib,
+					/usr/local/lib/libopencv_legacy.dylib,
+					/usr/local/lib/libopencv_ml.dylib,
+					/usr/local/lib/libopencv_nonfree.dylib,
+					/usr/local/lib/libopencv_objdetect.dylib,
+					/usr/local/lib/libopencv_ocl.dylib,
+					/usr/local/lib/libopencv_photo.dylib,
+					/usr/local/lib/libopencv_stitching.dylib,
+					/usr/local/lib/libopencv_superres.dylib,
+					/usr/local/lib/libopencv_ts.dylib,
+					/usr/local/lib/libopencv_video.dylib,
+					/usr/local/lib/libopencv_videostab.dylib,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = aruco;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/src;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = MinSizeRel;
+		};
+		760B864C51014258B5100CC3 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+					/Users/todd/Documents/proj/aruco/trunk/src,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/todd/Documents/proj/aruco/trunk/src/RelWithDebInfo/libaruco.dylib,
+					/usr/local/lib/libopencv_calib3d.dylib,
+					/usr/local/lib/libopencv_contrib.dylib,
+					/usr/local/lib/libopencv_core.dylib,
+					/usr/local/lib/libopencv_features2d.dylib,
+					/usr/local/lib/libopencv_flann.dylib,
+					/usr/local/lib/libopencv_gpu.dylib,
+					/usr/local/lib/libopencv_highgui.dylib,
+					/usr/local/lib/libopencv_imgproc.dylib,
+					/usr/local/lib/libopencv_legacy.dylib,
+					/usr/local/lib/libopencv_ml.dylib,
+					/usr/local/lib/libopencv_nonfree.dylib,
+					/usr/local/lib/libopencv_objdetect.dylib,
+					/usr/local/lib/libopencv_ocl.dylib,
+					/usr/local/lib/libopencv_photo.dylib,
+					/usr/local/lib/libopencv_stitching.dylib,
+					/usr/local/lib/libopencv_superres.dylib,
+					/usr/local/lib/libopencv_ts.dylib,
+					/usr/local/lib/libopencv_video.dylib,
+					/usr/local/lib/libopencv_videostab.dylib,
+					"-framework",
+					OpenGL,
+					"-framework",
+					AGL,
+					"-framework",
+					GLUT,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = aruco_test_board_gl;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/utils;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+		785194BB500C4A0E82B22341 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+					/Users/todd/Documents/proj/aruco/trunk/src,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/todd/Documents/proj/aruco/trunk/src/MinSizeRel/libaruco.dylib,
+					/usr/local/lib/libopencv_calib3d.dylib,
+					/usr/local/lib/libopencv_contrib.dylib,
+					/usr/local/lib/libopencv_core.dylib,
+					/usr/local/lib/libopencv_features2d.dylib,
+					/usr/local/lib/libopencv_flann.dylib,
+					/usr/local/lib/libopencv_gpu.dylib,
+					/usr/local/lib/libopencv_highgui.dylib,
+					/usr/local/lib/libopencv_imgproc.dylib,
+					/usr/local/lib/libopencv_legacy.dylib,
+					/usr/local/lib/libopencv_ml.dylib,
+					/usr/local/lib/libopencv_nonfree.dylib,
+					/usr/local/lib/libopencv_objdetect.dylib,
+					/usr/local/lib/libopencv_ocl.dylib,
+					/usr/local/lib/libopencv_photo.dylib,
+					/usr/local/lib/libopencv_stitching.dylib,
+					/usr/local/lib/libopencv_superres.dylib,
+					/usr/local/lib/libopencv_ts.dylib,
+					/usr/local/lib/libopencv_video.dylib,
+					/usr/local/lib/libopencv_videostab.dylib,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = aruco_simple;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/utils;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = MinSizeRel;
+		};
+		7A2183379E134BE6BEFFF847 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+				);
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = (
+				);
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = uninstall;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+		7A8C4256B40B467B91C3EAF0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+					/Users/todd/Documents/proj/aruco/trunk/src,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/todd/Documents/proj/aruco/trunk/src/Release/libaruco.dylib,
+					/usr/local/lib/libopencv_calib3d.dylib,
+					/usr/local/lib/libopencv_contrib.dylib,
+					/usr/local/lib/libopencv_core.dylib,
+					/usr/local/lib/libopencv_features2d.dylib,
+					/usr/local/lib/libopencv_flann.dylib,
+					/usr/local/lib/libopencv_gpu.dylib,
+					/usr/local/lib/libopencv_highgui.dylib,
+					/usr/local/lib/libopencv_imgproc.dylib,
+					/usr/local/lib/libopencv_legacy.dylib,
+					/usr/local/lib/libopencv_ml.dylib,
+					/usr/local/lib/libopencv_nonfree.dylib,
+					/usr/local/lib/libopencv_objdetect.dylib,
+					/usr/local/lib/libopencv_ocl.dylib,
+					/usr/local/lib/libopencv_photo.dylib,
+					/usr/local/lib/libopencv_stitching.dylib,
+					/usr/local/lib/libopencv_superres.dylib,
+					/usr/local/lib/libopencv_ts.dylib,
+					/usr/local/lib/libopencv_video.dylib,
+					/usr/local/lib/libopencv_videostab.dylib,
+					"-framework",
+					OpenGL,
+					"-framework",
+					AGL,
+					"-framework",
+					GLUT,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = aruco_test_gl;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/utils;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Release;
+		};
+		7AA359C460364E8E94E0BA5E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+					/Users/todd/Documents/proj/aruco/trunk/src,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/todd/Documents/proj/aruco/trunk/src/Release/libaruco.dylib,
+					/usr/local/lib/libopencv_calib3d.dylib,
+					/usr/local/lib/libopencv_contrib.dylib,
+					/usr/local/lib/libopencv_core.dylib,
+					/usr/local/lib/libopencv_features2d.dylib,
+					/usr/local/lib/libopencv_flann.dylib,
+					/usr/local/lib/libopencv_gpu.dylib,
+					/usr/local/lib/libopencv_highgui.dylib,
+					/usr/local/lib/libopencv_imgproc.dylib,
+					/usr/local/lib/libopencv_legacy.dylib,
+					/usr/local/lib/libopencv_ml.dylib,
+					/usr/local/lib/libopencv_nonfree.dylib,
+					/usr/local/lib/libopencv_objdetect.dylib,
+					/usr/local/lib/libopencv_ocl.dylib,
+					/usr/local/lib/libopencv_photo.dylib,
+					/usr/local/lib/libopencv_stitching.dylib,
+					/usr/local/lib/libopencv_superres.dylib,
+					/usr/local/lib/libopencv_ts.dylib,
+					/usr/local/lib/libopencv_video.dylib,
+					/usr/local/lib/libopencv_videostab.dylib,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = aruco_board_pix2meters;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/utils;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Release;
+		};
+		848226F3C1154C90B22B217D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+				);
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = (
+				);
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = package;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Debug;
+		};
+		855DD620C9594C8A8F911436 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+				);
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = (
+				);
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = install;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Debug;
+		};
+		8844D6B3C4F848F2A0324BAB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk;
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/build;
+			};
+			name = Debug;
+		};
+		9BBB0DC038984E59857245A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1.2.0;
+				DYLIB_CURRENT_VERSION = 1.2.4;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .dylib;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
+					DSO_EXPORTS,
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+					/Users/todd/Documents/proj/aruco/trunk/src/.,
+					/Users/todd/Documents/proj/aruco/trunk/src,
+				);
+				INSTALL_PATH = /Users/todd/Documents/proj/aruco/trunk/src/Debug;
+				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_STYLE = DYNAMIC;
+				OTHER_CFLAGS = (
+					"-fPIC",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-fPIC",
+				);
+				OTHER_LDFLAGS = (
+					"-dynamiclib",
+					"-Wl,-headerpad_max_install_names",
+					/usr/local/lib/libopencv_calib3d.dylib,
+					/usr/local/lib/libopencv_contrib.dylib,
+					/usr/local/lib/libopencv_core.dylib,
+					/usr/local/lib/libopencv_features2d.dylib,
+					/usr/local/lib/libopencv_flann.dylib,
+					/usr/local/lib/libopencv_gpu.dylib,
+					/usr/local/lib/libopencv_highgui.dylib,
+					/usr/local/lib/libopencv_imgproc.dylib,
+					/usr/local/lib/libopencv_legacy.dylib,
+					/usr/local/lib/libopencv_ml.dylib,
+					/usr/local/lib/libopencv_nonfree.dylib,
+					/usr/local/lib/libopencv_objdetect.dylib,
+					/usr/local/lib/libopencv_ocl.dylib,
+					/usr/local/lib/libopencv_photo.dylib,
+					/usr/local/lib/libopencv_stitching.dylib,
+					/usr/local/lib/libopencv_superres.dylib,
+					/usr/local/lib/libopencv_ts.dylib,
+					/usr/local/lib/libopencv_video.dylib,
+					/usr/local/lib/libopencv_videostab.dylib,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = aruco;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/src;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Debug;
+		};
+		9EB98E5B8BAA4A81B544CF33 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+					/Users/todd/Documents/proj/aruco/trunk/src,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/todd/Documents/proj/aruco/trunk/src/MinSizeRel/libaruco.dylib,
+					/usr/local/lib/libopencv_calib3d.dylib,
+					/usr/local/lib/libopencv_contrib.dylib,
+					/usr/local/lib/libopencv_core.dylib,
+					/usr/local/lib/libopencv_features2d.dylib,
+					/usr/local/lib/libopencv_flann.dylib,
+					/usr/local/lib/libopencv_gpu.dylib,
+					/usr/local/lib/libopencv_highgui.dylib,
+					/usr/local/lib/libopencv_imgproc.dylib,
+					/usr/local/lib/libopencv_legacy.dylib,
+					/usr/local/lib/libopencv_ml.dylib,
+					/usr/local/lib/libopencv_nonfree.dylib,
+					/usr/local/lib/libopencv_objdetect.dylib,
+					/usr/local/lib/libopencv_ocl.dylib,
+					/usr/local/lib/libopencv_photo.dylib,
+					/usr/local/lib/libopencv_stitching.dylib,
+					/usr/local/lib/libopencv_superres.dylib,
+					/usr/local/lib/libopencv_ts.dylib,
+					/usr/local/lib/libopencv_video.dylib,
+					/usr/local/lib/libopencv_videostab.dylib,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = aruco_test;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/utils;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = MinSizeRel;
+		};
+		A2F6C2D61CC84122BBAE9314 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+					/Users/todd/Documents/proj/aruco/trunk/src,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/todd/Documents/proj/aruco/trunk/src/Release/libaruco.dylib,
+					/usr/local/lib/libopencv_calib3d.dylib,
+					/usr/local/lib/libopencv_contrib.dylib,
+					/usr/local/lib/libopencv_core.dylib,
+					/usr/local/lib/libopencv_features2d.dylib,
+					/usr/local/lib/libopencv_flann.dylib,
+					/usr/local/lib/libopencv_gpu.dylib,
+					/usr/local/lib/libopencv_highgui.dylib,
+					/usr/local/lib/libopencv_imgproc.dylib,
+					/usr/local/lib/libopencv_legacy.dylib,
+					/usr/local/lib/libopencv_ml.dylib,
+					/usr/local/lib/libopencv_nonfree.dylib,
+					/usr/local/lib/libopencv_objdetect.dylib,
+					/usr/local/lib/libopencv_ocl.dylib,
+					/usr/local/lib/libopencv_photo.dylib,
+					/usr/local/lib/libopencv_stitching.dylib,
+					/usr/local/lib/libopencv_superres.dylib,
+					/usr/local/lib/libopencv_ts.dylib,
+					/usr/local/lib/libopencv_video.dylib,
+					/usr/local/lib/libopencv_videostab.dylib,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = aruco_simple_board;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/utils;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Release;
+		};
+		A9F248CC25B84CFFB1391371 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+				);
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = (
+				);
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = install;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = MinSizeRel;
+		};
+		AA07568137C2477CB4FC88D4 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+					/Users/todd/Documents/proj/aruco/trunk/src,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/todd/Documents/proj/aruco/trunk/src/MinSizeRel/libaruco.dylib,
+					/usr/local/lib/libopencv_calib3d.dylib,
+					/usr/local/lib/libopencv_contrib.dylib,
+					/usr/local/lib/libopencv_core.dylib,
+					/usr/local/lib/libopencv_features2d.dylib,
+					/usr/local/lib/libopencv_flann.dylib,
+					/usr/local/lib/libopencv_gpu.dylib,
+					/usr/local/lib/libopencv_highgui.dylib,
+					/usr/local/lib/libopencv_imgproc.dylib,
+					/usr/local/lib/libopencv_legacy.dylib,
+					/usr/local/lib/libopencv_ml.dylib,
+					/usr/local/lib/libopencv_nonfree.dylib,
+					/usr/local/lib/libopencv_objdetect.dylib,
+					/usr/local/lib/libopencv_ocl.dylib,
+					/usr/local/lib/libopencv_photo.dylib,
+					/usr/local/lib/libopencv_stitching.dylib,
+					/usr/local/lib/libopencv_superres.dylib,
+					/usr/local/lib/libopencv_ts.dylib,
+					/usr/local/lib/libopencv_video.dylib,
+					/usr/local/lib/libopencv_videostab.dylib,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = aruco_board_pix2meters;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/utils;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = MinSizeRel;
+		};
+		ADD7BFDD22264797B9B13E24 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1.2.0;
+				DYLIB_CURRENT_VERSION = 1.2.4;
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .dylib;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
+					DSO_EXPORTS,
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+					/Users/todd/Documents/proj/aruco/trunk/src/.,
+					/Users/todd/Documents/proj/aruco/trunk/src,
+				);
+				INSTALL_PATH = /Users/todd/Documents/proj/aruco/trunk/src/RelWithDebInfo;
+				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_STYLE = DYNAMIC;
+				OTHER_CFLAGS = (
+					"-DNDEBUG",
+					"-fPIC",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+					"-fPIC",
+				);
+				OTHER_LDFLAGS = (
+					"-dynamiclib",
+					"-Wl,-headerpad_max_install_names",
+					/usr/local/lib/libopencv_calib3d.dylib,
+					/usr/local/lib/libopencv_contrib.dylib,
+					/usr/local/lib/libopencv_core.dylib,
+					/usr/local/lib/libopencv_features2d.dylib,
+					/usr/local/lib/libopencv_flann.dylib,
+					/usr/local/lib/libopencv_gpu.dylib,
+					/usr/local/lib/libopencv_highgui.dylib,
+					/usr/local/lib/libopencv_imgproc.dylib,
+					/usr/local/lib/libopencv_legacy.dylib,
+					/usr/local/lib/libopencv_ml.dylib,
+					/usr/local/lib/libopencv_nonfree.dylib,
+					/usr/local/lib/libopencv_objdetect.dylib,
+					/usr/local/lib/libopencv_ocl.dylib,
+					/usr/local/lib/libopencv_photo.dylib,
+					/usr/local/lib/libopencv_stitching.dylib,
+					/usr/local/lib/libopencv_superres.dylib,
+					/usr/local/lib/libopencv_ts.dylib,
+					/usr/local/lib/libopencv_video.dylib,
+					/usr/local/lib/libopencv_videostab.dylib,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = aruco;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/src;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+		B4976CA6CEB4433E90501159 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+					/Users/todd/Documents/proj/aruco/trunk/src,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/todd/Documents/proj/aruco/trunk/src/MinSizeRel/libaruco.dylib,
+					/usr/local/lib/libopencv_calib3d.dylib,
+					/usr/local/lib/libopencv_contrib.dylib,
+					/usr/local/lib/libopencv_core.dylib,
+					/usr/local/lib/libopencv_features2d.dylib,
+					/usr/local/lib/libopencv_flann.dylib,
+					/usr/local/lib/libopencv_gpu.dylib,
+					/usr/local/lib/libopencv_highgui.dylib,
+					/usr/local/lib/libopencv_imgproc.dylib,
+					/usr/local/lib/libopencv_legacy.dylib,
+					/usr/local/lib/libopencv_ml.dylib,
+					/usr/local/lib/libopencv_nonfree.dylib,
+					/usr/local/lib/libopencv_objdetect.dylib,
+					/usr/local/lib/libopencv_ocl.dylib,
+					/usr/local/lib/libopencv_photo.dylib,
+					/usr/local/lib/libopencv_stitching.dylib,
+					/usr/local/lib/libopencv_superres.dylib,
+					/usr/local/lib/libopencv_ts.dylib,
+					/usr/local/lib/libopencv_video.dylib,
+					/usr/local/lib/libopencv_videostab.dylib,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = aruco_test_board;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/utils;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = MinSizeRel;
+		};
+		B5115B3E44DA4656B92ECB01 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+					/Users/todd/Documents/proj/aruco/trunk/src,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = (
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/todd/Documents/proj/aruco/trunk/src/Debug/libaruco.dylib,
+					/usr/local/lib/libopencv_calib3d.dylib,
+					/usr/local/lib/libopencv_contrib.dylib,
+					/usr/local/lib/libopencv_core.dylib,
+					/usr/local/lib/libopencv_features2d.dylib,
+					/usr/local/lib/libopencv_flann.dylib,
+					/usr/local/lib/libopencv_gpu.dylib,
+					/usr/local/lib/libopencv_highgui.dylib,
+					/usr/local/lib/libopencv_imgproc.dylib,
+					/usr/local/lib/libopencv_legacy.dylib,
+					/usr/local/lib/libopencv_ml.dylib,
+					/usr/local/lib/libopencv_nonfree.dylib,
+					/usr/local/lib/libopencv_objdetect.dylib,
+					/usr/local/lib/libopencv_ocl.dylib,
+					/usr/local/lib/libopencv_photo.dylib,
+					/usr/local/lib/libopencv_stitching.dylib,
+					/usr/local/lib/libopencv_superres.dylib,
+					/usr/local/lib/libopencv_ts.dylib,
+					/usr/local/lib/libopencv_video.dylib,
+					/usr/local/lib/libopencv_videostab.dylib,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = aruco_test;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/utils;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Debug;
+		};
+		BB93E2309895456C87F80F02 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+					/Users/todd/Documents/proj/aruco/trunk/src,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/todd/Documents/proj/aruco/trunk/src/RelWithDebInfo/libaruco.dylib,
+					/usr/local/lib/libopencv_calib3d.dylib,
+					/usr/local/lib/libopencv_contrib.dylib,
+					/usr/local/lib/libopencv_core.dylib,
+					/usr/local/lib/libopencv_features2d.dylib,
+					/usr/local/lib/libopencv_flann.dylib,
+					/usr/local/lib/libopencv_gpu.dylib,
+					/usr/local/lib/libopencv_highgui.dylib,
+					/usr/local/lib/libopencv_imgproc.dylib,
+					/usr/local/lib/libopencv_legacy.dylib,
+					/usr/local/lib/libopencv_ml.dylib,
+					/usr/local/lib/libopencv_nonfree.dylib,
+					/usr/local/lib/libopencv_objdetect.dylib,
+					/usr/local/lib/libopencv_ocl.dylib,
+					/usr/local/lib/libopencv_photo.dylib,
+					/usr/local/lib/libopencv_stitching.dylib,
+					/usr/local/lib/libopencv_superres.dylib,
+					/usr/local/lib/libopencv_ts.dylib,
+					/usr/local/lib/libopencv_video.dylib,
+					/usr/local/lib/libopencv_videostab.dylib,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = aruco_simple_board;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/utils;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+		C0A1EFFE329C4D73B5E1B754 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+					/Users/todd/Documents/proj/aruco/trunk/src,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/todd/Documents/proj/aruco/trunk/src/RelWithDebInfo/libaruco.dylib,
+					/usr/local/lib/libopencv_calib3d.dylib,
+					/usr/local/lib/libopencv_contrib.dylib,
+					/usr/local/lib/libopencv_core.dylib,
+					/usr/local/lib/libopencv_features2d.dylib,
+					/usr/local/lib/libopencv_flann.dylib,
+					/usr/local/lib/libopencv_gpu.dylib,
+					/usr/local/lib/libopencv_highgui.dylib,
+					/usr/local/lib/libopencv_imgproc.dylib,
+					/usr/local/lib/libopencv_legacy.dylib,
+					/usr/local/lib/libopencv_ml.dylib,
+					/usr/local/lib/libopencv_nonfree.dylib,
+					/usr/local/lib/libopencv_objdetect.dylib,
+					/usr/local/lib/libopencv_ocl.dylib,
+					/usr/local/lib/libopencv_photo.dylib,
+					/usr/local/lib/libopencv_stitching.dylib,
+					/usr/local/lib/libopencv_superres.dylib,
+					/usr/local/lib/libopencv_ts.dylib,
+					/usr/local/lib/libopencv_video.dylib,
+					/usr/local/lib/libopencv_videostab.dylib,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = aruco_selectoptimalmarkers;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/utils;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+		C2B2C610B07E49459BFA451A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk;
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/build;
+			};
+			name = Release;
+		};
+		C68DAD4CC2C644D9B89F6F12 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+					/Users/todd/Documents/proj/aruco/trunk/src,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = (
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/todd/Documents/proj/aruco/trunk/src/Debug/libaruco.dylib,
+					/usr/local/lib/libopencv_calib3d.dylib,
+					/usr/local/lib/libopencv_contrib.dylib,
+					/usr/local/lib/libopencv_core.dylib,
+					/usr/local/lib/libopencv_features2d.dylib,
+					/usr/local/lib/libopencv_flann.dylib,
+					/usr/local/lib/libopencv_gpu.dylib,
+					/usr/local/lib/libopencv_highgui.dylib,
+					/usr/local/lib/libopencv_imgproc.dylib,
+					/usr/local/lib/libopencv_legacy.dylib,
+					/usr/local/lib/libopencv_ml.dylib,
+					/usr/local/lib/libopencv_nonfree.dylib,
+					/usr/local/lib/libopencv_objdetect.dylib,
+					/usr/local/lib/libopencv_ocl.dylib,
+					/usr/local/lib/libopencv_photo.dylib,
+					/usr/local/lib/libopencv_stitching.dylib,
+					/usr/local/lib/libopencv_superres.dylib,
+					/usr/local/lib/libopencv_ts.dylib,
+					/usr/local/lib/libopencv_video.dylib,
+					/usr/local/lib/libopencv_videostab.dylib,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = aruco_simple;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/utils;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Debug;
+		};
+		C897BF3135D64570A2A72363 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+					/Users/todd/Documents/proj/aruco/trunk/src,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = (
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/todd/Documents/proj/aruco/trunk/src/Debug/libaruco.dylib,
+					/usr/local/lib/libopencv_calib3d.dylib,
+					/usr/local/lib/libopencv_contrib.dylib,
+					/usr/local/lib/libopencv_core.dylib,
+					/usr/local/lib/libopencv_features2d.dylib,
+					/usr/local/lib/libopencv_flann.dylib,
+					/usr/local/lib/libopencv_gpu.dylib,
+					/usr/local/lib/libopencv_highgui.dylib,
+					/usr/local/lib/libopencv_imgproc.dylib,
+					/usr/local/lib/libopencv_legacy.dylib,
+					/usr/local/lib/libopencv_ml.dylib,
+					/usr/local/lib/libopencv_nonfree.dylib,
+					/usr/local/lib/libopencv_objdetect.dylib,
+					/usr/local/lib/libopencv_ocl.dylib,
+					/usr/local/lib/libopencv_photo.dylib,
+					/usr/local/lib/libopencv_stitching.dylib,
+					/usr/local/lib/libopencv_superres.dylib,
+					/usr/local/lib/libopencv_ts.dylib,
+					/usr/local/lib/libopencv_video.dylib,
+					/usr/local/lib/libopencv_videostab.dylib,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = aruco_board_pix2meters;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/utils;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Debug;
+		};
+		CA387974080F4FDF98D90996 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+					/Users/todd/Documents/proj/aruco/trunk/src,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/todd/Documents/proj/aruco/trunk/src/RelWithDebInfo/libaruco.dylib,
+					/usr/local/lib/libopencv_calib3d.dylib,
+					/usr/local/lib/libopencv_contrib.dylib,
+					/usr/local/lib/libopencv_core.dylib,
+					/usr/local/lib/libopencv_features2d.dylib,
+					/usr/local/lib/libopencv_flann.dylib,
+					/usr/local/lib/libopencv_gpu.dylib,
+					/usr/local/lib/libopencv_highgui.dylib,
+					/usr/local/lib/libopencv_imgproc.dylib,
+					/usr/local/lib/libopencv_legacy.dylib,
+					/usr/local/lib/libopencv_ml.dylib,
+					/usr/local/lib/libopencv_nonfree.dylib,
+					/usr/local/lib/libopencv_objdetect.dylib,
+					/usr/local/lib/libopencv_ocl.dylib,
+					/usr/local/lib/libopencv_photo.dylib,
+					/usr/local/lib/libopencv_stitching.dylib,
+					/usr/local/lib/libopencv_superres.dylib,
+					/usr/local/lib/libopencv_ts.dylib,
+					/usr/local/lib/libopencv_video.dylib,
+					/usr/local/lib/libopencv_videostab.dylib,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = aruco_test;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/utils;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+		CC80A530160A468B89BC72F6 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+				);
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = (
+				);
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+		D28A8728BF37426984432FAA /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+				);
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = (
+				);
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = package;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+		D2F9BA08609F448882D72221 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+					/Users/todd/Documents/proj/aruco/trunk/src,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/todd/Documents/proj/aruco/trunk/src/Release/libaruco.dylib,
+					/usr/local/lib/libopencv_calib3d.dylib,
+					/usr/local/lib/libopencv_contrib.dylib,
+					/usr/local/lib/libopencv_core.dylib,
+					/usr/local/lib/libopencv_features2d.dylib,
+					/usr/local/lib/libopencv_flann.dylib,
+					/usr/local/lib/libopencv_gpu.dylib,
+					/usr/local/lib/libopencv_highgui.dylib,
+					/usr/local/lib/libopencv_imgproc.dylib,
+					/usr/local/lib/libopencv_legacy.dylib,
+					/usr/local/lib/libopencv_ml.dylib,
+					/usr/local/lib/libopencv_nonfree.dylib,
+					/usr/local/lib/libopencv_objdetect.dylib,
+					/usr/local/lib/libopencv_ocl.dylib,
+					/usr/local/lib/libopencv_photo.dylib,
+					/usr/local/lib/libopencv_stitching.dylib,
+					/usr/local/lib/libopencv_superres.dylib,
+					/usr/local/lib/libopencv_ts.dylib,
+					/usr/local/lib/libopencv_video.dylib,
+					/usr/local/lib/libopencv_videostab.dylib,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = aruco_create_board;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/utils;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Release;
+		};
+		D8AC1C20018B4D05B28EBAB6 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+					/Users/todd/Documents/proj/aruco/trunk/src,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/todd/Documents/proj/aruco/trunk/src/RelWithDebInfo/libaruco.dylib,
+					/usr/local/lib/libopencv_calib3d.dylib,
+					/usr/local/lib/libopencv_contrib.dylib,
+					/usr/local/lib/libopencv_core.dylib,
+					/usr/local/lib/libopencv_features2d.dylib,
+					/usr/local/lib/libopencv_flann.dylib,
+					/usr/local/lib/libopencv_gpu.dylib,
+					/usr/local/lib/libopencv_highgui.dylib,
+					/usr/local/lib/libopencv_imgproc.dylib,
+					/usr/local/lib/libopencv_legacy.dylib,
+					/usr/local/lib/libopencv_ml.dylib,
+					/usr/local/lib/libopencv_nonfree.dylib,
+					/usr/local/lib/libopencv_objdetect.dylib,
+					/usr/local/lib/libopencv_ocl.dylib,
+					/usr/local/lib/libopencv_photo.dylib,
+					/usr/local/lib/libopencv_stitching.dylib,
+					/usr/local/lib/libopencv_superres.dylib,
+					/usr/local/lib/libopencv_ts.dylib,
+					/usr/local/lib/libopencv_video.dylib,
+					/usr/local/lib/libopencv_videostab.dylib,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = aruco_test_board;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/utils;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+		DA02D8D5E75F48EBA614C079 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+				);
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = (
+				);
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = package;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Release;
+		};
+		E0EB4B07BB794A35B8686AAB /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+					/Users/todd/Documents/proj/aruco/trunk/src,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/todd/Documents/proj/aruco/trunk/src/RelWithDebInfo/libaruco.dylib,
+					/usr/local/lib/libopencv_calib3d.dylib,
+					/usr/local/lib/libopencv_contrib.dylib,
+					/usr/local/lib/libopencv_core.dylib,
+					/usr/local/lib/libopencv_features2d.dylib,
+					/usr/local/lib/libopencv_flann.dylib,
+					/usr/local/lib/libopencv_gpu.dylib,
+					/usr/local/lib/libopencv_highgui.dylib,
+					/usr/local/lib/libopencv_imgproc.dylib,
+					/usr/local/lib/libopencv_legacy.dylib,
+					/usr/local/lib/libopencv_ml.dylib,
+					/usr/local/lib/libopencv_nonfree.dylib,
+					/usr/local/lib/libopencv_objdetect.dylib,
+					/usr/local/lib/libopencv_ocl.dylib,
+					/usr/local/lib/libopencv_photo.dylib,
+					/usr/local/lib/libopencv_stitching.dylib,
+					/usr/local/lib/libopencv_superres.dylib,
+					/usr/local/lib/libopencv_ts.dylib,
+					/usr/local/lib/libopencv_video.dylib,
+					/usr/local/lib/libopencv_videostab.dylib,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = aruco_create_board;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/utils;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+		E42549A3E2974DFAA7E2C68C /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+					/Users/todd/Documents/proj/aruco/trunk/src,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/todd/Documents/proj/aruco/trunk/src/RelWithDebInfo/libaruco.dylib,
+					/usr/local/lib/libopencv_calib3d.dylib,
+					/usr/local/lib/libopencv_contrib.dylib,
+					/usr/local/lib/libopencv_core.dylib,
+					/usr/local/lib/libopencv_features2d.dylib,
+					/usr/local/lib/libopencv_flann.dylib,
+					/usr/local/lib/libopencv_gpu.dylib,
+					/usr/local/lib/libopencv_highgui.dylib,
+					/usr/local/lib/libopencv_imgproc.dylib,
+					/usr/local/lib/libopencv_legacy.dylib,
+					/usr/local/lib/libopencv_ml.dylib,
+					/usr/local/lib/libopencv_nonfree.dylib,
+					/usr/local/lib/libopencv_objdetect.dylib,
+					/usr/local/lib/libopencv_ocl.dylib,
+					/usr/local/lib/libopencv_photo.dylib,
+					/usr/local/lib/libopencv_stitching.dylib,
+					/usr/local/lib/libopencv_superres.dylib,
+					/usr/local/lib/libopencv_ts.dylib,
+					/usr/local/lib/libopencv_video.dylib,
+					/usr/local/lib/libopencv_videostab.dylib,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = aruco_create_marker;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/utils;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+		E49DDF9BAAC343E2B0CC93B0 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+				);
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = (
+				);
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = install;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+		E523A1FC53F94E1D868DBC2B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+					/Users/todd/Documents/proj/aruco/trunk/src,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = (
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/todd/Documents/proj/aruco/trunk/src/Debug/libaruco.dylib,
+					/usr/local/lib/libopencv_calib3d.dylib,
+					/usr/local/lib/libopencv_contrib.dylib,
+					/usr/local/lib/libopencv_core.dylib,
+					/usr/local/lib/libopencv_features2d.dylib,
+					/usr/local/lib/libopencv_flann.dylib,
+					/usr/local/lib/libopencv_gpu.dylib,
+					/usr/local/lib/libopencv_highgui.dylib,
+					/usr/local/lib/libopencv_imgproc.dylib,
+					/usr/local/lib/libopencv_legacy.dylib,
+					/usr/local/lib/libopencv_ml.dylib,
+					/usr/local/lib/libopencv_nonfree.dylib,
+					/usr/local/lib/libopencv_objdetect.dylib,
+					/usr/local/lib/libopencv_ocl.dylib,
+					/usr/local/lib/libopencv_photo.dylib,
+					/usr/local/lib/libopencv_stitching.dylib,
+					/usr/local/lib/libopencv_superres.dylib,
+					/usr/local/lib/libopencv_ts.dylib,
+					/usr/local/lib/libopencv_video.dylib,
+					/usr/local/lib/libopencv_videostab.dylib,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = aruco_create_marker;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/utils;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Debug;
+		};
+		E5A372333EF84EE397603EA4 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+					/Users/todd/Documents/proj/aruco/trunk/src,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/todd/Documents/proj/aruco/trunk/src/RelWithDebInfo/libaruco.dylib,
+					/usr/local/lib/libopencv_calib3d.dylib,
+					/usr/local/lib/libopencv_contrib.dylib,
+					/usr/local/lib/libopencv_core.dylib,
+					/usr/local/lib/libopencv_features2d.dylib,
+					/usr/local/lib/libopencv_flann.dylib,
+					/usr/local/lib/libopencv_gpu.dylib,
+					/usr/local/lib/libopencv_highgui.dylib,
+					/usr/local/lib/libopencv_imgproc.dylib,
+					/usr/local/lib/libopencv_legacy.dylib,
+					/usr/local/lib/libopencv_ml.dylib,
+					/usr/local/lib/libopencv_nonfree.dylib,
+					/usr/local/lib/libopencv_objdetect.dylib,
+					/usr/local/lib/libopencv_ocl.dylib,
+					/usr/local/lib/libopencv_photo.dylib,
+					/usr/local/lib/libopencv_stitching.dylib,
+					/usr/local/lib/libopencv_superres.dylib,
+					/usr/local/lib/libopencv_ts.dylib,
+					/usr/local/lib/libopencv_video.dylib,
+					/usr/local/lib/libopencv_videostab.dylib,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = aruco_board_pix2meters;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/utils;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+		E840C51637B84B9D95F63F73 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+				);
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = (
+				);
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = uninstall;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Release;
+		};
+		ECA1DCEAA8964B19A371CC6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+					/Users/todd/Documents/proj/aruco/trunk/src,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = (
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/todd/Documents/proj/aruco/trunk/src/Debug/libaruco.dylib,
+					/usr/local/lib/libopencv_calib3d.dylib,
+					/usr/local/lib/libopencv_contrib.dylib,
+					/usr/local/lib/libopencv_core.dylib,
+					/usr/local/lib/libopencv_features2d.dylib,
+					/usr/local/lib/libopencv_flann.dylib,
+					/usr/local/lib/libopencv_gpu.dylib,
+					/usr/local/lib/libopencv_highgui.dylib,
+					/usr/local/lib/libopencv_imgproc.dylib,
+					/usr/local/lib/libopencv_legacy.dylib,
+					/usr/local/lib/libopencv_ml.dylib,
+					/usr/local/lib/libopencv_nonfree.dylib,
+					/usr/local/lib/libopencv_objdetect.dylib,
+					/usr/local/lib/libopencv_ocl.dylib,
+					/usr/local/lib/libopencv_photo.dylib,
+					/usr/local/lib/libopencv_stitching.dylib,
+					/usr/local/lib/libopencv_superres.dylib,
+					/usr/local/lib/libopencv_ts.dylib,
+					/usr/local/lib/libopencv_video.dylib,
+					/usr/local/lib/libopencv_videostab.dylib,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = aruco_test_board;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/utils;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Debug;
+		};
+		F91597BFB798433BB1EA9B6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+				);
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = (
+				);
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = uninstall;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Debug;
+		};
+		FC121FD924B14038B1C640F9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/opencv,
+					/usr/local/include,
+					/Users/todd/Documents/proj/aruco/trunk/src,
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/Users/todd/Documents/proj/aruco/trunk/src/Release/libaruco.dylib,
+					/usr/local/lib/libopencv_calib3d.dylib,
+					/usr/local/lib/libopencv_contrib.dylib,
+					/usr/local/lib/libopencv_core.dylib,
+					/usr/local/lib/libopencv_features2d.dylib,
+					/usr/local/lib/libopencv_flann.dylib,
+					/usr/local/lib/libopencv_gpu.dylib,
+					/usr/local/lib/libopencv_highgui.dylib,
+					/usr/local/lib/libopencv_imgproc.dylib,
+					/usr/local/lib/libopencv_legacy.dylib,
+					/usr/local/lib/libopencv_ml.dylib,
+					/usr/local/lib/libopencv_nonfree.dylib,
+					/usr/local/lib/libopencv_objdetect.dylib,
+					/usr/local/lib/libopencv_ocl.dylib,
+					/usr/local/lib/libopencv_photo.dylib,
+					/usr/local/lib/libopencv_stitching.dylib,
+					/usr/local/lib/libopencv_superres.dylib,
+					/usr/local/lib/libopencv_ts.dylib,
+					/usr/local/lib/libopencv_video.dylib,
+					/usr/local/lib/libopencv_videostab.dylib,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = aruco_selectoptimalmarkers;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/todd/Documents/proj/aruco/trunk/utils;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		29AEC11D866247DBB0C37FF1 /* Build configuration list for PBXNativeTarget "aruco_simple_board" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				34C5B31C299B4E0289BB6059 /* Debug */,
+				A2F6C2D61CC84122BBAE9314 /* Release */,
+				0A1880BEAB0B42D38B1B6094 /* MinSizeRel */,
+				BB93E2309895456C87F80F02 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		2B541745AEC74D4F9F9A4028 /* Build configuration list for PBXNativeTarget "aruco_selectoptimalmarkers" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5FF62E3A510D417DB780A2DA /* Debug */,
+				FC121FD924B14038B1C640F9 /* Release */,
+				14E6E029885F47928083B026 /* MinSizeRel */,
+				C0A1EFFE329C4D73B5E1B754 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		3ACD4D631A6E48F9A3608F4D /* Build configuration list for PBXNativeTarget "aruco_test_gl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6EA627E3B03441D48492B11A /* Debug */,
+				7A8C4256B40B467B91C3EAF0 /* Release */,
+				46446BF3BE564EACA7FD8C91 /* MinSizeRel */,
+				156426CB84A946CF8414ABB6 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		3E8C76C2179349A6BD4BFA11 /* Build configuration list for PBXAggregateTarget "install" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				855DD620C9594C8A8F911436 /* Debug */,
+				493921823E26460CB0E6AAF0 /* Release */,
+				A9F248CC25B84CFFB1391371 /* MinSizeRel */,
+				E49DDF9BAAC343E2B0CC93B0 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		5F96CA8F17D17D820040A52F /* Build configuration list for PBXNativeTarget "calibration_test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5F96CA9017D17D820040A52F /* Debug */,
+				5F96CA9117D17D820040A52F /* Release */,
+				5F96CA9217D17D820040A52F /* MinSizeRel */,
+				5F96CA9317D17D820040A52F /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		814BC9A36E8B4C3F9C66E4B1 /* Build configuration list for PBXNativeTarget "aruco_simple" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C68DAD4CC2C644D9B89F6F12 /* Debug */,
+				39A7D10CD21E4323B215DB7F /* Release */,
+				785194BB500C4A0E82B22341 /* MinSizeRel */,
+				18EF872A0627459F8B092BE3 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		85F6960017BB4F188775105F /* Build configuration list for PBXNativeTarget "aruco_test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B5115B3E44DA4656B92ECB01 /* Debug */,
+				29BC7EE1FDF24DA5BCC2BE62 /* Release */,
+				9EB98E5B8BAA4A81B544CF33 /* MinSizeRel */,
+				CA387974080F4FDF98D90996 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		8851A319926A4E12A28BF09F /* Build configuration list for PBXAggregateTarget "package" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				848226F3C1154C90B22B217D /* Debug */,
+				DA02D8D5E75F48EBA614C079 /* Release */,
+				0477C587AEBA4BDCBD149F95 /* MinSizeRel */,
+				D28A8728BF37426984432FAA /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		8DDCCA3D122F49BA8434D8C9 /* Build configuration list for PBXNativeTarget "aruco_test_board" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECA1DCEAA8964B19A371CC6D /* Debug */,
+				44EBD57181A0466FB882D520 /* Release */,
+				B4976CA6CEB4433E90501159 /* MinSizeRel */,
+				D8AC1C20018B4D05B28EBAB6 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		91817E7849A7413387B9B97D /* Build configuration list for PBXNativeTarget "aruco_create_marker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E523A1FC53F94E1D868DBC2B /* Debug */,
+				354A427B4583400989CA378C /* Release */,
+				332E36BB1E6843829FA34C85 /* MinSizeRel */,
+				E42549A3E2974DFAA7E2C68C /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		9773288674B84CAEBBA77877 /* Build configuration list for PBXNativeTarget "aruco_board_pix2meters" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C897BF3135D64570A2A72363 /* Debug */,
+				7AA359C460364E8E94E0BA5E /* Release */,
+				AA07568137C2477CB4FC88D4 /* MinSizeRel */,
+				E5A372333EF84EE397603EA4 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		A51C673D840C4FB39B80EAAC /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				206830C132AC410B98DCCA5F /* Debug */,
+				045BF57764C04D0C83E20F43 /* Release */,
+				6EAC1CC5F13C48B280DAADE7 /* MinSizeRel */,
+				CC80A530160A468B89BC72F6 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		C24A7A99E7BA4D25B9C5E2F2 /* Build configuration list for PBXNativeTarget "aruco_create_board" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				190D3625F9B64BE99D279D98 /* Debug */,
+				D2F9BA08609F448882D72221 /* Release */,
+				1D8396DB38C04F67BEEB17A3 /* MinSizeRel */,
+				E0EB4B07BB794A35B8686AAB /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		D939F9FD759E45899BA0F97B /* Build configuration list for PBXNativeTarget "aruco_test_board_gl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				176FB29B71AA4D9AB8823AC1 /* Debug */,
+				6FFD2EFEF138436FB801165C /* Release */,
+				3647D71439AE48558531F28A /* MinSizeRel */,
+				760B864C51014258B5100CC3 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E5A7DD08339B428E84006C6A /* Build configuration list for PBXProject "aruco" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8844D6B3C4F848F2A0324BAB /* Debug */,
+				C2B2C610B07E49459BFA451A /* Release */,
+				353BB394854C4A6A98BF4785 /* MinSizeRel */,
+				6511876A6D8649388C9F3DC1 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		EEC3466D1B9D40ABB862F9BC /* Build configuration list for PBXAggregateTarget "uninstall" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F91597BFB798433BB1EA9B6D /* Debug */,
+				E840C51637B84B9D95F63F73 /* Release */,
+				5E4438D645A24965A80FB8FD /* MinSizeRel */,
+				7A2183379E134BE6BEFFF847 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		F16B8FD53F3C4D43AA9B7A37 /* Build configuration list for PBXNativeTarget "aruco" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BBB0DC038984E59857245A1 /* Debug */,
+				59C77133A59F4D1191E7F844 /* Release */,
+				74C2270D035B4772846E9F7E /* MinSizeRel */,
+				ADD7BFDD22264797B9B13E24 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		FB5C9887C80E4571AB544CFE /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				31647C290AB44A78A25DB8FA /* Debug */,
+				2B4CF2CFAFB04FA98D7EDB46 /* Release */,
+				21196E381CEE4E3DB07DCD20 /* MinSizeRel */,
+				2AF603B44C4B40AFA340CB23 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C953B1ECA7DE4E1DB82E539B /* Project object */;
+}

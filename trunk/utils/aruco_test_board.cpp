@@ -60,6 +60,10 @@ int waitTime= 1;
 
 
 
+static void dumpIntItem(int n) {
+    cout << n << "," ;
+}
+    
 /************************************
  *
  *
@@ -160,8 +164,8 @@ int main(int argc,char **argv)
             //w = cv.CreateVideoWriter('test.avi',cv.CV_FOURCC('X','V','I','D'),25,(640,480))
 
             vidWriter.open(vidOutPath,
-                           CV_FOURCC('D', 'I', 'B', ' '), // RGB(A)
-                           //CV_FOURCC('I', 'Y', 'U', 'V'), // to encode using yuv420p into an uncompressed AVI
+                           //CV_FOURCC('D', 'I', 'B', ' '), // RGB(A)
+                           CV_FOURCC('I', 'Y', 'U', 'V'), // to encode using yuv420p into an uncompressed AVI
                            //CV_FOURCC('D','I','V','X'), // = MPEG-4 codec
                            //CV_FOURCC('M','J','P','G'), // = motion-jpeg codec (does not work well)
                        //videoCap.get(CV_CAP_PROP_FOURCC), same as input, not always possible
@@ -172,7 +176,6 @@ int main(int argc,char **argv)
             );
             
             
-            //vidWriter.open(vidOutPath,CV_FOURCC('M','J','P','G'),15,inputImg.size());
             if (!vidWriter.isOpened())  {
                 std::cout << "!!! Output video could not be opened" << std::endl;
                 return -1;
@@ -198,7 +201,9 @@ int main(int argc,char **argv)
         cv::createTrackbar("ThresParam2", "in",&iThresParam2, 13, cvTackBarEvents);
         char key=0;
         int index=0;
-                
+        
+        std::set<int> foundSet;
+        
         //capture until press ESC or until the end of the video
         do
         {
@@ -217,7 +222,12 @@ int main(int argc,char **argv)
             vector<Marker>& detectedMarkers = boardDetect.getDetectedMarkers();
             //print marker borders
             for (unsigned int i=0;i < detectedMarkers.size();i++) {
-                detectedMarkers[i].draw(inputImgCopy,Scalar(0,0,255),1);
+                Marker curMarker = detectedMarkers[i];
+                if (curMarker.isValid()) {
+                    foundSet.insert(curMarker.id);
+                    cout << curMarker.id << endl;
+                    curMarker.draw(inputImgCopy,Scalar(0,0,255),1);
+                }
             }
 
             //print board
@@ -233,20 +243,7 @@ int main(int argc,char **argv)
             cv::imshow("thres",boardDetect.getMarkerDetector().getThresholdedImage());
             //write to video if required
             if (!vidOutPath.empty()) {
-                
-                vidWriter.write(inputImgCopy);
-                //vidWriter << inputImgCopy; //simply copy window output
-                
-                ////create a beautiful compiosed image showing the thresholded
-                ////first create a small version of the thresholded image
-                //cv::Mat smallThres;
-                //cv::resize( boardDetect.getMarkerDetector().getThresholdedImage(),smallThres,cvSize(inputImgCopy.cols/3,inputImgCopy.rows/3));
-                //cv::Mat small3C;
-                //cv::cvtColor(smallThres,small3C,CV_GRAY2BGR);
-                //cv::Mat roi = inputImgCopy(cv::Rect(0,0,inputImgCopy.cols/3,inputImgCopy.rows/3));
-                //small3C.copyTo(roi);
-                //vidWriter << inputImgCopy;
-
+                vidWriter.write(inputImgCopy); //simply copy window output
             }
 
             key=cv::waitKey(waitTime);//wait for key to be pressed
@@ -254,7 +251,12 @@ int main(int argc,char **argv)
         }
         while ( key!=27 && videoCap.grab());
         cout<< endl << "Average detect time: "<<1000*avgTime.first/avgTime.second<<"ms"<<endl;
-
+        
+        cout << "Found IDs: " ;
+        std::for_each(foundSet.begin(), foundSet.end(),dumpIntItem);
+        cout << endl;
+        
+        
 
         vidWriter.release();
         

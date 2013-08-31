@@ -47,7 +47,8 @@ int main(int argc,char **argv)
         int pixSize=100;
         float interMarkerDistance=0.2;
         bool isChessBoard=false;
-	int typeBoard=0;
+        int typeBoard=0;
+        
         if (argc>=5) pixSize=atoi(argv[4]);
         if (argc>=6) typeBoard=atoi(argv[5]);
         if (argc>=7) interMarkerDistance=atoi(argv[6]);
@@ -62,8 +63,14 @@ int main(int argc,char **argv)
 	  
 	  else {cerr<<"Incorrect board type"<<typeBoard<<endl;return -1;}
 	  
-        imwrite(argv[2],BoardImage);
-        BInfo.saveToFile(argv[3]);
+        string boardImagePath = argv[2];
+        string boardCfgPath = argv[3];
+        
+        cout << "Writing board image to: " << boardImagePath << endl;
+        imwrite(boardImagePath,BoardImage);
+        
+        cout << "Writing config file to: " << boardCfgPath << endl;
+        BInfo.saveToFile(boardCfgPath);
 
     }
     catch (std::exception &ex)

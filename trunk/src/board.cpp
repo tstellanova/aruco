@@ -29,6 +29,9 @@ or implied, of Rafael Muñoz Salinas.
 #include <fstream>
 using namespace std;
 using namespace cv;
+
+
+
 namespace aruco
 {
 
@@ -70,20 +73,27 @@ void BoardConfiguration::saveToFile ( string sfile ) throw ( cv::Exception )
     cv::FileStorage fs ( sfile,cv::FileStorage::WRITE );
     saveToFile(fs);
 
+    
 }
-/**Saves the board info to a file
+/**
+ @brief Saves the board info to a file
 */
 void BoardConfiguration::saveToFile(cv::FileStorage &fs)throw (cv::Exception) {
-    fs<<"aruco_bc_nmarkers"<< ( int ) size();
-    fs<<"aruco_bc_mInfoType"<< ( int ) mInfoType;
+    fs<<"aruco_bc_nmarkers" << ( int ) size();
+    fs<<"aruco_bc_mInfoType" << ( int ) mInfoType;
+    
     fs<<"aruco_bc_markers"<<"[";
+    
     for ( size_t i=0;i<size();i++ )
     {
-        fs << "{:" << "id" << at(i).id ;
+        fs << "{:" << "id" << at(i).id  ;
 
-        fs<<"corners"<< "[:";
-        for (int c=0;c<at(i).size();c++)
-            fs<<at(i)[c];
+        fs<<"corners"<< "[:" ;
+        
+        for (int c=0; c < at(i).size(); c++) {
+            fs << at(i)[c];
+        }
+        
         fs<<"]";
         fs <<  "}";
     }
@@ -102,7 +112,9 @@ void BoardConfiguration::readFromFile ( string sfile ) throw ( cv::Exception )
 }
 
 
-/**Reads board info from a file
+/**
+ 
+ @brief Reads board info from a file
 */
 void BoardConfiguration::readFromFile(cv::FileStorage &fs)throw (cv::Exception)
 {
