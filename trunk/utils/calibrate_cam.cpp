@@ -51,6 +51,11 @@ const char* liveCaptureHelp =
         "  'g' - start capturing images\n"
         "  'u' - switch undistortion on/off\n";
 
+
+
+
+
+
 static void help()
 {
     printf( "This is a camera calibration sample.\n"
@@ -266,6 +271,7 @@ static bool readStringList( const string& filename, vector<string>& l )
     for( ; it != it_end; ++it ) {
         string thing = *it;
         cout << thing << endl;
+        getAbsoluteFilePath(
         l.push_back((string)*it);
     }
     return true;
@@ -455,11 +461,15 @@ int main( int argc, char** argv )
             view0.copyTo(view);
         }
         else if( i < (int)imageList.size() ) {
+            cout << "Reading file: " << imageList[i] << endl;
             view = imread(imageList[i], 1);
+        }
+        else {
+            break; //done
         }
 
         if (!view.data) {
-            cout << "No data for image " << i;
+            cout << "No data for image " << i << endl;
             if ( imagePoints.size() > 0 ) {
                 runAndSave(outputFilename, imagePoints, imageSize,
                            boardSize, pattern, squareSize, aspectRatio,
