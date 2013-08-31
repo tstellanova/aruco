@@ -3,12 +3,9 @@
 
 
 CMakeCache.txt
-
 src/CMakeFiles/*
 CMakeFiles/*
-
 CPackConfig.cmake
-
 CPackSourceConfig.cmake
 
 *.o
@@ -17,71 +14,43 @@ CPackSourceConfig.cmake
 *.dylib
 
 utils/CMakeFiles/*
-
 src/Makefile
-
 utils/Makefile
-
 Makefile
 
 Findaruco.cmake
-
 cmake_install.cmake
-
 cmake_uninstall.cmake
 
 utils/aruco_board_pix2meters
-
 utils/aruco_create_board
-
 utils/aruco_create_marker
-
 utils/aruco_selectoptimalmarkers
-
 utils/aruco_simple
-
 utils/aruco_simple_board
-
 utils/aruco_test
-
 utils/aruco_test_board
-
 utils/aruco_test_board_gl
-
 utils/aruco_test_gl
-
 testsdata/markers/*
 
 trunk/CMakeFiles/*
-
 trunk/CMakeScripts/*
-
 trunk/aruco.build/*
 
 
 trunk/src/CMakeFiles/*
 trunk/src/CMakeScripts/*
-
 trunk/src/aruco.build/*
 
-
-
 trunk/utils/CMakeFiles/*
-
 trunk/utils/CMakeScripts/*
-
 trunk/utils/aruco.build/*
-
-
 
 trunk/utils/Debug/*
 trunk/utils/Release/*
-
-
 trunk/build/*
 
-
 trunk/aruco.xcodeproj/project.xcworkspace/xcuserdata/*
-
 trunk/aruco.xcodeproj/xcuserdata/*
 
