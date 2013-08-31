@@ -37,19 +37,18 @@ or implied, of Rafael Muñoz Salinas.
 using namespace cv;
 using namespace aruco;
 
-string TheInputVideo;
-string TheIntrinsicFile;
+string inputVideoFilename;
+string intrinsicFilename;
 string boardConfigFile;
 bool The3DInfoAvailable=false;
-float TheMarkerSize=-1;
+float markerSize=-1;
 VideoCapture videoCap;
-Mat inputImg,inputImgCopy;
+Mat inputImg,outImg;
 CameraParameters camParams;
 BoardConfiguration boardCfg;
 BoardDetector boardDetect;
 
 string vidOutPath;
-cv::VideoWriter vidWriter;
 
 void cvTackBarEvents(int pos,void*);
 pair<double,double> avgTime(0,0) ;//determines the average time required for detection
@@ -75,9 +74,6 @@ static void getAbsoluteFilePath(const char* input, std::string& output)
 {
     char fullPath [PATH_MAX+1];
     
-    //getcwd(fullPath,sizeof(fullPath));
-    //cout << "getcwd: " << fullPath << endl;
-    
     realpath(input, fullPath);
     output = fullPath;
     
@@ -95,13 +91,13 @@ bool readArguments ( int argc,char **argv )
         return false;
     }
 
-    getAbsoluteFilePath(argv[1],TheInputVideo);
+    getAbsoluteFilePath(argv[1],inputVideoFilename);
     getAbsoluteFilePath(argv[2],boardConfigFile);
 
     if (argc>=4)
-        getAbsoluteFilePath(argv[3],TheIntrinsicFile);
+        getAbsoluteFilePath(argv[3],intrinsicFilename);
     if (argc>=5)
-        TheMarkerSize=atof(argv[4]);
+        markerSize=atof(argv[4]);
     if (argc>=6)
         getAbsoluteFilePath(argv[5],vidOutPath);
 
@@ -138,15 +134,20 @@ int main(int argc,char **argv)
 {
     try
     {
-        if (  readArguments (argc,argv)==false) return 0;
+        if (  readArguments (argc,argv)==false)
+            return 0;
+        
 //parse arguments
         boardCfg.readFromFile(boardConfigFile);
         //read from camera or from  file
-        if (TheInputVideo=="live") {
+        if (inputVideoFilename=="live") {
             videoCap.open(0);
             waitTime=10;
         }
-        else videoCap.open(TheInputVideo);
+        else {
+            videoCap.open(inputVideoFilename);
+        }
+        
         //check video is open
         if (!videoCap.isOpened()) {
             cerr<<"Could not open video"<<endl;
@@ -155,66 +156,46 @@ int main(int argc,char **argv)
         }
 
         //read first image to get the dimensions
-        videoCap>>inputImg;
+        videoCap >> inputImg;
 
-        //Open outputvideo
-        if (!vidOutPath.empty()) {
-            std::cout << "Opening video output: " << vidOutPath << endl;
-            //VideoWriter w = cv.CreateVideoWriter('test.avi',cv.CV_FOURCC('X','V','I','D'),25,(640,480));
-            //w = cv.CreateVideoWriter('test.avi',cv.CV_FOURCC('X','V','I','D'),25,(640,480))
-
-            vidWriter.open(vidOutPath,
-                           //CV_FOURCC('D', 'I', 'B', ' '), // RGB(A)
-                           CV_FOURCC('I', 'Y', 'U', 'V'), // to encode using yuv420p into an uncompressed AVI
-                           //CV_FOURCC('D','I','V','X'), // = MPEG-4 codec
-                           //CV_FOURCC('M','J','P','G'), // = motion-jpeg codec (does not work well)
-                       //videoCap.get(CV_CAP_PROP_FOURCC), same as input, not always possible
-                       videoCap.get(CV_CAP_PROP_FPS),
-                           cv::Size(videoCap.get(CV_CAP_PROP_FRAME_WIDTH), videoCap.get(CV_CAP_PROP_FRAME_HEIGHT)),
-                                            true
-                    
-            );
-            
-            
-            if (!vidWriter.isOpened())  {
-                std::cout << "!!! Output video could not be opened" << std::endl;
-                return -1;
-            }
-        }
 
         //read camera parameters if passed
-        if (TheIntrinsicFile!="") {
-            camParams.readFromXMLFile(TheIntrinsicFile);
+        if (intrinsicFilename!="") {
+            camParams.readFromXMLFile(intrinsicFilename);
             camParams.resize(inputImg.size());
         }
 
         //Create gui
-
-        cv::namedWindow("thres",1);
+        //cv::namedWindow("thres",1);
         cv::namedWindow("in",1);
-        boardDetect.setParams(boardCfg,camParams,TheMarkerSize);
+        
+        boardDetect.setParams(boardCfg,camParams,markerSize);
         boardDetect.getMarkerDetector().getThresholdParams( ThresParam1,ThresParam2);
     // 	boardDetect.getMarkerDetector().enableErosion(true);//for chessboards
+        
         iThresParam1=ThresParam1;
         iThresParam2=ThresParam2;
-        cv::createTrackbar("ThresParam1", "in",&iThresParam1, 13, cvTackBarEvents);
-        cv::createTrackbar("ThresParam2", "in",&iThresParam2, 13, cvTackBarEvents);
+        cv::createTrackbar("ThresParam1", "in", &iThresParam1, 13, cvTackBarEvents);
+        cv::createTrackbar("ThresParam2", "in", &iThresParam2, 13, cvTackBarEvents);
         char key=0;
         int index=0;
+        double missTicks = 0;
+        double totalTicks = 0;
         
         std::set<int> foundSet;
         
         //capture until press ESC or until the end of the video
-        do
-        {
+        do {
             videoCap.retrieve(inputImg);
-            inputImg.copyTo(inputImgCopy);
+            inputImg.copyTo(outImg);
             index++; //number of images captured
             double tick = (double)getTickCount();//for checking the speed
             //Detection of the board
             float probDetect = boardDetect.detect(inputImg);
             //calc mean speed of all iterations
-            avgTime.first+=((double)getTickCount()-tick)/getTickFrequency();
+            double elapsedTicks = ((double)getTickCount()-tick)/getTickFrequency();
+            totalTicks += elapsedTicks;
+            avgTime.first += elapsedTicks;
             avgTime.second++;
 
             cout << ".";
@@ -226,44 +207,44 @@ int main(int argc,char **argv)
                 if (curMarker.isValid()) {
                     foundSet.insert(curMarker.id);
                     cout << curMarker.id << endl;
-                    curMarker.draw(inputImgCopy,Scalar(0,0,255),1);
+                    curMarker.draw(outImg,Scalar(128,128,0),1);
                 }
             }
 
             //print board
              if (camParams.isValid()) {
-                if ( probDetect>0.2)   {
-                    CvDrawingUtils::draw3dAxis( inputImgCopy,boardDetect.getDetectedBoard(),camParams);
-                    //draw3dBoardCube( inputImgCopy,TheBoardDetected,TheIntriscCameraMatrix,TheDistorsionCameraParams);
+                if ( probDetect > 0.2)   {
+                    Board dboard = boardDetect.getDetectedBoard();
+                    CvDrawingUtils::draw3dAxis( outImg,dboard,camParams);
+                    //draw3dBoardCube( outImg,TheBoardDetected,TheIntriscCameraMatrix,TheDistorsionCameraParams);
+                }
+                else {
+                    missTicks += elapsedTicks; //miss!
                 }
             }
 
             //show input with augmented information and  the thresholded image
-            cv::imshow("in",inputImgCopy);
-            cv::imshow("thres",boardDetect.getMarkerDetector().getThresholdedImage());
-            //write to video if required
-            if (!vidOutPath.empty()) {
-                vidWriter.write(inputImgCopy); //simply copy window output
-            }
+            cv::imshow("in",outImg);
+            //cv::imshow("thres",boardDetect.getMarkerDetector().getThresholdedImage());
 
-            key=cv::waitKey(waitTime);//wait for key to be pressed
+
+            key = cv::waitKey(waitTime);//wait for key to be pressed
             processKey(key);
         }
-        while ( key!=27 && videoCap.grab());
-        cout<< endl << "Average detect time: "<<1000*avgTime.first/avgTime.second<<"ms"<<endl;
+        while ( key != 27 && videoCap.grab());
+        
+        cout << endl << "Miss percent: " << (missTicks / totalTicks) << endl;
+        //cout<< endl << "Average detect time: "<<1000*avgTime.first/avgTime.second<<"ms"<<endl;
         
         cout << "Found IDs: " ;
         std::for_each(foundSet.begin(), foundSet.end(),dumpIntItem);
         cout << endl;
         
         
-
-        vidWriter.release();
-        
     } catch (std::exception &ex)
 
     {
-        cout<<"Exception :"<<ex.what()<<endl;
+        cout<<"Exception :"<< ex.what() << endl;
     }
 
 }
@@ -285,13 +266,13 @@ void cvTackBarEvents(int pos,void*)
 //recompute
 //Detection of the board
     float probDetect=boardDetect.detect( inputImg);
-    inputImg.copyTo(inputImgCopy);
+    inputImg.copyTo(outImg);
     if (camParams.isValid() && probDetect>0.2)
-        aruco::CvDrawingUtils::draw3dAxis(inputImgCopy,boardDetect.getDetectedBoard(),camParams);
+        aruco::CvDrawingUtils::draw3dAxis(outImg,boardDetect.getDetectedBoard(),camParams);
 
     
-    cv::imshow("in",inputImgCopy);
-    cv::imshow("thres",boardDetect.getMarkerDetector().getThresholdedImage());
+    cv::imshow("in",outImg);
+    //cv::imshow("thres",boardDetect.getMarkerDetector().getThresholdedImage());
 }
 
 
