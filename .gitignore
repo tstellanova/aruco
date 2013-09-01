@@ -37,3 +37,7 @@ trunk/utils/Makefile
 utils/Makefile
 
 Makefile
+
+*.png
+
+*.jpg
