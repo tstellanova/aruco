@@ -53,26 +53,30 @@ int main(int argc,char **argv)
         if (argc>=7) interMarkerDistance=atoi(argv[6]);
         
         
-        //    createBoardImage_Frame( cv::Size gridSize,int MarkerSize,int MarkerDistance,  BoardConfiguration& TInfo ,bool setDataCentered=true,vector<int> *excludedIds=NULL )
-        aruco::BoardConfiguration BInfo;
-        Mat BoardImage;
+        aruco::BoardConfiguration boardInfo;
+        Mat boardImg;
+        Size gridDim = Size(XSize,YSize);
         if (typeBoard==0)
-            BoardImage=aruco::FiducidalMarkers::createBoardImage(Size(XSize,YSize), markerSize,interMarkerDistance,BInfo);
+            boardImg = aruco::FiducidalMarkers::createBoardImage(gridDim, markerSize,interMarkerDistance,boardInfo);
         else if (typeBoard==1)
-            BoardImage=aruco::FiducidalMarkers::createBoardImage_ChessBoard(Size(XSize,YSize), markerSize,BInfo);
+            boardImg = aruco::FiducidalMarkers::createBoardImage_ChessBoard(gridDim, markerSize,boardInfo);
         else if (typeBoard==2)
-            BoardImage=aruco::FiducidalMarkers::createBoardImage_Frame(Size(XSize,YSize), markerSize, interMarkerDistance, BInfo, true);
-    
-        else {cerr<<"Incorrect board type"<<typeBoard<<endl;return -1;}
+            boardImg = aruco::FiducidalMarkers::createBoardImage_Frame(gridDim, markerSize, interMarkerDistance, boardInfo, true);
+        else if (typeBoard == 3)
+            boardImg = aruco::FiducidalMarkers::createCubeCornerImage(markerSize, boardInfo);
+        else {
+            cerr << "Incorrect board type" << typeBoard<<endl;
+            return -1;
+        }
 	  
         string boardImagePath = argv[2];
         string boardCfgPath = argv[3];
         
         cout << "Writing board image to: " << boardImagePath << endl;
-        imwrite(boardImagePath,BoardImage);
+        imwrite(boardImagePath,boardImg);
         
         cout << "Writing config file to: " << boardCfgPath << endl;
-        BInfo.saveToFile(boardCfgPath);
+        boardInfo.saveToFile(boardCfgPath);
 
     }
     catch (std::exception &ex)

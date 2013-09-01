@@ -191,6 +191,86 @@ cv::Mat  FiducidalMarkers::createBoardImage_ChessBoard( Size gridSize,int Marker
 }
 
 
+cv::Mat  FiducidalMarkers::createCubeCornerImage( int markerSize,
+                                                  BoardConfiguration& boardConfig
+                                                 )
+{
+    srand(cv::getTickCount());
+    int markerIds[] = {0, 511, 1023}; //maximum distance
+    
+    float edgeDim = (float)markerSize;
+    int sizeX = markerSize * 2;
+    int sizeY = markerSize * 2;
+    
+    Mat gridImage(sizeX,sizeY,CV_8UC1);
+    gridImage.setTo(Scalar(255));
+    
+    boardConfig.mInfoType = BoardConfiguration::PIX; //TODO allow meters
+    
+    //three markers in the grid:
+    //      [0][1]
+    //         [2]
+    
+    ///=== plane y=0 (xz plane)
+    MarkerInfo markerInfoXZ = MarkerInfo(markerIds[0]);
+    Mat markerImg = createMarkerImage( markerInfoXZ.id, markerSize);
+
+    Mat subrect0(gridImage, Rect( 0,0,
+                                 markerSize,markerSize));
+    markerImg.copyTo(subrect0);
+    
+    //set the location of the corners for the board configuration file
+    markerInfoXZ.resize(4);
+    markerInfoXZ[0] = cv::Point3f( -edgeDim,0,edgeDim);
+    markerInfoXZ[1] = cv::Point3f( 0,0,edgeDim);
+    markerInfoXZ[2] = cv::Point3f( 0,0,0);
+    markerInfoXZ[3] = cv::Point3f( -edgeDim,0,0);
+    
+    boardConfig.push_back(  markerInfoXZ);
+
+    ///===== plane x=0 (yz plane)
+    
+    MarkerInfo markerInfoYZ = MarkerInfo(markerIds[1]);
+    markerImg = createMarkerImage( markerInfoYZ.id, markerSize);
+    
+    Mat subrect1(gridImage, Rect( markerSize, 0,
+                                 markerSize,markerSize) );
+    markerImg.copyTo(subrect1);
+    
+    //set the location of the corners for the board configuration file
+    markerInfoYZ.resize(4);
+    markerInfoYZ[0] = cv::Point3f( 0,0,edgeDim);
+    markerInfoYZ[1] = cv::Point3f( 0,edgeDim,edgeDim);
+    markerInfoYZ[2] = cv::Point3f( 0,edgeDim,0);
+    markerInfoYZ[3] = cv::Point3f( 0,0,0);
+    
+    boardConfig.push_back( markerInfoYZ);
+
+    ///===== plane z=0 (XY plane)
+    
+    MarkerInfo markerInfoXY = MarkerInfo(markerIds[2]);
+    markerImg = createMarkerImage( markerInfoXY.id, markerSize);
+    
+    Mat subrect2(gridImage, Rect(markerSize,markerSize,
+                                 markerSize,markerSize));
+    markerImg.copyTo(subrect2);
+    
+    //set the location of the corners for the board configuration file
+    markerInfoXY.resize(4);
+    markerInfoXY[0] = cv::Point3f( 0,0,0);
+    markerInfoXY[1] = cv::Point3f( 0,edgeDim,0);
+    markerInfoXY[2] = cv::Point3f( -edgeDim,edgeDim,0);
+    markerInfoXY[3] = cv::Point3f( -edgeDim,0,0);
+    boardConfig.push_back( markerInfoXY);
+
+
+    for (int i = 0; i < 3; i++) {
+        MarkerInfo markerInfo = boardConfig.at(i);
+        cout << "total corners: " << markerInfo.size() << endl;
+
+    }
+    return gridImage;
+}
 
 /************************************
  *

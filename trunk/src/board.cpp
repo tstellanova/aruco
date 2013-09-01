@@ -88,13 +88,16 @@ void BoardConfiguration::saveToFile(cv::FileStorage &fs)throw (cv::Exception) {
     {
         fs << "{:" << "id" << at(i).id  ;
 
-        fs<<"corners"<< "[:" ;
+        fs << "corners"<< "[:" ;
         
-        for (int c=0; c < at(i).size(); c++) {
-            fs << at(i)[c];
+        MarkerInfo  markerInfo = at(i);
+        int leSize = markerInfo.size();
+        
+        for (int c=0; c < leSize; c++) {
+            fs << markerInfo[c];
         }
         
-        fs<<"]";
+        fs << "]";
         fs <<  "}";
     }
     fs << "]";

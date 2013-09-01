@@ -105,6 +105,11 @@ public:
      */
     static  cv::Mat  createBoardImage_Frame( cv::Size gridSize,int MarkerSize,int MarkerDistance,  BoardConfiguration& TInfo ,bool setDataCentered=true,vector<int> *excludedIds=NULL ) throw (cv::Exception);
 
+    /**
+     @brief create a cube corner image with three markers in a cube-corner arrangement
+     */
+    static cv::Mat  createCubeCornerImage( int markerSize, BoardConfiguration& TInfo);
+    
 private:
   
     static vector<int> getListOfValidMarkersIds_random(int nMarkers,vector<int> *excluded) throw (cv::Exception);
