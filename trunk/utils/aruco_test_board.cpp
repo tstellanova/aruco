@@ -124,6 +124,40 @@ void processKey(char k) {
     }
 }
 
+void drawMarkers(const vector<int>& searchIds, Mat& outImg )
+{
+    char labelBuf[40];
+    Scalar markerBorderColor = CV_RGB(100,255,0);    
+    cv::Size imgSize = outImg.size();    
+    int xOffset = imgSize.width / 2;
+    int yOffset = imgSize.height / 2;
+    
+    for (int j = 0; j < searchIds.size(); ++j) {
+        MarkerInfo minfo = boardCfg.getMarkerInfo(searchIds[j]);
+
+        vector<cv::Point3f> markerPts = minfo;
+        Point2d pt0 = cvPoint(markerPts[0].x + xOffset,markerPts[0].y + yOffset);
+        Point2d pt1 = cvPoint(markerPts[1].x + xOffset,markerPts[1].y + yOffset);
+        Point2d pt2 = cvPoint(markerPts[2].x + xOffset,markerPts[2].y + yOffset);
+        //Point2d pt3 = cvPoint(markerPts[3].x + xOffset,markerPts[3].y + yOffset);
+        cv::Rect markerBorder = cvRect(pt0.x, pt0.y, pt1.x - pt0.x, pt2.y - pt1.y);
+        cv::rectangle(outImg, markerBorder, markerBorderColor);
+        //label
+        Point2d textPt = cvPoint(markerBorder.tl().x + markerBorder.width/2, markerBorder.tl().y + markerBorder.height/2);
+        sprintf(labelBuf,"%d",minfo.id);
+        cv::putText(outImg, labelBuf, textPt, FONT_HERSHEY_PLAIN, 0.8, cvScalar(200,200,250), 1, CV_AA);
+
+        
+//        int cornerRadius= 10;
+//        for (int k=0; k < markerPts.size(); k++) {
+//            cv::circle(outImg,pt,cornerRadius,markerBorderColor,1,8,0);
+//            //sprintf(labelBuf,"%d",minfo.id);
+//            sprintf(labelBuf,"%d,%d",minfo.id,k);
+//            cv::putText(outImg, labelBuf, pt, FONT_HERSHEY_COMPLEX_SMALL, 0.8, cvScalar(200,200,250), 1, CV_AA);
+//        }
+    }
+}
+
 /************************************
  *
  *
@@ -182,6 +216,9 @@ int main(int argc,char **argv)
         double missTicks = 0;
         double totalTicks = 0;
         
+        vector<int> searchIds;
+        boardCfg.getIdList(searchIds);
+   
         std::set<int> foundSet;
         
         //capture until press ESC or until the end of the video
@@ -199,6 +236,10 @@ int main(int argc,char **argv)
             avgTime.second++;
 
             cout << ".";
+            
+            
+            drawMarkers(searchIds,outImg);
+            
             
             vector<Marker>& detectedMarkers = boardDetect.getDetectedMarkers();
             //print marker borders
