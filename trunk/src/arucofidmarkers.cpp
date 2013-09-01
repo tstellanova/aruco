@@ -198,7 +198,10 @@ cv::Mat  FiducidalMarkers::createBoardImage_ChessBoard( Size gridSize,int Marker
  *
  *
  ************************************/
-cv::Mat  FiducidalMarkers::createBoardImage_Frame( Size gridSize,int MarkerSize,int MarkerDistance, BoardConfiguration& TInfo ,bool centerData,vector<int> *excludedIds ) throw (cv::Exception)
+cv::Mat  FiducidalMarkers::createBoardImage_Frame( Size gridSize,int MarkerSize,int MarkerDistance,
+                                                  BoardConfiguration& TInfo ,
+                                                  bool centerData,
+                                                  vector<int> *excludedIds ) throw (cv::Exception)
 {
 
   

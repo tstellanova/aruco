@@ -36,7 +36,7 @@ int main(int argc,char **argv)
 {
     try {
         if (argc<4) {
-            cerr<<"Usage: X:Y boardImage.png boardConfiguration.yml [pixSize] [Type(0: panel,1: chessboard, 2: frame)] [interMarkerDistance(0,1)]"<<endl;
+            cerr<<"Usage: X:Y boardImage.png boardConfiguration.yml [pixSize] [Type(0: panel,1: chessboard, 2: frame)] [interMarkerDistance]"<<endl;
             return -1;
         }
         int XSize,YSize;
@@ -44,24 +44,26 @@ int main(int argc,char **argv)
             cerr<<"Incorrect X:Y specification"<<endl;
             return -1;
         }
-        int pixSize=100;
-        float interMarkerDistance=0.2;
-        bool isChessBoard=false;
+        int markerSize=100;
+        int interMarkerDistance= (int)(0.2 * markerSize);
         int typeBoard=0;
         
-        if (argc>=5) pixSize=atoi(argv[4]);
+        if (argc>=5) markerSize=atoi(argv[4]);
         if (argc>=6) typeBoard=atoi(argv[5]);
         if (argc>=7) interMarkerDistance=atoi(argv[6]);
+        
+        
+        //    createBoardImage_Frame( cv::Size gridSize,int MarkerSize,int MarkerDistance,  BoardConfiguration& TInfo ,bool setDataCentered=true,vector<int> *excludedIds=NULL )
         aruco::BoardConfiguration BInfo;
         Mat BoardImage;
         if (typeBoard==0)
-            BoardImage=aruco::FiducidalMarkers::createBoardImage(Size(XSize,YSize), pixSize,pixSize*0.2,BInfo);
+            BoardImage=aruco::FiducidalMarkers::createBoardImage(Size(XSize,YSize), markerSize,interMarkerDistance,BInfo);
         else if (typeBoard==1)
-            BoardImage=aruco::FiducidalMarkers::createBoardImage_ChessBoard(Size(XSize,YSize), pixSize,BInfo);
+            BoardImage=aruco::FiducidalMarkers::createBoardImage_ChessBoard(Size(XSize,YSize), markerSize,BInfo);
         else if (typeBoard==2)
-            BoardImage=aruco::FiducidalMarkers::createBoardImage_Frame(Size(XSize,YSize), pixSize,pixSize*0.2,BInfo);
-	  
-	  else {cerr<<"Incorrect board type"<<typeBoard<<endl;return -1;}
+            BoardImage=aruco::FiducidalMarkers::createBoardImage_Frame(Size(XSize,YSize), markerSize, interMarkerDistance, BInfo, true);
+    
+        else {cerr<<"Incorrect board type"<<typeBoard<<endl;return -1;}
 	  
         string boardImagePath = argv[2];
         string boardCfgPath = argv[3];
