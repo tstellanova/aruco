@@ -45,11 +45,6 @@ const char * usage =
 
 
 
-const char* liveCaptureHelp =
-    "When the live video from camera is used as input, the following hot-keys may be used:\n"
-        "  <ESC>, 'q' - quit the program\n"
-        "  'g' - start capturing images\n"
-        "  'u' - switch undistortion on/off\n";
 
 
 
@@ -86,10 +81,9 @@ static void help()
         "                              # if input_data not specified, a live view from the camera is used\n"
         "\n" );
     printf("\n%s",usage);
-    printf( "\n%s", liveCaptureHelp );
+
 }
 
-enum { DETECTION = 0, CAPTURING = 1, CALIBRATED = 2 };
 enum Pattern { CHESSBOARD, CIRCLES_GRID, ASYMMETRIC_CIRCLES_GRID };
 
 static double computeReprojectionErrors(
@@ -271,7 +265,6 @@ static bool readStringList( const string& filename, vector<string>& l )
     for( ; it != it_end; ++it ) {
         string thing = *it;
         cout << thing << endl;
-        getAbsoluteFilePath(
         l.push_back((string)*it);
     }
     return true;
@@ -318,15 +311,14 @@ int main( int argc, char** argv )
 
     int i, nframes = 10;
     bool writeExtrinsics = false, writePoints = false;
-    bool undistortImage = false;
+
     int flags = 0;
-    VideoCapture capture;
+
     bool flipVertical = false;
     bool showUndistorted = false;
     bool videofile = false;
     int delay = 1000;
-    clock_t prevTimestamp = 0;
-    int mode = DETECTION;
+
     int cameraId = 0;
     vector<vector<Point2f> > imagePoints;
     vector<string> imageList;
@@ -427,46 +419,33 @@ int main( int argc, char** argv )
             return fprintf( stderr, "Unknown option %s", s ), -1;
     }
 
-    if( inputFilename )
-    {
-        if( !videofile && readStringList(inputFilename, imageList) )
-            mode = CAPTURING;
-        else
-            capture.open(inputFilename);
+    if ( inputFilename ) {
+        readStringList(inputFilename, imageList);
     }
-    else
-        capture.open(cameraId);
+    else {
+        cerr << "Input filename required!" << endl;
+        return -1;
+    }
+        
 
-    if( !capture.isOpened() && imageList.empty() )
-        return fprintf( stderr, "Could not initialize video (%d) capture\n",cameraId ), -2;
-
-    if( !imageList.empty() ) {
-        nframes = (int)imageList.size();
-        cout << "nframes: " << nframes << endl;
+    if( imageList.empty() ) {
+        cerr << "Image list is empty!" << endl;
+        return -2;
     }
 
-    if( capture.isOpened() ) {
-        cout << liveCaptureHelp;
-    }
+    nframes = (int)imageList.size();
+    cout << "nframes: " << nframes << endl;
 
-    namedWindow( "Image View", 1 );
 
-    for( i = 0;;i++) {
+    //namedWindow( "Image View", 1 );
+
+    for( i = 0; i < (int)imageList.size();i++) {
         Mat view, viewGray;
-        bool blink = false;
 
-        if( capture.isOpened() ) {
-            Mat view0;
-            capture >> view0;
-            view0.copyTo(view);
-        }
-        else if( i < (int)imageList.size() ) {
-            cout << "Reading file: " << imageList[i] << endl;
-            view = imread(imageList[i], 1);
-        }
-        else {
-            break; //done
-        }
+        cout << "Reading file: " << imageList[i] << endl;
+        view = imread(imageList[i], 1);
+        cout << "File read" << endl;
+
 
         if (!view.data) {
             cout << "No data for image " << i << endl;
@@ -485,112 +464,56 @@ int main( int argc, char** argv )
             flip( view, view, 0 );
 
         vector<Point2f> pointbuf;
+        cout << "cvtColor ..." << endl;
         cvtColor(view, viewGray, COLOR_BGR2GRAY);
 
         bool found;
         switch( pattern )
         {
             case CHESSBOARD:
-                found = findChessboardCorners( view, boardSize, pointbuf,
+                cout << "Finding corners (" << boardSize.width << "," << boardSize.height << ") (" <<
+                    imageSize.width << "," << imageSize.height << ")" << endl;
+                found = findChessboardCorners( viewGray, boardSize, pointbuf,
                     CALIB_CB_ADAPTIVE_THRESH | CALIB_CB_FAST_CHECK | CALIB_CB_NORMALIZE_IMAGE);
                 break;
             case CIRCLES_GRID:
-                found = findCirclesGrid( view, boardSize, pointbuf );
+                cout << "Finding circles..." << endl;
+                found = findCirclesGrid( viewGray, boardSize, pointbuf );
                 break;
             case ASYMMETRIC_CIRCLES_GRID:
-                found = findCirclesGrid( view, boardSize, pointbuf, CALIB_CB_ASYMMETRIC_GRID );
+                cout << "Finding circles grid..." << endl;
+                found = findCirclesGrid( viewGray, boardSize, pointbuf, CALIB_CB_ASYMMETRIC_GRID );
                 break;
             default:
-                return fprintf( stderr, "Unknown pattern type\n" ), -1;
+                cerr << "Unknown pattern type" << endl;
+                return -1;
         }
 
-       // improve the found corners' coordinate accuracy
-        if( pattern == CHESSBOARD && found) cornerSubPix( viewGray, pointbuf, Size(11,11),
-            Size(-1,-1), TermCriteria( TermCriteria::EPS+TermCriteria::COUNT, 30, 0.1 ));
-
-        if( mode == CAPTURING && found &&
-           (!capture.isOpened() || clock() - prevTimestamp > delay*1e-3*CLOCKS_PER_SEC) )
-        {
+        
+        // improve the found corners' coordinate accuracy
+        if ( pattern == CHESSBOARD && found) {
+            cout << "cornerSubPix..." << endl;
+            cornerSubPix( viewGray, pointbuf, Size(11,11),
+                Size(-1,-1), TermCriteria( TermCriteria::EPS+TermCriteria::COUNT, 30, 0.1 ));
+        }
+        
+        if( found) {
             imagePoints.push_back(pointbuf);
-            prevTimestamp = clock();
-            blink = capture.isOpened();
-        }
-
-        if(found)
-            drawChessboardCorners( view, boardSize, Mat(pointbuf), found );
-
-        string msg = mode == CAPTURING ? "100/100" :
-            mode == CALIBRATED ? "Calibrated" : "Press 'g' to start";
-        int baseLine = 0;
-        Size textSize = getTextSize(msg, 1, 1, 1, &baseLine);
-        Point textOrigin(view.cols - 2*textSize.width - 10, view.rows - 2*baseLine - 10);
-
-        if( mode == CAPTURING )
-        {
-            if(undistortImage)
-                msg = format( "%d/%d Undist", (int)imagePoints.size(), nframes );
-            else
-                msg = format( "%d/%d", (int)imagePoints.size(), nframes );
-        }
-
-        putText( view, msg, textOrigin, 1, 1,
-                 mode != CALIBRATED ? Scalar(0,0,255) : Scalar(0,255,0));
-
-        if( blink )
-            bitwise_not(view, view);
-
-        if ( mode == CALIBRATED && undistortImage ) {
-            Mat temp = view.clone();
-            undistort(temp, view, cameraMatrix, distCoeffs);
-        }
-
-        imshow("Image View", view);
-        int key = 0xff & waitKey(capture.isOpened() ? 50 : 500);
-
-        if( (key & 255) == 27 )
-            break;
-
-        if( key == 'u' && mode == CALIBRATED )
-            undistortImage = !undistortImage;
-
-        if( capture.isOpened() && key == 'g' ) {
-            mode = CAPTURING;
-            imagePoints.clear();
-        }
-
-        if ( mode == CAPTURING && imagePoints.size() >= (unsigned)nframes ) {
-            if( runAndSave(outputFilename, imagePoints, imageSize,
+            
+            cout << "Processing " <<   imagePoints.size() << " imagePoints ..." << endl;
+            
+            runAndSave(outputFilename, imagePoints, imageSize,
                        boardSize, pattern, squareSize, aspectRatio,
                        flags, cameraMatrix, distCoeffs,
-                       writeExtrinsics, writePoints))
-                mode = CALIBRATED;
-            else
-                mode = DETECTION;
-            if( !capture.isOpened() )
-                break;
+                       writeExtrinsics, writePoints);
         }
-    }
+        
 
-    if( !capture.isOpened() && showUndistorted )
-    {
-        Mat view, rview, map1, map2;
-        initUndistortRectifyMap(cameraMatrix, distCoeffs, Mat(),
-                                getOptimalNewCameraMatrix(cameraMatrix, distCoeffs, imageSize, 1, imageSize, 0),
-                                imageSize, CV_16SC2, map1, map2);
+       
 
-        for( i = 0; i < (int)imageList.size(); i++ )
-        {
-            view = imread(imageList[i], 1);
-            if(!view.data)
-                continue;
-            //undistort( view, rview, cameraMatrix, distCoeffs, cameraMatrix );
-            remap(view, rview, map1, map2, INTER_LINEAR);
-            imshow("Image View", rview);
-            int c = 0xff & waitKey();
-            if( (c & 255) == 27 || c == 'q' || c == 'Q' )
-                break;
-        }
+        
     }
+    
 
     return 0;
 }
