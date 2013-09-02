@@ -52,8 +52,8 @@ string vidOutPath;
 
 void cvTackBarEvents(int pos,void*);
 pair<double,double> avgTime(0,0) ;//determines the average time required for detection
-double ThresParam1,ThresParam2;
-int iThresParam1,iThresParam2;
+double thresh1,thresh2;
+int iThresh1,iThresh2;
 int waitTime= 1;
 
 
@@ -108,20 +108,26 @@ bool readArguments ( int argc,char **argv )
     return true;
 }
 
-void processKey(char k) {
+bool processKey(char k) {
+    bool terminate = false;
+    
     switch (k) {
-    case 's':
-        if (waitTime==0) waitTime=10;
-        else waitTime=0;
-        break;
-
-/*    case 'p':
-        if (MDetector.getCornerRefinementMethod()==MarkerDetector::SUBPIX)
-            MDetector.setCornerRefinementMethod(MarkerDetector::NONE);
-        else
-            MDetector.setCornerRefinementMethod(MarkerDetector::SUBPIX);
-        break;*/
+        case 's':
+            if (waitTime==0)
+                waitTime=10;
+            else
+                waitTime=0;
+            break;
+            
+        case 'q':
+        case 27:
+            terminate = true;
+            break;
+            
     }
+    
+    return terminate;
+    
 }
 
 void drawMarkers(const vector<int>& searchIds, Mat& outImg )
@@ -147,14 +153,6 @@ void drawMarkers(const vector<int>& searchIds, Mat& outImg )
         sprintf(labelBuf,"%d",minfo.id);
         cv::putText(outImg, labelBuf, textPt, FONT_HERSHEY_PLAIN, 0.8, cvScalar(200,200,250), 1, CV_AA);
 
-        
-//        int cornerRadius= 10;
-//        for (int k=0; k < markerPts.size(); k++) {
-//            cv::circle(outImg,pt,cornerRadius,markerBorderColor,1,8,0);
-//            //sprintf(labelBuf,"%d",minfo.id);
-//            sprintf(labelBuf,"%d,%d",minfo.id,k);
-//            cv::putText(outImg, labelBuf, pt, FONT_HERSHEY_COMPLEX_SMALL, 0.8, cvScalar(200,200,250), 1, CV_AA);
-//        }
     }
 }
 
@@ -204,13 +202,15 @@ int main(int argc,char **argv)
         cv::namedWindow("in",1);
         
         boardDetect.setParams(boardCfg,camParams,markerSize);
-        boardDetect.getMarkerDetector().getThresholdParams( ThresParam1,ThresParam2);
-    // 	boardDetect.getMarkerDetector().enableErosion(true);//for chessboards
+
+        boardDetect.getMarkerDetector().getThresholdParams(thresh1,thresh2);
+        //boardDetect.getMarkerDetector().setCornerRefinementMethod(MarkerDetector::SUBPIX);
+        //boardDetect.getMarkerDetector().enableErosion(true);//for chessboards
         
-        iThresParam1=ThresParam1;
-        iThresParam2=ThresParam2;
-        cv::createTrackbar("ThresParam1", "in", &iThresParam1, 13, cvTackBarEvents);
-        cv::createTrackbar("ThresParam2", "in", &iThresParam2, 13, cvTackBarEvents);
+        iThresh1=thresh1;
+        iThresh2=thresh2;
+        cv::createTrackbar("thresh1", "in", &iThresh1, 13, cvTackBarEvents);
+        cv::createTrackbar("thresh2", "in", &iThresh2, 13, cvTackBarEvents);
         char key=0;
         int index=0;
         double missTicks = 0;
@@ -220,6 +220,7 @@ int main(int argc,char **argv)
         boardCfg.getIdList(searchIds);
    
         std::set<int> foundSet;
+        bool keyTerminate = false;
         
         //capture until press ESC or until the end of the video
         do {
@@ -238,9 +239,9 @@ int main(int argc,char **argv)
             cout << ".";
             
             
-            drawMarkers(searchIds,outImg);
+            //drawMarkers(searchIds,outImg);
             
-            
+            cv::Scalar borderColor = CV_RGB(128,255,0);
             vector<Marker>& detectedMarkers = boardDetect.getDetectedMarkers();
             //print marker borders
             for (unsigned int i=0;i < detectedMarkers.size();i++) {
@@ -248,16 +249,18 @@ int main(int argc,char **argv)
                 if (curMarker.isValid()) {
                     foundSet.insert(curMarker.id);
                     cout << curMarker.id << endl;
-                    curMarker.draw(outImg,Scalar(128,128,0),1);
+                    curMarker.draw(outImg,borderColor,1);
                 }
             }
 
             //print board
              if (camParams.isValid()) {
-                if ( probDetect > 0.2)   {
+                if ( probDetect > 0.1)   {
                     Board dboard = boardDetect.getDetectedBoard();
-                    CvDrawingUtils::draw3dAxis( outImg,dboard,camParams);
-                    //draw3dBoardCube( outImg,TheBoardDetected,TheIntriscCameraMatrix,TheDistorsionCameraParams);
+                    
+                    CvDrawingUtils::draw3dAxis(outImg, dboard, camParams);
+                    
+                   
                 }
                 else {
                     missTicks += elapsedTicks; //miss!
@@ -267,12 +270,13 @@ int main(int argc,char **argv)
             //show input with augmented information and  the thresholded image
             cv::imshow("in",outImg);
             //cv::imshow("thres",boardDetect.getMarkerDetector().getThresholdedImage());
-
+            
 
             key = cv::waitKey(waitTime);//wait for key to be pressed
-            processKey(key);
+            if (key != '\xff')
+                keyTerminate = processKey(key);
         }
-        while ( key != 27 && videoCap.grab());
+        while ( !keyTerminate && videoCap.grab());
         
         cout << endl << "Miss percent: " << (missTicks / totalTicks) << endl;
         //cout<< endl << "Average detect time: "<<1000*avgTime.first/avgTime.second<<"ms"<<endl;
@@ -298,22 +302,29 @@ int main(int argc,char **argv)
 
 void cvTackBarEvents(int pos,void*)
 {
-    if (iThresParam1<3) iThresParam1=3;
-    if (iThresParam1%2!=1) iThresParam1++;
-    if (ThresParam2<1) ThresParam2=1;
-    ThresParam1=iThresParam1;
-    ThresParam2=iThresParam2;
-     boardDetect.getMarkerDetector().setThresholdParams(ThresParam1,ThresParam2);
-//recompute
-//Detection of the board
-    float probDetect=boardDetect.detect( inputImg);
-    inputImg.copyTo(outImg);
-    if (camParams.isValid() && probDetect>0.2)
-        aruco::CvDrawingUtils::draw3dAxis(outImg,boardDetect.getDetectedBoard(),camParams);
+    if (iThresh1 < 3)
+        iThresh1 = 3;
+    
+    if (iThresh1 % 2 != 1)
+        iThresh1++;
+    
+    if (iThresh2 < 1)
+        iThresh2 = 1;
+    
+    thresh1 = (float)iThresh1;
+    thresh2 = (float)iThresh2;
+    
+    boardDetect.getMarkerDetector().setThresholdParams(thresh1,thresh2);
+    
+
+//    float probDetect = boardDetect.detect(inputImg);
+//    inputImg.copyTo(outImg);
+//    if (camParams.isValid() && probDetect>0.2)
+//        aruco::CvDrawingUtils::draw3dAxis(outImg,boardDetect.getDetectedBoard(),camParams);
 
     
     cv::imshow("in",outImg);
-    //cv::imshow("thres",boardDetect.getMarkerDetector().getThresholdedImage());
+    //cv::imshow("in",boardDetect.getMarkerDetector().getThresholdedImage());
 }
 
 
