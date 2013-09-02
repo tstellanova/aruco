@@ -121,11 +121,11 @@ void MarkerDetector::detect ( const  cv::Mat &input,vector<Marker> &detectedMark
 
 
     //it must be a 3 channel image
-    if ( input.type() ==CV_8UC3 )   cv::cvtColor ( input,grey,CV_BGR2GRAY );
-    else     grey=input;
+    if ( input.type() ==CV_8UC3 )
+        cv::cvtColor ( input,grey,CV_BGR2GRAY );
+    else
+        grey=input;
 
-
-//     cv::cvtColor(grey,_ssImC ,CV_GRAY2BGR); //DELETE
 
     //clear input data
     detectedMarkers.clear();
@@ -133,12 +133,11 @@ void MarkerDetector::detect ( const  cv::Mat &input,vector<Marker> &detectedMark
 
     cv::Mat imgToBeThresHolded=grey;
     double ThresParam1=_thresParam1,ThresParam2=_thresParam2;
+    
     //Must the image be downsampled before continue processing?
-    if ( pyrdown_level!=0 )
-    {
+    if ( pyrdown_level!=0 ) {
         reduced=grey;
-        for ( int i=0;i<pyrdown_level;i++ )
-        {
+        for ( int i=0;i<pyrdown_level;i++ ) {
             cv::Mat tmp;
             cv::pyrDown ( reduced,tmp );
             reduced=tmp;
@@ -152,28 +151,25 @@ void MarkerDetector::detect ( const  cv::Mat &input,vector<Marker> &detectedMark
     ///Do threshold the image and detect contours
     thresHold ( _thresMethod,imgToBeThresHolded,thres,ThresParam1,ThresParam2 );
     //an erosion might be required to detect chessboard like boards
-    if ( _doErosion )
-    {
+    if ( _doErosion ) {
         erode ( thres,thres2,cv::Mat() );
         thres2.copyTo(thres); //vs thres=thres2;
     }
+    
     //find all rectangles in the thresholdes image
     vector<MarkerCandidate > MarkerCanditates;
     detectRectangles ( thres,MarkerCanditates );
     //if the image has been downsampled, then calcualte the location of the corners in the original image
-    if ( pyrdown_level!=0 )
-    {
+    if ( pyrdown_level!=0 )  {
         float red_den=pow ( 2.0f,pyrdown_level );
         float offInc= ( ( pyrdown_level/2. )-0.5 );
         for ( unsigned int i=0;i<MarkerCanditates.size();i++ ) {
-            for ( int c=0;c<4;c++ )
-            {
+            for ( int c=0;c<4;c++ ) {
                 MarkerCanditates[i][c].x=MarkerCanditates[i][c].x*red_den+offInc;
                 MarkerCanditates[i][c].y=MarkerCanditates[i][c].y*red_den+offInc;
             }
             //do the same with the the contour points
-            for ( int c=0;c<MarkerCanditates[i].contour.size();c++ )
-            {
+            for ( int c=0;c<MarkerCanditates[i].contour.size();c++ ) {
                 MarkerCanditates[i].contour[c].x=MarkerCanditates[i].contour[c].x*red_den+offInc;
                 MarkerCanditates[i].contour[c].y=MarkerCanditates[i].contour[c].y*red_den+offInc;
             }
@@ -182,8 +178,7 @@ void MarkerDetector::detect ( const  cv::Mat &input,vector<Marker> &detectedMark
 
     ///identify the markers
     _candidates.clear();
-    for ( unsigned int i=0;i<MarkerCanditates.size();i++ )
-    {
+    for ( unsigned int i=0;i<MarkerCanditates.size();i++ ) {
         //Find proyective homography
         Mat canonicalMarker;
         bool resW=false;
@@ -193,9 +188,9 @@ void MarkerDetector::detect ( const  cv::Mat &input,vector<Marker> &detectedMark
         if (resW) {
             int nRotations;
             int id= ( *markerIdDetector_ptrfunc ) ( canonicalMarker,nRotations );
-            if ( id!=-1 )
-            {
-		if(_cornerMethod==LINES) refineCandidateLines( MarkerCanditates[i] ); // make LINES refinement before lose contour points
+            if ( id!=-1 ) {
+                if(_cornerMethod==LINES)
+                    refineCandidateLines( MarkerCanditates[i] ); // make LINES refinement before lose contour points
                 detectedMarkers.push_back ( MarkerCanditates[i] );
                 detectedMarkers.back().id=id;
                 //sort the points so that they are always in the same order no matter the camera orientation

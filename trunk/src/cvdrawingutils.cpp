@@ -112,29 +112,52 @@ void CvDrawingUtils::draw3dCube(cv::Mat &Image,Marker &m,const CameraParameters 
 }
 
 
+    
 /****
  *
  *
  *
  ****/
-void CvDrawingUtils::draw3dAxis(cv::Mat &Image,Board &B,const CameraParameters &CP)
+void CvDrawingUtils::draw3dAxis(cv::Mat& outImg, const Board&  board, const CameraParameters& CP)
 {
-    Mat objectPoints (4,3,CV_32FC1);
-    objectPoints.at<float>(0,0)=0;objectPoints.at<float>(0,1)=0;objectPoints.at<float>(0,2)=0;
-    objectPoints.at<float>(1,0)=2*B[0].ssize;objectPoints.at<float>(1,1)=0;objectPoints.at<float>(1,2)=0;
-    objectPoints.at<float>(2,0)=0;objectPoints.at<float>(2,1)=2*B[0].ssize;objectPoints.at<float>(2,2)=0;
-    objectPoints.at<float>(3,0)=0;objectPoints.at<float>(3,1)=0;objectPoints.at<float>(3,2)=2*B[0].ssize;
+    float armLength = 2*board[0].ssize;
+    Mat axisPts (4,3,CV_32FC1);
+    Scalar redColor = CV_RGB(255,0,0);
+    Scalar greenColor = CV_RGB(0,255,0);
+    Scalar blueColor = CV_RGB(0,0,255);
+    
+    axisPts.at<float>(0,0)=0;
+    axisPts.at<float>(0,1)=0;
+    axisPts.at<float>(0,2)=0;
+    
+    axisPts.at<float>(1,0)=armLength;
+    axisPts.at<float>(1,1)=0;
+    axisPts.at<float>(1,2)=0;
+    
+    axisPts.at<float>(2,0)=0;
+    axisPts.at<float>(2,1)=armLength;
+    axisPts.at<float>(2,2)=0;
+    
+    axisPts.at<float>(3,0)=0;
+    axisPts.at<float>(3,1)=0;
+    axisPts.at<float>(3,2)=armLength;
 
-    vector<Point2f> imagePoints;
-    projectPoints( objectPoints, B.Rvec,B.Tvec, CP.CameraMatrix, CP.Distorsion,   imagePoints);
+    vector<Point2f> imagePts;
+    projectPoints( axisPts, board.Rvec, board.Tvec, CP.CameraMatrix, CP.Distorsion, imagePts);
+    
     //draw lines of different colours
-    cv::line(Image,imagePoints[0],imagePoints[1],Scalar(0,0,255,255),2,CV_AA);
-    cv::line(Image,imagePoints[0],imagePoints[2],Scalar(0,255,0,255),2,CV_AA);
-    cv::line(Image,imagePoints[0],imagePoints[3],Scalar(255,0,0,255),2,CV_AA);
+    cv::line(outImg,imagePts[0],imagePts[1],redColor,2,CV_AA);
+    cv::line(outImg,imagePts[0],imagePts[2],blueColor,2,CV_AA);
+    cv::line(outImg,imagePts[0],imagePts[3],greenColor,2,CV_AA);
 
-    putText(Image,"X", imagePoints[1],FONT_HERSHEY_SIMPLEX, 1, Scalar(0,0,255,255),2);
-    putText(Image,"Y", imagePoints[2],FONT_HERSHEY_SIMPLEX, 1, Scalar(0,255,0,255),2);
-    putText(Image,"Z", imagePoints[3],FONT_HERSHEY_SIMPLEX, 1, Scalar(255,0,0,255),2);
+    //draw axis labels
+    putText(outImg,"X", imagePts[1],FONT_HERSHEY_SIMPLEX, 1, redColor,2);
+    putText(outImg,"Y", imagePts[2],FONT_HERSHEY_SIMPLEX, 1, blueColor,2);
+    putText(outImg,"Z", imagePts[3],FONT_HERSHEY_SIMPLEX, 1, greenColor,2);
+    
+
+    
+    
 }
 
 
